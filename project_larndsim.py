@@ -44,8 +44,9 @@ class project_larndsim(project_base):
 
             # option 1: take the path specified by the user
             if opt1 in cfg:
-                if not os.path.isfile(opt1):
+                if not os.path.isfile(cfg[opt1]):
                     print(f'ERROR: {word} file not found at the specified location.')
+                    print(f'       {cfg[opt1]}')
                     raise FileNotFoundError(f'{cfg[opt1]}')
                 cfg[word]=cfg[opt1]
 
@@ -128,6 +129,7 @@ class project_larndsim(project_base):
 --light_simulated={str(cfg['LIGHT_SIMULATION'])} \
 --input_filename={cfg['JOB_OUTPUT_ID']}-edepsim.h5 \
 --output_filename={cfg['JOB_OUTPUT_ID']}-larndsim.h5 \
+--save_memory=log_resources.h5 \
 '''
 
         self.PROJECT_SCRIPT=f'''#!/bin/bash

@@ -109,7 +109,7 @@ class project_base():
         if 'SLURM_EXCLUDE' in cfg:
             script += f'#SBATCH --exclude="{cfg["SLURM_EXCLUDE"]}"\n'
         if 'SLURM_NODELIST' in cfg:
-            script += f'#SBATCH --nodelist="{cfg["SLURM_EXCLUDE"]}"\n'
+            script += f'#SBATCH --nodelist="{cfg["SLURM_NODELIST"]}"\n'
 
         script += f'''
 mkdir -p {cfg['SLURM_WORK_DIR']} 
