@@ -14,3 +14,4 @@
 [submodule "modules/larpix_readout_parser"]
 	path = modules/larpix_readout_parser
 	url = https://github.com/YifanC/larpix_readout_parser
+	branch = main
