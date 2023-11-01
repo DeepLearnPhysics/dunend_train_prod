@@ -44,6 +44,8 @@ class project_base():
             raise KeyError('STORAGE_DIR key is missing in the configuration file.')
         if not os.path.isdir(os.path.expandvars(cfg['STORAGE_DIR'])):
             raise FileNotFoundError(f'Storage path {cfg["STORAGE_DIR"]} is invalid.')
+        if not 'SLURM_NUM_JOBS' in cfg:
+            raise KeyError('SLURM_NUM_JOBS key is missing in the configuration file.')
 
         sdir=os.path.abspath(os.path.join(os.path.expandvars(cfg['STORAGE_DIR']),f'production_{os.getpid()}'))
         if os.path.isdir(sdir):

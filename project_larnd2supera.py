@@ -24,7 +24,10 @@ class project_larnd2supera(project_base):
             raise KeyError(f'GLOB {cfg["GLOB"]} returned no file!')
 
         # assert the file count matches the requested job count
-        if not len(filelist) == int(cfg['SLURM_NUM_JOBS']):
+        num_jobs = str(cfg['SLURM_NUM_JOBS'])
+        if '%' in num_jobs:
+            num_jobs = int(num_jobs.split('%')[0])
+        if not len(filelist) == int(num_jobs):
             print(f'GLOB {cfg["GLOB"]} returned {len(filelist)} files')
             print(f'But requested job count is {cfg["SLURM_NUM_JOBS"]} (must match)')
             raise ValueError(f'GLOB {cfg["GLOB"]} returned unexpected file count')

@@ -4,7 +4,7 @@ SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub20.04-cuda11.6-pytorch1.1
 #SINGULARITY_IMAGE: /sdf/group/neutrino/images/develop.sif
 STORE_IMAGE: False
 
-SLURM_WORK_DIR:  /lscratch/$USER
+SLURM_WORK_DIR:  $LSCRATCH/$USER
 SLURM_NUM_JOBS:  5        # number of jobs to submit
 SLURM_PARTITION: ampere   # partition
 SLURM_GPU:       a100     # GPU type

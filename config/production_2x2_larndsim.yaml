@@ -1,14 +1,14 @@
-STORAGE_DIR: /sdf/data/neutrino/$USER/dunend_train_prod/prod_2x2_larnd-sim
-NUM_EVENTS:  10
+STORAGE_DIR: /sdf/data/neutrino/$USER/dunend_train_prod/prod2x2_v0_1
+NUM_EVENTS:  1000
 SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub20.04-cuda11.6-pytorch1.13-larndsim.sif
 #SINGULARITY_IMAGE: /sdf/group/neutrino/images/develop.sif
 STORE_IMAGE: False
 
-SLURM_WORK_DIR:  /lscratch/$USER
-SLURM_NUM_JOBS:  1        # number of jobs to submit
+SLURM_WORK_DIR:  $LSCRATCH/$USER
+SLURM_NUM_JOBS:  240%12   # number of jobs to submit
 SLURM_PARTITION: ampere   # partition
 SLURM_GPU:       a100     # GPU type
-SLURM_TIME:      1:00:00  # max time HH:MM:SS
+SLURM_TIME:      2:00:00  # max time HH:MM:SS
 SLURM_MEM:       40       # total in GB
 SLURM_CPU:       4        # number of CPUs
 SLURM_NODELIST: ''
@@ -23,7 +23,8 @@ LARNDSIM_SCRIPT: simulate_pixels.py
 # items project_larndsim.py search under larnd-sim repository
 SEARCH_PIXEL_LAYOUT:    multi_tile_layout-2.3.16.yaml
 SEARCH_DET_PROPERTIES:  2x2.yaml
-SEARCH_SIM_PROPERTIES:  singles_sim.yaml
+#SEARCH_SIM_PROPERTIES:     singles_sim.yaml
+USE_SIM_PROPERTIES:     config/sim_2x2.yaml
 SEARCH_RESPONSE:        response_44.npy
 SEARCH_LIGHT_LUT:       lightLUT.npz
 SEARCH_LIGHT_DET_NOISE: light_noise-module0.npy
