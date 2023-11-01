@@ -1,6 +1,7 @@
 [submodule "modules/larnd-sim"]
 	path = modules/larnd-sim
 	url = https://github.com/dune/larnd-sim
+	branch = develop
 [submodule "modules/SuperaAtomic"]
 	path = modules/SuperaAtomic
 	url = https://github.com/DeepLearnPhysics/SuperaAtomic
@@ -13,5 +14,4 @@
 [submodule "modules/larpix_readout_parser"]
 	path = modules/larpix_readout_parser
 	url = https://github.com/YifanC/larpix_readout_parser
-[submodule "modules/larnd-sim/"]
-	branch = feature_t0_vertex
+	branch = main
