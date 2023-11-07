@@ -1,0 +1,3404 @@
+<?xml version="1.0" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+	<define>
+		<position name="Feedthrough160FTRel_pos" x="0.0" y="0.0" z="8.25" unit="cm"/>
+		<position name="Feedthrough100FTRel_pos" x="0.0" y="0.0" z="6.75" unit="cm"/>
+		<position name="PCB_pos" x="0.06855" y="0.0" z="0.0" unit="cm"/>
+		<position name="Asic_pos_0.0" x="-0.1613" y="-13.9455" z="-13.9455" unit="cm"/>
+		<position name="Asic_pos_0.1" x="-0.1613" y="-13.9455" z="-10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_0.2" x="-0.1613" y="-13.9455" z="-7.7475" unit="cm"/>
+		<position name="Asic_pos_0.3" x="-0.1613" y="-13.9455" z="-4.6485" unit="cm"/>
+		<position name="Asic_pos_0.4" x="-0.1613" y="-13.9455" z="-1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_0.5" x="-0.1613" y="-13.9455" z="1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_0.6" x="-0.1613" y="-13.9455" z="4.648500000000001" unit="cm"/>
+		<position name="Asic_pos_0.7" x="-0.1613" y="-13.9455" z="7.7475" unit="cm"/>
+		<position name="Asic_pos_0.8" x="-0.1613" y="-13.9455" z="10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_0.9" x="-0.1613" y="-13.9455" z="13.9455" unit="cm"/>
+		<position name="Asic_pos_1.0" x="-0.1613" y="-10.846499999999999" z="-13.9455" unit="cm"/>
+		<position name="Asic_pos_1.1" x="-0.1613" y="-10.846499999999999" z="-10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_1.2" x="-0.1613" y="-10.846499999999999" z="-7.7475" unit="cm"/>
+		<position name="Asic_pos_1.3" x="-0.1613" y="-10.846499999999999" z="-4.6485" unit="cm"/>
+		<position name="Asic_pos_1.4" x="-0.1613" y="-10.846499999999999" z="-1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_1.5" x="-0.1613" y="-10.846499999999999" z="1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_1.6" x="-0.1613" y="-10.846499999999999" z="4.648500000000001" unit="cm"/>
+		<position name="Asic_pos_1.7" x="-0.1613" y="-10.846499999999999" z="7.7475" unit="cm"/>
+		<position name="Asic_pos_1.8" x="-0.1613" y="-10.846499999999999" z="10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_1.9" x="-0.1613" y="-10.846499999999999" z="13.9455" unit="cm"/>
+		<position name="Asic_pos_2.0" x="-0.1613" y="-7.7475" z="-13.9455" unit="cm"/>
+		<position name="Asic_pos_2.1" x="-0.1613" y="-7.7475" z="-10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_2.2" x="-0.1613" y="-7.7475" z="-7.7475" unit="cm"/>
+		<position name="Asic_pos_2.3" x="-0.1613" y="-7.7475" z="-4.6485" unit="cm"/>
+		<position name="Asic_pos_2.4" x="-0.1613" y="-7.7475" z="-1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_2.5" x="-0.1613" y="-7.7475" z="1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_2.6" x="-0.1613" y="-7.7475" z="4.648500000000001" unit="cm"/>
+		<position name="Asic_pos_2.7" x="-0.1613" y="-7.7475" z="7.7475" unit="cm"/>
+		<position name="Asic_pos_2.8" x="-0.1613" y="-7.7475" z="10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_2.9" x="-0.1613" y="-7.7475" z="13.9455" unit="cm"/>
+		<position name="Asic_pos_3.0" x="-0.1613" y="-4.6485" z="-13.9455" unit="cm"/>
+		<position name="Asic_pos_3.1" x="-0.1613" y="-4.6485" z="-10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_3.2" x="-0.1613" y="-4.6485" z="-7.7475" unit="cm"/>
+		<position name="Asic_pos_3.3" x="-0.1613" y="-4.6485" z="-4.6485" unit="cm"/>
+		<position name="Asic_pos_3.4" x="-0.1613" y="-4.6485" z="-1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_3.5" x="-0.1613" y="-4.6485" z="1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_3.6" x="-0.1613" y="-4.6485" z="4.648500000000001" unit="cm"/>
+		<position name="Asic_pos_3.7" x="-0.1613" y="-4.6485" z="7.7475" unit="cm"/>
+		<position name="Asic_pos_3.8" x="-0.1613" y="-4.6485" z="10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_3.9" x="-0.1613" y="-4.6485" z="13.9455" unit="cm"/>
+		<position name="Asic_pos_4.0" x="-0.1613" y="-1.5495000000000005" z="-13.9455" unit="cm"/>
+		<position name="Asic_pos_4.1" x="-0.1613" y="-1.5495000000000005" z="-10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_4.2" x="-0.1613" y="-1.5495000000000005" z="-7.7475" unit="cm"/>
+		<position name="Asic_pos_4.3" x="-0.1613" y="-1.5495000000000005" z="-4.6485" unit="cm"/>
+		<position name="Asic_pos_4.4" x="-0.1613" y="-1.5495000000000005" z="-1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_4.5" x="-0.1613" y="-1.5495000000000005" z="1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_4.6" x="-0.1613" y="-1.5495000000000005" z="4.648500000000001" unit="cm"/>
+		<position name="Asic_pos_4.7" x="-0.1613" y="-1.5495000000000005" z="7.7475" unit="cm"/>
+		<position name="Asic_pos_4.8" x="-0.1613" y="-1.5495000000000005" z="10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_4.9" x="-0.1613" y="-1.5495000000000005" z="13.9455" unit="cm"/>
+		<position name="Asic_pos_5.0" x="-0.1613" y="1.5495000000000005" z="-13.9455" unit="cm"/>
+		<position name="Asic_pos_5.1" x="-0.1613" y="1.5495000000000005" z="-10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_5.2" x="-0.1613" y="1.5495000000000005" z="-7.7475" unit="cm"/>
+		<position name="Asic_pos_5.3" x="-0.1613" y="1.5495000000000005" z="-4.6485" unit="cm"/>
+		<position name="Asic_pos_5.4" x="-0.1613" y="1.5495000000000005" z="-1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_5.5" x="-0.1613" y="1.5495000000000005" z="1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_5.6" x="-0.1613" y="1.5495000000000005" z="4.648500000000001" unit="cm"/>
+		<position name="Asic_pos_5.7" x="-0.1613" y="1.5495000000000005" z="7.7475" unit="cm"/>
+		<position name="Asic_pos_5.8" x="-0.1613" y="1.5495000000000005" z="10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_5.9" x="-0.1613" y="1.5495000000000005" z="13.9455" unit="cm"/>
+		<position name="Asic_pos_6.0" x="-0.1613" y="4.648500000000001" z="-13.9455" unit="cm"/>
+		<position name="Asic_pos_6.1" x="-0.1613" y="4.648500000000001" z="-10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_6.2" x="-0.1613" y="4.648500000000001" z="-7.7475" unit="cm"/>
+		<position name="Asic_pos_6.3" x="-0.1613" y="4.648500000000001" z="-4.6485" unit="cm"/>
+		<position name="Asic_pos_6.4" x="-0.1613" y="4.648500000000001" z="-1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_6.5" x="-0.1613" y="4.648500000000001" z="1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_6.6" x="-0.1613" y="4.648500000000001" z="4.648500000000001" unit="cm"/>
+		<position name="Asic_pos_6.7" x="-0.1613" y="4.648500000000001" z="7.7475" unit="cm"/>
+		<position name="Asic_pos_6.8" x="-0.1613" y="4.648500000000001" z="10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_6.9" x="-0.1613" y="4.648500000000001" z="13.9455" unit="cm"/>
+		<position name="Asic_pos_7.0" x="-0.1613" y="7.7475" z="-13.9455" unit="cm"/>
+		<position name="Asic_pos_7.1" x="-0.1613" y="7.7475" z="-10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_7.2" x="-0.1613" y="7.7475" z="-7.7475" unit="cm"/>
+		<position name="Asic_pos_7.3" x="-0.1613" y="7.7475" z="-4.6485" unit="cm"/>
+		<position name="Asic_pos_7.4" x="-0.1613" y="7.7475" z="-1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_7.5" x="-0.1613" y="7.7475" z="1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_7.6" x="-0.1613" y="7.7475" z="4.648500000000001" unit="cm"/>
+		<position name="Asic_pos_7.7" x="-0.1613" y="7.7475" z="7.7475" unit="cm"/>
+		<position name="Asic_pos_7.8" x="-0.1613" y="7.7475" z="10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_7.9" x="-0.1613" y="7.7475" z="13.9455" unit="cm"/>
+		<position name="Asic_pos_8.0" x="-0.1613" y="10.846499999999999" z="-13.9455" unit="cm"/>
+		<position name="Asic_pos_8.1" x="-0.1613" y="10.846499999999999" z="-10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_8.2" x="-0.1613" y="10.846499999999999" z="-7.7475" unit="cm"/>
+		<position name="Asic_pos_8.3" x="-0.1613" y="10.846499999999999" z="-4.6485" unit="cm"/>
+		<position name="Asic_pos_8.4" x="-0.1613" y="10.846499999999999" z="-1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_8.5" x="-0.1613" y="10.846499999999999" z="1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_8.6" x="-0.1613" y="10.846499999999999" z="4.648500000000001" unit="cm"/>
+		<position name="Asic_pos_8.7" x="-0.1613" y="10.846499999999999" z="7.7475" unit="cm"/>
+		<position name="Asic_pos_8.8" x="-0.1613" y="10.846499999999999" z="10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_8.9" x="-0.1613" y="10.846499999999999" z="13.9455" unit="cm"/>
+		<position name="Asic_pos_9.0" x="-0.1613" y="13.9455" z="-13.9455" unit="cm"/>
+		<position name="Asic_pos_9.1" x="-0.1613" y="13.9455" z="-10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_9.2" x="-0.1613" y="13.9455" z="-7.7475" unit="cm"/>
+		<position name="Asic_pos_9.3" x="-0.1613" y="13.9455" z="-4.6485" unit="cm"/>
+		<position name="Asic_pos_9.4" x="-0.1613" y="13.9455" z="-1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_9.5" x="-0.1613" y="13.9455" z="1.5495000000000005" unit="cm"/>
+		<position name="Asic_pos_9.6" x="-0.1613" y="13.9455" z="4.648500000000001" unit="cm"/>
+		<position name="Asic_pos_9.7" x="-0.1613" y="13.9455" z="7.7475" unit="cm"/>
+		<position name="Asic_pos_9.8" x="-0.1613" y="13.9455" z="10.846499999999999" unit="cm"/>
+		<position name="Asic_pos_9.9" x="-0.1613" y="13.9455" z="13.9455" unit="cm"/>
+		<position name="PixelPlane_pos_0_R" x="0" y="-46.56" z="-15.52" unit="cm"/>
+		<position name="PixelPlane_pos_1_R" x="0" y="-15.52" z="-15.52" unit="cm"/>
+		<position name="PixelPlane_pos_2_R" x="0" y="15.52" z="-15.52" unit="cm"/>
+		<position name="PixelPlane_pos_3_R" x="0" y="46.56" z="-15.52" unit="cm"/>
+		<position name="PixelPlane_pos_0_L" x="0" y="-46.56" z="15.52" unit="cm"/>
+		<rotation name="PixelPlane_rot_0_L" x="180.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="PixelPlane_pos_1_L" x="0" y="-15.52" z="15.52" unit="cm"/>
+		<rotation name="PixelPlane_rot_1_L" x="180.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="PixelPlane_pos_2_L" x="0" y="15.52" z="15.52" unit="cm"/>
+		<rotation name="PixelPlane_rot_2_L" x="180.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="PixelPlane_pos_3_L" x="0" y="46.56" z="15.52" unit="cm"/>
+		<rotation name="PixelPlane_rot_3_L" x="180.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="WLS_pos" x="0.23250000000000004" y="0.0" z="-0.005000000000000001" unit="cm"/>
+		<position name="DCM_pos_inner" x="0.23250000000000004" y="0.0" z="0.5005000000000001" unit="cm"/>
+		<position name="DCM_pos_outer" x="0.23250000000000004" y="0.0" z="-0.5105" unit="cm"/>
+		<position name="TPB_pos" x="0.23250000000000004" y="0.0" z="0.511" unit="cm"/>
+		<position name="SiPM_Mask_pos_0" x="-13.850000000000001" y="-10.495000000000001" z="-0.005000000000000001" unit="cm"/>
+		<position name="SiPM_Sens_pos_0" x="-13.9999" y="-12.844999999999999" z="0" unit="cm"/>
+		<position name="SiPM_Sens_pos_1" x="-13.9999" y="-8.145" z="0" unit="cm"/>
+		<position name="SiPM_Mask_pos_1" x="-13.850000000000001" y="0.0" z="-0.005000000000000001" unit="cm"/>
+		<position name="SiPM_Sens_pos_2" x="-13.9999" y="-2.35" z="0" unit="cm"/>
+		<position name="SiPM_Sens_pos_3" x="-13.9999" y="2.35" z="0" unit="cm"/>
+		<position name="SiPM_Mask_pos_2" x="-13.850000000000001" y="10.495000000000001" z="-0.005000000000000001" unit="cm"/>
+		<position name="SiPM_Sens_pos_4" x="-13.9999" y="8.145000000000001" z="0" unit="cm"/>
+		<position name="SiPM_Sens_pos_5" x="-13.9999" y="12.844999999999999" z="0" unit="cm"/>
+		<position name="SiPM_pos_0" x="0.008999999999999998" y="-2.35" z="0" unit="cm"/>
+		<position name="SiPM_pos_1" x="0.008999999999999998" y="2.35" z="0" unit="cm"/>
+		<position name="SiPM_PCB_pos_0" x="-14.0825" y="-10.495000000000001" z="-0.005000000000000001" unit="cm"/>
+		<position name="SiPM_PCB_pos_1" x="-14.0825" y="0.0" z="-0.005000000000000001" unit="cm"/>
+		<position name="SiPM_PCB_pos_2" x="-14.0825" y="10.495000000000001" z="-0.005000000000000001" unit="cm"/>
+		<position name="ArCLight_pos_0" x="0.49655000000000005" y="-46.56" z="0" unit="cm"/>
+		<position name="ArCLight_pos_1" x="0.49655000000000005" y="-15.52" z="0" unit="cm"/>
+		<position name="ArCLight_pos_2" x="0.49655000000000005" y="15.52" z="0" unit="cm"/>
+		<position name="ArCLight_pos_3" x="0.49655000000000005" y="46.56" z="0" unit="cm"/>
+		<position name="PCBBar_pos_0" x="-14.428099999999999" y="-46.56" z="0" unit="cm"/>
+		<position name="PCBBar_pos_1" x="-14.428099999999999" y="-15.52" z="0" unit="cm"/>
+		<position name="PCBBar_pos_2" x="-14.428099999999999" y="15.52" z="0" unit="cm"/>
+		<position name="PCBBar_pos_3" x="-14.428099999999999" y="46.56" z="0" unit="cm"/>
+		<position name="TPCPlane_pos" x="-15.13615" y="0.0" z="0.0" unit="cm"/>
+		<position name="TPCActive_pos" x="0.2324" y="0" z="0" unit="cm"/>
+		<position name="BackplateGap_pos_0" x="0" y="44.327799999999996" z="30.1498" unit="cm"/>
+		<position name="BackplateGap_pos_1" x="0" y="13.300300000000002" z="30.1498" unit="cm"/>
+		<position name="BackplateGap_pos_2" x="0" y="-17.7272" z="30.1498" unit="cm"/>
+		<position name="BackplateGap_pos_3" x="0" y="-48.7547" z="30.1498" unit="cm"/>
+		<position name="BackplateGap_pos_4" x="0" y="44.327799999999996" z="-30.1498" unit="cm"/>
+		<position name="BackplateGap_pos_5" x="0" y="13.300300000000002" z="-30.1498" unit="cm"/>
+		<position name="BackplateGap_pos_6" x="0" y="-17.7272" z="-30.1498" unit="cm"/>
+		<position name="BackplateGap_pos_7" x="0" y="-48.7547" z="-30.1498" unit="cm"/>
+		<position name="Fieldcage_pos" x="0" y="0" z="0" unit="cm"/>
+		<position name="LAr_pos" x="-0.079375" y="0" z="0" unit="cm"/>
+		<position name="TPC_pos" x="0.35207499999999814" y="0" z="0" unit="cm"/>
+		<rotation name="OpticalDet_rot" x="180.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="OpticalDet_pos_L" x="-0.28742500000000176" y="0" z="-31.531000000000002" unit="cm"/>
+		<position name="Bracket_pos_L" x="15.187225000000002" y="0" z="-31.541349999999994" unit="cm"/>
+		<position name="OpticalDet_pos_R" x="-0.28742500000000176" y="0" z="31.531000000000002" unit="cm"/>
+		<position name="Bracket_pos_R" x="15.187225000000002" y="0" z="31.541349999999994" unit="cm"/>
+		<position name="HalfDetector_pos_L" x="-15.8" y="0" z="0" unit="cm"/>
+		<position name="HalfDetector_pos_R" x="15.8" y="0" z="0" unit="cm"/>
+		<rotation name="HalfDetector_rot" x="0.0" y="180.0" z="0.0" unit="degree"/>
+		<position name="PillowSide_pos" x="0" y="1.7462500000000007" z="0" unit="cm"/>
+		<position name="PillowCavity_pos" x="0" y="0.07935" z="0" unit="cm"/>
+		<position name="AngleBarTop_L_pos" x="-30.330000000000002" y="-3.6538" z="0" unit="cm"/>
+		<rotation name="AngleBarTop_R_rot" x="0.0" y="180.0" z="0.0" unit="degree"/>
+		<position name="AngleBarTop_R_pos" x="30.330000000000002" y="-3.6538" z="0" unit="cm"/>
+		<position name="AngleBase_pos_0" x="30.330000000000002" y="-4.212599999999999" z="-27.5717" unit="cm"/>
+		<position name="AngleBase_pos_1" x="30.330000000000002" y="-4.212599999999999" z="0.0" unit="cm"/>
+		<position name="AngleBase_pos_2" x="30.330000000000002" y="-4.212599999999999" z="27.5717" unit="cm"/>
+		<position name="AngleBase_pos_3" x="-30.330000000000002" y="-4.212599999999999" z="-27.5717" unit="cm"/>
+		<position name="AngleBase_pos_4" x="-30.330000000000002" y="-4.212599999999999" z="0.0" unit="cm"/>
+		<position name="AngleBase_pos_5" x="-30.330000000000002" y="-4.212599999999999" z="27.5717" unit="cm"/>
+		<position name="AngleSide_pos_0" x="31.517450000000004" y="-5.4826" z="-27.5717" unit="cm"/>
+		<position name="AngleSide_pos_1" x="31.517450000000004" y="-5.4826" z="0.0" unit="cm"/>
+		<position name="AngleSide_pos_2" x="31.517450000000004" y="-5.4826" z="27.5717" unit="cm"/>
+		<position name="AngleSide_pos_3" x="-31.517450000000004" y="-5.4826" z="-27.5717" unit="cm"/>
+		<position name="AngleSide_pos_4" x="-31.517450000000004" y="-5.4826" z="0.0" unit="cm"/>
+		<position name="AngleSide_pos_5" x="-31.517450000000004" y="-5.4826" z="27.5717" unit="cm"/>
+		<position name="AngleBarSide_pos_2" x="32.07625" y="-5.717549999999999" z="0" unit="cm"/>
+		<position name="AngleBarSide_pos_5" x="-32.07625" y="-5.717549999999999" z="0" unit="cm"/>
+		<position name="G10_pos_2" x="31.75875" y="-5.717549999999999" z="0" unit="cm"/>
+		<position name="G10_pos_5" x="-31.75875" y="-5.717549999999999" z="0" unit="cm"/>
+		<position name="G10Side_pos" x="0" y="0" z="0" unit="cm"/>
+		<position name="LArPhaseG10Side_pos" x="0" y="-10.488549999999998" z="0" unit="cm"/>
+		<position name="GArPhaseG10Side_pos" x="0" y="76.35405" z="0" unit="cm"/>
+		<position name="G10Bottom_pos" x="0" y="-73.81405" z="0" unit="cm"/>
+		<position name="LArVol1_pos" x="0" y="1.1112499999999998" z="0" unit="cm"/>
+		<position name="LArVol2_pos" x="0" y="-0.7937500000000001" z="0" unit="cm"/>
+		<position name="InnerDetector_pos" x="0" y="2.9430500000000053" z="0" unit="cm"/>
+		<position name="Backplate_pos_L" x="-31.75875" y="5.159999999999998" z="0" unit="cm"/>
+		<position name="Backplate_pos_R" x="31.75875" y="5.159999999999998" z="0" unit="cm"/>
+		<position name="Backplate_GAr_L_pos" x="-31.75875" y="-6.670050000000001" z="0" unit="cm"/>
+		<position name="Backplate_GAr_R_pos" x="31.75875" y="-6.670050000000001" z="0" unit="cm"/>
+		<position name="Pillow_pos" x="0" y="3.8184999999999976" z="0" unit="cm"/>
+		<position name="TubeV_pos" x="0" y="0" z="-1.8987499999999997" unit="cm"/>
+		<rotation name="TubeV_rot" x="90.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="TubeVFlange_pos_0" x="0" y="8.255" z="-1.8987499999999997" unit="cm"/>
+		<rotation name="TubeVFlange_rot_0" x="90.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="TubeVFlange_pos_1" x="0" y="-8.255" z="-1.8987499999999997" unit="cm"/>
+		<rotation name="TubeVFlange_rot_1" x="90.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="TubeH_pos" x="0" y="0" z="3.7715499999999995" unit="cm"/>
+		<position name="TubeHFlange_pos" x="0" y="0" z="6.470300000000001" unit="cm"/>
+		<rotation name="TubeHFlange_rot" x="0.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="TubeVGAr_pos" x="0" y="0" z="0" unit="cm"/>
+		<position name="TubeHGAr_pos" x="0" y="0" z="0" unit="cm"/>
+		<position name="TubeCenterGAr_pos" x="0" y="0" z="0" unit="cm"/>
+		<position name="TubeCenter_pos" x="0" y="-7.9827" z="0" unit="cm"/>
+		<rotation name="TubeCenter_rot" x="90.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="TubeCenterFlange_pos_A" x="0" y="-2.0523" z="0" unit="cm"/>
+		<position name="TubeCenterFlange_pos_B" x="0" y="-0.7822999999999998" z="0" unit="cm"/>
+		<position name="TubeSideGAr_pos" x="0" y="0" z="0" unit="cm"/>
+		<position name="TubeSide_pos_0" x="12.700000000000001" y="-10.311900000000001" z="0" unit="cm"/>
+		<rotation name="TubeSide_rot_0" x="90.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="TubeSideFlange_pos_0" x="12.700000000000001" y="-6.31725" z="0" unit="cm"/>
+		<position name="TubeSide_pos_1" x="0" y="-10.311900000000001" z="12.700000000000001" unit="cm"/>
+		<rotation name="TubeSide_rot_1" x="90.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="TubeSideFlange_pos_1" x="0" y="-6.31725" z="12.700000000000001" unit="cm"/>
+		<position name="TubeSide_pos_2" x="-12.700000000000001" y="-10.311900000000001" z="0" unit="cm"/>
+		<rotation name="TubeSide_rot_2" x="90.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="TubeSideFlange_pos_2" x="-12.700000000000001" y="-6.31725" z="0" unit="cm"/>
+		<position name="TubeSide_pos_3" x="0" y="-10.311900000000001" z="-12.700000000000001" unit="cm"/>
+		<rotation name="TubeSide_rot_3" x="90.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="TubeSideFlange_pos_3" x="0" y="-6.31725" z="-12.700000000000001" unit="cm"/>
+		<position name="TPiece_pos_A" x="12.700000000000001" y="3.99465" z="1.8987499999999997" unit="cm"/>
+		<position name="TPiece_pos_B" x="-12.700000000000001" y="3.99465" z="-1.8987499999999997" unit="cm"/>
+		<rotation name="TPiece_rot_B" x="180.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="Insulation_pos" x="0" y="0" z="0" unit="cm"/>
+		<position name="Core_pos" x="0" y="0" z="0" unit="cm"/>
+		<position name="FlangeFTs_pos" x="0" y="0.0" z="0" unit="cm"/>
+		<rotation name="CryostatTopvolLongConnector_rot" x="0.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="CryostatTopvolLongConnector_pos1" x="-67.2" y="0.0" z="-12.278100000000002" unit="cm"/>
+		<position name="CryostatTopvolLongConnector_pos2" x="0.0" y="0.0" z="-12.278100000000002" unit="cm"/>
+		<position name="CryostatTopvolLongConnector_pos3" x="67.2" y="0.0" z="-12.278100000000002" unit="cm"/>
+		<rotation name="CryostatTopvolInnerConnector_rot1" x="0.0" y="0.0" z="0.0" unit="degree"/>
+		<rotation name="CryostatTopvolInnerConnector_rot2" x="0.0" y="0.0" z="90.0" unit="degree"/>
+		<position name="CryostatTopvolInnerConnector_pos1" x="-33.6" y="-67.2" z="-12.278100000000002" unit="cm"/>
+		<position name="CryostatTopvolInnerConnector_pos2" x="-33.6" y="0.0" z="-12.278100000000002" unit="cm"/>
+		<position name="CryostatTopvolInnerConnector_pos3" x="-33.6" y="67.2" z="-12.278100000000002" unit="cm"/>
+		<position name="CryostatTopvolInnerConnector_pos4" x="33.6" y="-67.2" z="-12.278100000000002" unit="cm"/>
+		<position name="CryostatTopvolInnerConnector_pos5" x="33.6" y="0.0" z="-12.278100000000002" unit="cm"/>
+		<position name="CryostatTopvolInnerConnector_pos6" x="33.6" y="67.2" z="-12.278100000000002" unit="cm"/>
+		<position name="CryostatTop100FT0_pos" x="84.0" y="-15.100000000000001" z="-6.028100000000001" unit="cm"/>
+		<position name="CryostatTop160FT0_pos" x="84.0" y="15.100000000000001" z="-7.528100000000001" unit="cm"/>
+		<position name="CryostatTop100FT1_pos" x="-15.099999999999994" y="-84.0" z="-6.028100000000001" unit="cm"/>
+		<position name="CryostatTop160FT1_pos" x="15.100000000000007" y="-84.0" z="-7.528100000000001" unit="cm"/>
+		<position name="CryostatTop100FT2_pos" x="-84.0" y="15.099999999999989" z="-6.028100000000001" unit="cm"/>
+		<position name="CryostatTop160FT2_pos" x="-84.0" y="-15.100000000000012" z="-7.528100000000001" unit="cm"/>
+		<position name="CryostatTop100FT3_pos" x="15.099999999999987" y="84.0" z="-6.028100000000001" unit="cm"/>
+		<position name="CryostatTop160FT3_pos" x="-15.100000000000016" y="84.0" z="-7.528100000000001" unit="cm"/>
+		<position name="ModuleFTs_pos_0.0" x="-33.5" y="-33.5" z="-8.881784197001252e-16" unit="cm"/>
+		<rotation name="CryostatTopvolModuleFTs_rot0.0" x="-90.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="ModuleFTs_pos_0.1" x="-33.5" y="33.5" z="-8.881784197001252e-16" unit="cm"/>
+		<rotation name="CryostatTopvolModuleFTs_rot0.1" x="-90.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="ModuleFTs_pos_1.0" x="33.5" y="-33.5" z="-8.881784197001252e-16" unit="cm"/>
+		<rotation name="CryostatTopvolModuleFTs_rot1.0" x="-90.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="ModuleFTs_pos_1.1" x="33.5" y="33.5" z="-8.881784197001252e-16" unit="cm"/>
+		<rotation name="CryostatTopvolModuleFTs_rot1.1" x="-90.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="CryostatFlangeFlangeSubtractionRel_pos" x="0.0" y="0.0" z="0.0" unit="cm"/>
+		<position name="CryostatFlangeFlangeComponent2Rel_pos" x="0.0" y="0.0" z="-11.0" unit="cm"/>
+		<position name="CryostatFlangeFTSubtraction1Rel0_pos" x="84.0" y="-15.100000000000001" z="0.0" unit="cm"/>
+		<position name="CryostatFlangeFTSubtraction2Rel0_pos" x="84.0" y="15.100000000000001" z="0.0" unit="cm"/>
+		<position name="CryostatFlangeFTSubtraction1Rel1_pos" x="-15.099999999999994" y="-84.0" z="0.0" unit="cm"/>
+		<position name="CryostatFlangeFTSubtraction2Rel1_pos" x="15.100000000000007" y="-84.0" z="0.0" unit="cm"/>
+		<position name="CryostatFlangeFTSubtraction1Rel2_pos" x="-84.0" y="15.099999999999989" z="0.0" unit="cm"/>
+		<position name="CryostatFlangeFTSubtraction2Rel2_pos" x="-84.0" y="-15.100000000000012" z="0.0" unit="cm"/>
+		<position name="CryostatFlangeFTSubtraction1Rel3_pos" x="15.099999999999987" y="84.0" z="0.0" unit="cm"/>
+		<position name="CryostatFlangeFTSubtraction2Rel3_pos" x="-15.100000000000016" y="84.0" z="0.0" unit="cm"/>
+		<position name="FlangeTop_pos" x="0" y="0.07620000000000005" z="0" unit="cm"/>
+		<position name="FlangeBtm_pos" x="0" y="-0.9238" z="0" unit="cm"/>
+		<position name="FlangeCryostatInsertionPlate_pos" x="0" y="0.0" z="0" unit="cm"/>
+		<position name="ModuleCryostatInsertionPlate_pos_0.0" x="-33.5" y="-33.5" z="0" unit="cm"/>
+		<rotation name="DetectorCryostatInsertionPlatevolModuleCryostatInsertionPlate_rot_ 0.0" x="-90" y="0" z="0" unit="degree"/>
+		<position name="ModuleCryostatInsertionPlate_pos_0.1" x="-33.5" y="33.5" z="0" unit="cm"/>
+		<rotation name="DetectorCryostatInsertionPlatevolModuleCryostatInsertionPlate_rot_ 0.1" x="-90" y="0" z="0" unit="degree"/>
+		<position name="ModuleCryostatInsertionPlate_pos_1.0" x="33.5" y="-33.5" z="0" unit="cm"/>
+		<rotation name="DetectorCryostatInsertionPlatevolModuleCryostatInsertionPlate_rot_ 1.0" x="-90" y="0" z="0" unit="degree"/>
+		<position name="ModuleCryostatInsertionPlate_pos_1.1" x="33.5" y="33.5" z="0" unit="cm"/>
+		<rotation name="DetectorCryostatInsertionPlatevolModuleCryostatInsertionPlate_rot_ 1.1" x="-90" y="0" z="0" unit="degree"/>
+		<position name="Bucket_pos" x="0" y="0.0" z="0" unit="cm"/>
+		<position name="ModuleBucket_pos_0.0" x="-33.496249999999996" y="0" z="-33.496249999999996" unit="cm"/>
+		<position name="ModuleBucket_pos_0.1" x="-33.496249999999996" y="0" z="33.496249999999996" unit="cm"/>
+		<position name="ModuleBucket_pos_1.0" x="33.496249999999996" y="0" z="-33.496249999999996" unit="cm"/>
+		<position name="ModuleBucket_pos_1.1" x="33.496249999999996" y="0" z="33.496249999999996" unit="cm"/>
+		<position name="CryostatInnerBathSphere_pos" x="0.0" y="0.0" z="178.81635170815565" unit="cm"/>
+		<position name="CryostatInnerBathTorus_pos" x="0.0" y="0.0" z="19.183648291844364" unit="cm"/>
+		<position name="CryostatInnerBathhead_pos" x="0.0" y="0.0" z="-109.18364829184436" unit="cm"/>
+		<position name="CryostatInnerBathvolDetectorBucket_pos" x="0.0" y="0.0" z="3.1574000000000004" unit="cm"/>
+		<rotation name="CryostatInnerBathvolDetectorBucket_rot" x="-90" y="0" z="0" unit="degree"/>
+		<position name="CryostatInnerWallSphere_pos" x="0.0" y="0.0" z="180.6225774829855" unit="cm"/>
+		<position name="CryostatInnerWallTorus_pos" x="0.0" y="0.0" z="19.37742251701451" unit="cm"/>
+		<position name="CryostatInnerWallhead_pos" x="0.0" y="0.0" z="-109.37742251701451" unit="cm"/>
+		<position name="CryostatInnerWallvolCryostatInnerBath_CylindricalTubeHead_pos" x="0.0" y="0.0" z="0.0" unit="cm"/>
+		<rotation name="CryostatInnerWallvolCryostatInnerBath_CylindricalTubeHead_rot" x="0.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="CryostatInsulationSphere_pos" x="0.0" y="0.0" z="187.8474805823049" unit="cm"/>
+		<position name="CryostatInsulationTorus_pos" x="0.0" y="0.0" z="20.15251941769509" unit="cm"/>
+		<position name="CryostatInsulationhead_pos" x="0.0" y="0.0" z="-122.65251941769509" unit="cm"/>
+		<position name="CryostatInsulationvolCryostatInnerWall_CylindricalTubeHead_pos" x="0.0" y="0.0" z="12.5" unit="cm"/>
+		<rotation name="CryostatInsulationvolCryostatInnerWall_CylindricalTubeHead_rot" x="0.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="CryostatOuterWallSphere_pos" x="0.0" y="0.0" z="189.65370635713475" unit="cm"/>
+		<position name="CryostatOuterWallTorus_pos" x="0.0" y="0.0" z="20.346293642865234" unit="cm"/>
+		<position name="CryostatOuterWallhead_pos" x="0.0" y="0.0" z="-122.84629364286523" unit="cm"/>
+		<position name="CryostatOuterWallvolCryostatInsulation_CylindricalTubeHead_pos" x="0.0" y="0.0" z="0.0" unit="cm"/>
+		<rotation name="CryostatOuterWallvolCryostatInsulation_CylindricalTubeHead_rot" x="0.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="CryostatLegComponent2Rel_pos" x="0.0" y="0.0" z="-39.25" unit="cm"/>
+		<position name="CryostatInletComponent1Rel_pos" x="0.0" y="0.0" z="14.350000000000001" unit="cm"/>
+		<position name="CryostatInletComponent2Rel_pos" x="0.0" y="0.0" z="-2.25" unit="cm"/>
+		<position name="CryostatConnectionFTRel_pos" x="0.0" y="0.0" z="10.0" unit="cm"/>
+		<position name="ArgonCubeCryostatvolCryostatTop_pos" x="0.0" y="0.0" z="131.5" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatTop_rot" x="0.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatFlange_pos" x="0.0" y="0.0" z="117.2219" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatFlange_rot" x="0.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolDetectorCryostatInsertionPlate_pos" x="0.0" y="0.0" z="117.2219" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolDetectorCryostatInsertionPlate_rot" x="0.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatOuterWall_CylindricalTubeHead_pos" x="0.0" y="0.0" z="13.721900000000005" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatOuterWall_CylindricalTubeHead_rot" x="0.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatConnection1_pos" x="97.42785792574935" y="56.24999999999999" z="41.62190000000001" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatConnection1_rot" x="90.0" y="-60.0" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatConnection2_pos" x="97.42785792574935" y="-56.24999999999999" z="41.62190000000001" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatConnection2_rot" x="90.0" y="-120.0" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatConnection3_pos" x="93.5" y="0.0" z="-116.2781" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatConnection3_rot" x="0.0" y="-153.0" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatInlet1_pos" x="94.3000709479462" y="-79.12715475241298" z="109.62190000000001" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatInlet1_rot" x="90.0" y="-130" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatInlet2_pos" x="87.044844764064" y="-87.044844764064" z="109.62190000000001" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatInlet2_rot" x="90.0" y="-135" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatInlet3_pos" x="67.04506521034983" y="-103.2403469140817" z="109.62190000000001" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatInlet3_rot" x="90.0" y="-147" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatInlet4_pos" x="55.886230517938216" y="-109.68290312758808" z="109.62190000000001" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatInlet4_rot" x="90.0" y="-153" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatLeg_pos1" x="78.48885271170678" y="78.48885271170678" z="-104.2781" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatLeg_rot1" x="0.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatLeg_pos2" x="-78.48885271170678" y="78.48885271170678" z="-104.2781" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatLeg_rot2" x="0.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatLeg_pos3" x="-78.48885271170678" y="-78.48885271170678" z="-104.2781" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatLeg_rot3" x="0.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatLeg_pos4" x="78.48885271170678" y="-78.48885271170678" z="-104.2781" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatLeg_rot4" x="0.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatLegConnector_pos1" x="78.48885271170678" y="0.0" z="-134.7781" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatLegConnector_rot1" x="90.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatLegConnector_pos2" x="0.0" y="78.48885271170678" z="-134.7781" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatLegConnector_rot2" x="0.0" y="90.0" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatLegConnector_pos3" x="-78.48885271170678" y="0.0" z="-134.7781" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatLegConnector_rot3" x="90.0" y="0.0" z="0.0" unit="degree"/>
+		<position name="ArgonCubeCryostatvolCryostatLegConnector_pos4" x="0.0" y="-78.48885271170678" z="-134.7781" unit="cm"/>
+		<rotation name="ArgonCubeCryostatvolCryostatLegConnector_rot4" x="0.0" y="90.0" z="0.0" unit="degree"/>
+		<position name="botlipP_in_MinervaStand" x="0.0" y="0.0" z="9.68" unit="cm"/>
+		<position name="botlipM_in_MinervaStand" x="0.0" y="0.0" z="-9.68" unit="cm"/>
+		<position name="Position000696" x="0.0" y="2.825" z="9.68" unit="cm"/>
+		<position name="Position000697" x="0.0" y="2.825" z="-9.68" unit="cm"/>
+		<position name="Position000698" x="0.0" y="0.0" z="9.68" unit="cm"/>
+		<position name="Position000699" x="0.0" y="0.0" z="-9.68" unit="cm"/>
+		<position name="L_in_MinervaStand" x="-99.25950165475344" y="149.69250000000002" z="0.0" unit="cm"/>
+		<rotation name="Rotation000701" x="0" y="0" z="60" unit="degree"/>
+		<rotation name="Rotation000702" x="0" y="180" z="0" unit="degree"/>
+		<position name="R_in_MinervaStand" x="-397.03800661901374" y="0.0" z="0.0" unit="cm"/>
+		<position name="Msupp_in_MinervaStand" x="198.51900330950687" y="0.0" z="0.0" unit="cm"/>
+		<position name="Bot_in_MinervaStand" x="0.0" y="-150.0" z="0.0" unit="cm"/>
+		<rotation name="Rotation000709" x="0" y="0" z="90" unit="degree"/>
+		<rotation name="Rotation000712" x="0" y="0" z="-30" unit="degree"/>
+		<position name="cylsupL_in_MinervaStand" x="-100.0" y="200.0" z="0.0" unit="cm"/>
+		<rotation name="Rotation000715" x="0" y="0" z="30" unit="degree"/>
+		<position name="cylsupR_in_MinervaStand" x="100.0" y="200.0" z="0.0" unit="cm"/>
+		<rotation name="Rotation000719" x="90" y="30" z="0" unit="degree"/>
+		<position name="cylR_-4L_in_MinervaStand" x="-183.44561231629348" y="174.55870686718228" z="0.0" unit="cm"/>
+		<position name="cylR_-3L_in_MinervaStand" x="-165.04545923722014" y="185.18204020051562" z="0.0" unit="cm"/>
+		<position name="cylR_-2L_in_MinervaStand" x="-146.64530615814675" y="195.80537353384895" z="0.0" unit="cm"/>
+		<position name="cylR_-1L_in_MinervaStand" x="-128.2451530790734" y="206.42870686718226" z="0.0" unit="cm"/>
+		<position name="cylR_0L_in_MinervaStand" x="-109.84500000000001" y="217.05204020051562" z="0.0" unit="cm"/>
+		<position name="cylR_1L_in_MinervaStand" x="-91.44484692092664" y="227.67537353384898" z="0.0" unit="cm"/>
+		<position name="cylR_2L_in_MinervaStand" x="-73.04469384185327" y="238.2987068671823" z="0.0" unit="cm"/>
+		<position name="cylR_3L_in_MinervaStand" x="-54.64454076277989" y="248.9220402005156" z="0.0" unit="cm"/>
+		<position name="cylR_4L_in_MinervaStand" x="-36.24438768370652" y="259.54537353384893" z="0.0" unit="cm"/>
+		<position name="cylR_5L_in_MinervaStand" x="-17.844234604633154" y="270.1687068671823" z="0.0" unit="cm"/>
+		<rotation name="Rotation000740" x="90" y="-30" z="0" unit="degree"/>
+		<position name="cylL_-4L_in_MinervaStand" x="183.44561231629348" y="174.55870686718228" z="0.0" unit="cm"/>
+		<position name="cylL_-3L_in_MinervaStand" x="165.04545923722014" y="185.18204020051562" z="0.0" unit="cm"/>
+		<position name="cylL_-2L_in_MinervaStand" x="146.64530615814675" y="195.80537353384895" z="0.0" unit="cm"/>
+		<position name="cylL_-1L_in_MinervaStand" x="128.2451530790734" y="206.42870686718226" z="0.0" unit="cm"/>
+		<position name="cylL_0L_in_MinervaStand" x="109.84500000000001" y="217.05204020051562" z="0.0" unit="cm"/>
+		<position name="cylL_1L_in_MinervaStand" x="91.44484692092664" y="227.67537353384898" z="0.0" unit="cm"/>
+		<position name="cylL_2L_in_MinervaStand" x="73.04469384185327" y="238.2987068671823" z="0.0" unit="cm"/>
+		<position name="cylL_4L_in_MinervaStand" x="36.24438768370652" y="259.54537353384893" z="0.0" unit="cm"/>
+		<position name="cylL_5L_in_MinervaStand" x="17.844234604633154" y="270.1687068671823" z="0.0" unit="cm"/>
+		<position name="BoverT_in_MinervaStand" x="0.0" y="2.3800000000000003" z="0.0" unit="cm"/>
+		<position name="Position000760" x="0.0" y="0.0" z="9.68" unit="cm"/>
+		<position name="Position000761" x="0.0" y="0.0" z="-9.68" unit="cm"/>
+		<position name="sbibase_in_sbi_in_MinervaStand" x="0.0" y="-150.0" z="0.0" unit="cm"/>
+		<position name="sbi1_in_MinervaStand" x="198.51900330950687" y="-100.0" z="-20.62" unit="cm"/>
+		<position name="sbi2_in_MinervaStand" x="-198.51900330950687" y="-100.0" z="-20.62" unit="cm"/>
+		<position name="sbi3_in_MinervaStand" x="198.51900330950687" y="-100.0" z="-240.0" unit="cm"/>
+		<position name="sbi4_in_MinervaStand" x="-198.51900330950687" y="-100.0" z="-240.0" unit="cm"/>
+		<position name="Position000773" x="0.0" y="0.0" z="9.68" unit="cm"/>
+		<position name="Position000774" x="0.0" y="0.0" z="-9.68" unit="cm"/>
+		<position name="sidebeam1_in_MinervaStand" x="-198.51900330950687" y="60.815" z="-130.31" unit="cm"/>
+		<rotation name="Rotation000777" x="90" y="0" z="0" unit="degree"/>
+		<position name="sidebeam2_in_MinervaStand" x="198.51900330950687" y="60.815" z="-130.31" unit="cm"/>
+		<rotation name="Rotation000781" x="90" y="0" z="0" unit="degree"/>
+		<position name="block1_in_Base" x="0" y="0" z="61.34000000000001" unit="cm"/>
+		<position name="block2_in_Base" x="0" y="0" z="-61.34000000000001" unit="cm"/>
+		<position name="Position000790" x="0.0" y="14.731899999999996" z="444.5" unit="cm"/>
+		<position name="Position000791" x="0.0" y="14.731899999999996" z="-190.5" unit="cm"/>
+		<rotation name="Rotation000793" x="0" y="0" z="0" unit="degree"/>
+		<position name="ArgonCubeCryostat_pos" x="0.0" y="0.0" z="0.0" unit="cm"/>
+		<rotation name="Rotation000796" x="90" y="0" z="0" unit="degree"/>
+		<position name="Base_pos" x="0.0" y="-190.49810000000002" z="0.0" unit="cm"/>
+		<position name="Position000800" x="56.14500000000003" y="0.0" z="0.0" unit="cm"/>
+		<rotation name="Rotation000801" x="90" y="0" z="0" unit="degree"/>
+		<position name="Position000802" x="0.0" y="0.0" z="6.805" unit="cm"/>
+		<position name="Position000803" x="0.0" y="0.0" z="-6.805" unit="cm"/>
+		<position name="Position000804" x="0.0" y="0.0" z="6.805" unit="cm"/>
+		<position name="Position000805" x="0.0" y="0.0" z="-6.805" unit="cm"/>
+		<position name="Position000806" x="0.0" y="0.0" z="6.805" unit="cm"/>
+		<position name="Position000807" x="0.0" y="0.0" z="-6.805" unit="cm"/>
+		<position name="Position000808" x="0.0" y="0.0" z="9.920000000000002" unit="cm"/>
+		<position name="Position000809" x="0.0" y="0.0" z="-9.920000000000002" unit="cm"/>
+		<position name="Position000810" x="0.0" y="0.0" z="9.920000000000002" unit="cm"/>
+		<position name="Position000811" x="0.0" y="0.0" z="-9.920000000000002" unit="cm"/>
+		<position name="Position000812" x="0.0" y="0.0" z="0.0" unit="cm"/>
+		<position name="Position000813" x="226.07" y="-11.190000000000001" z="0.0" unit="cm"/>
+		<position name="Position000814" x="182.76999999999998" y="-11.190000000000001" z="0.0" unit="cm"/>
+		<position name="Position000815" x="-68.64999999999998" y="-11.190000000000001" z="0.0" unit="cm"/>
+		<position name="Position000816" x="-104.16999999999999" y="-11.190000000000001" z="0.0" unit="cm"/>
+		<position name="Position000817" x="-165.12" y="-11.190000000000001" z="0.0" unit="cm"/>
+		<position name="Position000818" x="-226.07" y="-11.190000000000001" z="0.0" unit="cm"/>
+		<position name="Position000819" x="0.0" y="-11.190000000000001" z="142.25" unit="cm"/>
+		<position name="Position000820" x="0.0" y="-11.190000000000001" z="-142.25" unit="cm"/>
+		<position name="Position000821" x="-287.02" y="-11.190000000000001" z="0.0" unit="cm"/>
+		<position name="Position000822" x="287.02" y="-11.190000000000001" z="0.0" unit="cm"/>
+		<rotation name="Rotation000823" x="90" y="0" z="0" unit="degree"/>
+		<rotation name="Rotation000824" x="0" y="90" z="90" unit="degree"/>
+		<position name="Position000826" x="-56.14500000000003" y="80.0" z="0.0" unit="cm"/>
+		<position name="cut2pos" x="-896.62" y="0.0" z="-144.78" unit="cm"/>
+		<position name="finalhall" x="-499.11" y="0.0" z="2462.53" unit="cm"/>
+		<position name="Entrance1Pos" x="403.86" y="-198.12" z="2291.08" unit="cm"/>
+		<position name="Entrance2Pos" x="-210.82" y="-165.1" z="3771.9" unit="cm"/>
+		<position name="Entrance3Pos" x="448.31" y="0.0" z="1129.03" unit="cm"/>
+		<position name="Entrance1.5Pos" x="556.26" y="466.09000000000003" z="0.0" unit="cm"/>
+		<position name="PitPos" x="0.0" y="0.0" z="1546.99" unit="cm"/>
+		<position name="PitPos2" x="0.0" y="118.11" z="2317.75" unit="cm"/>
+		<rotation name="Rotation000837" x="0" y="11.2" z="0" unit="degree"/>
+		<rotation name="Rotation000838" x="-90" y="0" z="0" unit="degree"/>
+		<rotation name="Rotation000839" x="0" y="0" z="0" unit="degree"/>
+		<rotation name="Rotation000840" x="90" y="0" z="180" unit="degree"/>
+		<rotation name="Rotation000841" x="0" y="-11.2" z="0" unit="degree"/>
+		<position name="Surroundings2x2_pos" x="0.0" y="-229.87190000000004" z="-1300" unit="cm"/>
+		<rotation name="Rotation000844" x="0" y="180" z="0" unit="degree"/>
+		<position name="HallPosition" x="0.0" y="0.0" z="4958.92" unit="cm"/>
+		<rotation name="Rotation000847" x="0" y="180" z="0" unit="degree"/>
+		<rotation name="noRotate" x="0" y="0" z="0" unit="degree"/>
+		<rotation name="r90aboutX" x="90" y="0" z="0" unit="degree"/>
+		<rotation name="rminus90aboutX" x="-90" y="0" z="0" unit="degree"/>
+		<rotation name="r90aboutY" x="0" y="90" z="0" unit="degree"/>
+		<rotation name="r180aboutY" x="0" y="180" z="0" unit="degree"/>
+		<rotation name="r180aboutZ" x="0" y="0" z="180" unit="degree"/>
+		<rotation name="rminus90aboutY" x="0" y="-90" z="0" unit="degree"/>
+		<rotation name="r90aboutZ" x="0" y="0" z="90" unit="degree"/>
+		<rotation name="r90aboutXZ" x="90" y="0" z="90" unit="degree"/>
+		<rotation name="r90aboutYZ" x="0" y="90" z="90" unit="degree"/>
+		<rotation name="r90aboutXminusZ" x="-90" y="0" z="90" unit="degree"/>
+		<rotation name="r90aboutYminusZ" x="0" y="-90" z="90" unit="degree"/>
+		<rotation name="r90aboutX90aboutY" x="90" y="90" z="0" unit="degree"/>
+		<rotation name="r90aboutX180aboutY" x="90" y="180" z="0" unit="degree"/>
+		<position name="volhall_2x2_air_volume_pos" x="0.0" y="0.0" z="-4958.92" unit="cm"/>
+		<rotation name="volhall_2x2_air_volume_rot" x="0" y="0" z="0" unit="degree"/>
+		<position name="center" x="0.0" y="0.0" z="0.0" unit="mm"/>
+		<rotation name="identity" x="0.0" y="0.0" z="0.0" unit="rad"/>
+	</define>
+	<materials>
+		<isotope name="boron11" Z="5" N="11">
+			<atom value="11.0"/>
+		</isotope>
+		<isotope name="copper63" Z="29" N="63">
+			<atom value="62.93"/>
+		</isotope>
+		<isotope name="copper65" Z="29" N="65">
+			<atom value="64.93"/>
+		</isotope>
+		<element name="hydrogen" formula="H" Z="1">
+			<atom value="1.00791"/>
+		</element>
+		<element name="boron" formula="">
+			<fraction ref="boron11" n="1.0"/>
+		</element>
+		<element name="carbon" formula="C" Z="6">
+			<atom value="12.0107"/>
+		</element>
+		<element name="nitrogen" formula="N" Z="7">
+			<atom value="14.0671"/>
+		</element>
+		<element name="oxygen" formula="O" Z="8">
+			<atom value="15.999"/>
+		</element>
+		<element name="fluorine" formula="F" Z="9">
+			<atom value="18.9984"/>
+		</element>
+		<element name="sodium" formula="Na" Z="11">
+			<atom value="22.99"/>
+		</element>
+		<element name="magnesium" formula="Mg" Z="12">
+			<atom value="24.305"/>
+		</element>
+		<element name="aluminum" formula="Al" Z="13">
+			<atom value="26.9815"/>
+		</element>
+		<element name="silicon" formula="Si" Z="14">
+			<atom value="28.0855"/>
+		</element>
+		<element name="phosphorus" formula="P" Z="15">
+			<atom value="30.973"/>
+		</element>
+		<element name="sulfur" formula="S" Z="16">
+			<atom value="32.065"/>
+		</element>
+		<element name="argon" formula="Ar" Z="18">
+			<atom value="39.948"/>
+		</element>
+		<element name="potassium" formula="K" Z="19">
+			<atom value="39.0983"/>
+		</element>
+		<element name="calcium" formula="Ca" Z="20">
+			<atom value="40.078"/>
+		</element>
+		<element name="titanium" formula="Ti" Z="22">
+			<atom value="47.867"/>
+		</element>
+		<element name="chromium" formula="Cr" Z="24">
+			<atom value="51.9961"/>
+		</element>
+		<element name="manganese" formula="Mn" Z="25">
+			<atom value="54.938"/>
+		</element>
+		<element name="iron" formula="Fe" Z="26">
+			<atom value="55.845"/>
+		</element>
+		<element name="nickel" formula="Ni" Z="28">
+			<atom value="58.6934"/>
+		</element>
+		<element name="tungsten" formula="W" Z="74">
+			<atom value="183.84"/>
+		</element>
+		<element name="gold" formula="Au" Z="79">
+			<atom value="196.966"/>
+		</element>
+		<element name="copper" formula="">
+			<fraction ref="copper63" n="0.6917"/>
+			<fraction ref="copper65" n="0.3083"/>
+		</element>
+		<element name="zinc" formula="Zn" Z="30">
+			<atom value="63.93"/>
+		</element>
+		<element name="bromine" formula="Br" Z="35">
+			<atom value="79.904"/>
+		</element>
+		<element name="xenon" formula="Xe" Z="54">
+			<atom value="131.293"/>
+		</element>
+		<element name="lead" formula="Pb" Z="82">
+			<atom value="207.2"/>
+		</element>
+		<material name="SiO2">
+			<D value="2.2"/>
+			<composite ref="silicon" n="1"/>
+			<composite ref="oxygen" n="2"/>
+		</material>
+		<material name="FeO">
+			<D value="5.745"/>
+			<composite ref="iron" n="1"/>
+			<composite ref="oxygen" n="1"/>
+		</material>
+		<material name="Al2O3">
+			<D value="3.97"/>
+			<composite ref="aluminum" n="2"/>
+			<composite ref="oxygen" n="3"/>
+		</material>
+		<material name="MgO">
+			<D value="3.58"/>
+			<composite ref="magnesium" n="1"/>
+			<composite ref="oxygen" n="1"/>
+		</material>
+		<material name="CO2">
+			<D value="1.562"/>
+			<composite ref="carbon" n="1"/>
+			<composite ref="oxygen" n="2"/>
+		</material>
+		<material name="CaO">
+			<D value="3.35"/>
+			<composite ref="calcium" n="1"/>
+			<composite ref="oxygen" n="1"/>
+		</material>
+		<material name="Na2O">
+			<D value="2.27"/>
+			<composite ref="sodium" n="2"/>
+			<composite ref="oxygen" n="1"/>
+		</material>
+		<material name="P2O5">
+			<D value="1.562"/>
+			<composite ref="phosphorus" n="2"/>
+			<composite ref="oxygen" n="5"/>
+		</material>
+		<material name="TiO2">
+			<D value="4.23"/>
+			<composite ref="titanium" n="1"/>
+			<composite ref="oxygen" n="2"/>
+		</material>
+		<material name="Fe2O3">
+			<D value="5.24"/>
+			<composite ref="iron" n="2"/>
+			<composite ref="oxygen" n="3"/>
+		</material>
+		<material name="Rock">
+			<D value="2.82"/>
+			<fraction ref="SiO2" n="0.5267"/>
+			<fraction ref="FeO" n="0.1174"/>
+			<fraction ref="Al2O3" n="0.1025"/>
+			<fraction ref="oxygen" n="0.0771"/>
+			<fraction ref="MgO" n="0.0473"/>
+			<fraction ref="CO2" n="0.0422"/>
+			<fraction ref="CaO" n="0.0382"/>
+			<fraction ref="carbon" n="0.024"/>
+			<fraction ref="sulfur" n="0.0186"/>
+			<fraction ref="Na2O" n="0.0053"/>
+			<fraction ref="P2O5" n="0.0007"/>
+		</material>
+		<material name="Dirt">
+			<D value="1.7"/>
+			<fraction ref="oxygen" n="0.438"/>
+			<fraction ref="silicon" n="0.257"/>
+			<fraction ref="sodium" n="0.222"/>
+			<fraction ref="aluminum" n="0.049"/>
+			<fraction ref="iron" n="0.019"/>
+			<fraction ref="potassium" n="0.015"/>
+		</material>
+		<material name="Air">
+			<D value="0.001225"/>
+			<fraction ref="nitrogen" n="0.781154"/>
+			<fraction ref="oxygen" n="0.209476"/>
+			<fraction ref="argon" n="0.00934"/>
+		</material>
+		<material name="Air35C">
+			<D value="0.00115"/>
+			<fraction ref="nitrogen" n="0.781154"/>
+			<fraction ref="oxygen" n="0.209476"/>
+			<fraction ref="argon" n="0.00934"/>
+		</material>
+		<material name="Vacuum_cryo">
+			<D value="1.15e-08"/>
+			<fraction ref="nitrogen" n="0.781154"/>
+			<fraction ref="oxygen" n="0.209476"/>
+			<fraction ref="argon" n="0.00934"/>
+		</material>
+		<material name="Bakelite">
+			<D value="1.25"/>
+			<fraction ref="hydrogen" n="0.057441"/>
+			<fraction ref="carbon" n="0.774591"/>
+			<fraction ref="oxygen" n="0.167968"/>
+		</material>
+		<material name="Honeycomb">
+			<D value="0.94"/>
+			<fraction ref="hydrogen" n="0.143711"/>
+			<fraction ref="carbon" n="0.856289"/>
+		</material>
+		<material name="C3H6">
+			<D value="0.946"/>
+			<composite ref="carbon" n="3"/>
+			<composite ref="hydrogen" n="6"/>
+		</material>
+		<material name="RadiatorBlend">
+			<D value="0.1586875"/>
+			<fraction ref="Air" n="0.006432978863069372"/>
+			<fraction ref="C3H6" n="0.9935670211369306"/>
+		</material>
+		<material name="RadiatorBlendNewConf">
+			<D value="0.19018"/>
+			<fraction ref="Air" n="0.005153012935114054"/>
+			<fraction ref="C3H6" n="0.994846987064886"/>
+		</material>
+		<material name="stGas_Xe">
+			<D value="0.004692544642857144"/>
+			<fraction ref="CO2" n="0.3"/>
+			<fraction ref="argon" n="0.7"/>
+		</material>
+		<material name="stGas_Xe19">
+			<D value="0.008915834821428574"/>
+			<fraction ref="CO2" n="0.3"/>
+			<fraction ref="argon" n="0.7"/>
+		</material>
+		<material name="straw_avg_ArXe">
+			<D value="0.020918592"/>
+			<fraction ref="CO2" n="0.3"/>
+			<fraction ref="argon" n="0.7"/>
+		</material>
+		<material name="driftGas">
+			<D value="0.0018287763392857144"/>
+			<fraction ref="CO2" n="0.15"/>
+			<fraction ref="argon" n="0.85"/>
+		</material>
+		<material name="Water">
+			<D value="1.0"/>
+			<composite ref="oxygen" n="1"/>
+			<composite ref="hydrogen" n="2"/>
+		</material>
+		<material name="ArgonTarget">
+			<D value="0.2297"/>
+			<composite ref="argon" n="1"/>
+		</material>
+		<material name="Aluminum">
+			<D value="2.7"/>
+			<composite ref="aluminum" n="1"/>
+		</material>
+		<material name="Copper">
+			<D value="8.96"/>
+			<composite ref="copper" n="1"/>
+		</material>
+		<material name="MagnetCoil">
+			<D value="6.94"/>
+			<fraction ref="Copper" n="0.964"/>
+			<fraction ref="Water" n="0.03600000000000003"/>
+		</material>
+		<material name="CarbonFiber">
+			<D value="1.6"/>
+			<composite ref="carbon" n="1"/>
+		</material>
+		<material name="stGas_Ar">
+			<D value="0.0018378571428571428"/>
+			<fraction ref="CO2" n="0.3"/>
+			<fraction ref="argon" n="0.7"/>
+		</material>
+		<material name="stGas_Ar19">
+			<D value="0.003491928571428571"/>
+			<fraction ref="CO2" n="0.3"/>
+			<fraction ref="argon" n="0.7"/>
+		</material>
+		<material name="carbonComposite">
+			<D value="0.65"/>
+			<fraction ref="carbon" n="0.99"/>
+			<fraction ref="hydrogen" n="0.01"/>
+		</material>
+		<material name="Kapton">
+			<D value="1.4"/>
+			<composite ref="carbon" n="22"/>
+			<composite ref="oxygen" n="5"/>
+			<composite ref="nitrogen" n="2"/>
+		</material>
+		<material name="Tungsten">
+			<D value="19.3"/>
+			<composite ref="tungsten" n="1"/>
+		</material>
+		<material name="Gold">
+			<D value="19.3"/>
+			<composite ref="gold" n="1"/>
+		</material>
+		<material name="Iron">
+			<D value="7.874"/>
+			<composite ref="iron" n="1"/>
+		</material>
+		<material name="Graphite">
+			<D value="2.23"/>
+			<composite ref="carbon" n="1"/>
+		</material>
+		<material name="Calcium">
+			<D value="1.55"/>
+			<composite ref="calcium" n="1"/>
+		</material>
+		<material name="Carbon_fiber">
+			<D value="1.6"/>
+			<composite ref="carbon" n="1"/>
+		</material>
+		<material name="Steel">
+			<D value="7.93"/>
+			<fraction ref="iron" n="0.7298"/>
+			<fraction ref="chromium" n="0.1792"/>
+			<fraction ref="nickel" n="0.09"/>
+			<fraction ref="carbon" n="0.001"/>
+		</material>
+		<material name="SteelTMS">
+			<D value="7.85"/>
+			<fraction ref="iron" n="0.9951"/>
+			<fraction ref="silicon" n="0.0045"/>
+			<fraction ref="carbon" n="0.0004"/>
+		</material>
+		<material name="polycarbonate">
+			<D value="1.2"/>
+			<composite ref="carbon" n="16"/>
+			<composite ref="hydrogen" n="6"/>
+			<composite ref="oxygen" n="3"/>
+		</material>
+		<material name="sttFrameMix">
+			<D value="0.235"/>
+			<fraction ref="carbon" n="0.7647058823529412"/>
+			<fraction ref="polycarbonate" n="0.23529411764705882"/>
+		</material>
+		<material name="fibrous_glass">
+			<D value="1.0"/>
+			<fraction ref="SiO2" n="0.6"/>
+			<fraction ref="CaO" n="0.224"/>
+			<fraction ref="Al2O3" n="0.118"/>
+			<fraction ref="MgO" n="0.034"/>
+			<fraction ref="TiO2" n="0.013"/>
+			<fraction ref="Na2O" n="0.01"/>
+			<fraction ref="Fe2O3" n="0.001"/>
+		</material>
+		<material name="Fiberglass">
+			<D value="0.7"/>
+			<fraction ref="SiO2" n="0.6"/>
+			<fraction ref="CaO" n="0.224"/>
+			<fraction ref="Al2O3" n="0.118"/>
+			<fraction ref="MgO" n="0.034"/>
+			<fraction ref="TiO2" n="0.013"/>
+			<fraction ref="Na2O" n="0.01"/>
+			<fraction ref="Fe2O3" n="0.001"/>
+		</material>
+		<material name="CH2FCF3">
+			<D value="0.00425"/>
+			<composite ref="carbon" n="2"/>
+			<composite ref="hydrogen" n="2"/>
+			<composite ref="fluorine" n="4"/>
+		</material>
+		<material name="C4H10">
+			<D value="0.00251"/>
+			<composite ref="carbon" n="4"/>
+			<composite ref="hydrogen" n="10"/>
+		</material>
+		<material name="SF6">
+			<D value="0.00617"/>
+			<composite ref="sulfur" n="4"/>
+			<composite ref="fluorine" n="6"/>
+		</material>
+		<material name="rpcGas">
+			<D value="0.001784"/>
+			<fraction ref="argon" n="0.75"/>
+			<fraction ref="CH2FCF3" n="0.2"/>
+			<fraction ref="C4H10" n="0.04"/>
+			<fraction ref="SF6" n="0.01"/>
+		</material>
+		<material name="epoxy_resin">
+			<D value="1.125"/>
+			<composite ref="carbon" n="38"/>
+			<composite ref="hydrogen" n="40"/>
+			<composite ref="oxygen" n="6"/>
+		</material>
+		<material name="SSteel304">
+			<D value="7.9"/>
+			<fraction ref="carbon" n="0.0008"/>
+			<fraction ref="manganese" n="0.02"/>
+			<fraction ref="phosphorus" n="0.00045"/>
+			<fraction ref="sulfur" n="0.0003"/>
+			<fraction ref="silicon" n="0.0075"/>
+			<fraction ref="chromium" n="0.18"/>
+			<fraction ref="nickel" n="0.08"/>
+			<fraction ref="nitrogen" n="0.001"/>
+			<fraction ref="iron" n="0.70995"/>
+		</material>
+		<material name="CalciumSilicate">
+			<D value="0.6"/>
+			<composite ref="calcium" n="1"/>
+			<composite ref="oxygen" n="3"/>
+			<composite ref="silicon" n="1"/>
+		</material>
+		<material name="CarbonSteel">
+			<D value="7.9"/>
+			<fraction ref="carbon" n="0.003"/>
+			<fraction ref="copper" n="0.0025"/>
+			<fraction ref="iron" n="0.98"/>
+			<fraction ref="manganese" n="0.0103"/>
+			<fraction ref="phosphorus" n="0.0009"/>
+			<fraction ref="silicon" n="0.0028"/>
+			<fraction ref="sulfur" n="0.0005"/>
+		</material>
+		<material name="LowDensityCarbonSteel">
+			<D value="0.754"/>
+			<fraction ref="carbon" n="0.003"/>
+			<fraction ref="copper" n="0.0025"/>
+			<fraction ref="iron" n="0.98"/>
+			<fraction ref="manganese" n="0.0103"/>
+			<fraction ref="phosphorus" n="0.0009"/>
+			<fraction ref="silicon" n="0.0028"/>
+			<fraction ref="sulfur" n="0.0005"/>
+		</material>
+		<material name="ReifConcrete">
+			<D value="2.5"/>
+			<fraction ref="CaO" n="0.6661"/>
+			<fraction ref="SiO2" n="0.2345"/>
+			<fraction ref="Al2O3" n="0.0445"/>
+			<fraction ref="Fe2O3" n="0.0307"/>
+			<fraction ref="MgO" n="0.0242"/>
+		</material>
+		<material name="Polyurethane">
+			<D value="0.065"/>
+			<composite ref="carbon" n="27"/>
+			<composite ref="hydrogen" n="36"/>
+			<composite ref="nitrogen" n="2"/>
+			<composite ref="oxygen" n="10"/>
+		</material>
+		<material name="PolyurethaneFoam">
+			<D value="0.09"/>
+			<composite ref="carbon" n="27"/>
+			<composite ref="hydrogen" n="36"/>
+			<composite ref="nitrogen" n="2"/>
+			<composite ref="oxygen" n="10"/>
+		</material>
+		<material name="Epoxy">
+			<D value="1.25"/>
+			<composite ref="carbon" n="6"/>
+			<composite ref="hydrogen" n="6"/>
+			<composite ref="oxygen" n="1"/>
+		</material>
+		<material name="Glass">
+			<D value="2.7"/>
+			<fraction ref="silicon" n="0.2743"/>
+			<fraction ref="boron" n="0.0166"/>
+			<fraction ref="aluminum" n="0.0207"/>
+			<fraction ref="sodium" n="0.0449"/>
+			<fraction ref="potassium" n="0.0821"/>
+			<fraction ref="zinc" n="0.0882"/>
+			<fraction ref="titanium" n="0.0292"/>
+			<fraction ref="oxygen" n="0.444"/>
+		</material>
+		<material name="FR4">
+			<D value="1.85"/>
+			<fraction ref="Epoxy" n="0.206"/>
+			<fraction ref="Glass" n="0.794"/>
+		</material>
+		<material name="PVT">
+			<D value="1.023"/>
+			<composite ref="carbon" n="9"/>
+			<composite ref="hydrogen" n="10"/>
+		</material>
+		<material name="Scintillator">
+			<D value="1.05"/>
+			<fraction ref="carbon" n="0.916"/>
+			<fraction ref="hydrogen" n="0.084"/>
+		</material>
+		<material name="ScintillatorLoadedBoron5">
+			<D value="1.05"/>
+			<fraction ref="carbon" n="0.866"/>
+			<fraction ref="hydrogen" n="0.084"/>
+			<fraction ref="boron" n="0.05"/>
+		</material>
+		<material name="Oil">
+			<D value="0.8"/>
+			<fraction ref="carbon" n="0.916"/>
+			<fraction ref="hydrogen" n="0.084"/>
+		</material>
+		<material name="Lead">
+			<D value="11.342"/>
+			<composite ref="lead" n="1"/>
+		</material>
+		<material name="LAr">
+			<D value="1.4"/>
+			<composite ref="argon" n="1"/>
+		</material>
+		<material name="GAr">
+			<D value="0.001784"/>
+			<composite ref="argon" n="1"/>
+		</material>
+		<material name="KLOEEcal">
+			<D value="5.3"/>
+			<fraction ref="Lead" n="0.42"/>
+			<fraction ref="Scintillator" n="0.48"/>
+			<fraction ref="epoxy_resin" n="0.1"/>
+		</material>
+		<material name="PVF">
+			<D value="1.71"/>
+			<composite ref="carbon" n="2"/>
+			<composite ref="hydrogen" n="3"/>
+			<composite ref="fluorine" n="1"/>
+		</material>
+		<material name="Kevlar">
+			<D value="1.45"/>
+			<composite ref="carbon" n="7"/>
+			<composite ref="hydrogen" n="5"/>
+			<composite ref="nitrogen" n="1"/>
+			<composite ref="oxygen" n="1"/>
+		</material>
+		<material name="NomexHoneycomb">
+			<D value="0.029"/>
+			<composite ref="carbon" n="7"/>
+			<composite ref="hydrogen" n="5"/>
+			<composite ref="nitrogen" n="1"/>
+			<composite ref="oxygen" n="1"/>
+		</material>
+		<material name="Mylar">
+			<D value="1.39"/>
+			<composite ref="carbon" n="10"/>
+			<composite ref="hydrogen" n="8"/>
+			<composite ref="oxygen" n="4"/>
+		</material>
+		<material name="KevlarPrepreg">
+			<D value="1.37"/>
+			<fraction ref="Kevlar" n="0.6"/>
+			<fraction ref="epoxy_resin" n="0.4"/>
+		</material>
+		<material name="Methane">
+			<D value="0.000716"/>
+			<composite ref="carbon" n="1"/>
+			<composite ref="hydrogen" n="4"/>
+		</material>
+		<material name="Ethane">
+			<D value="0.00134"/>
+			<composite ref="carbon" n="2"/>
+			<composite ref="hydrogen" n="6"/>
+		</material>
+		<material name="CF4">
+			<D value="0.00393"/>
+			<composite ref="carbon" n="1"/>
+			<composite ref="fluorine" n="4"/>
+		</material>
+		<material name="CH2F2">
+			<D value="0.00232"/>
+			<composite ref="carbon" n="1"/>
+			<composite ref="hydrogen" n="2"/>
+			<composite ref="fluorine" n="2"/>
+		</material>
+		<material name="DME">
+			<D value="0.00206"/>
+			<composite ref="carbon" n="2"/>
+			<composite ref="hydrogen" n="6"/>
+			<composite ref="oxygen" n="1"/>
+		</material>
+		<material name="Nitrogen">
+			<D value="0.000625"/>
+			<composite ref="nitrogen" n="1"/>
+		</material>
+		<material name="NitrogenGas">
+			<D value="0.0012"/>
+			<composite ref="nitrogen" n="1"/>
+		</material>
+		<material name="HP_Ar">
+			<D value="0.01784"/>
+			<composite ref="argon" n="1"/>
+		</material>
+		<material name="HP_ArCO2">
+			<D value="0.01802"/>
+			<fraction ref="HP_Ar" n="0.89"/>
+			<fraction ref="CO2" n="0.11"/>
+		</material>
+		<material name="HP_CO2">
+			<D value="0.01896125"/>
+			<fraction ref="CO2" n="1.0"/>
+		</material>
+		<material name="HP_ArCH4">
+			<D value="0.01677"/>
+			<fraction ref="HP_Ar" n="0.957"/>
+			<fraction ref="Methane" n="0.043"/>
+		</material>
+		<material name="HP_ArCF4">
+			<D value="0.01998"/>
+			<fraction ref="HP_Ar" n="0.801"/>
+			<fraction ref="CF4" n="0.199"/>
+		</material>
+		<material name="NoGas">
+			<D value="1e-25"/>
+			<fraction ref="argon" n="1.0"/>
+		</material>
+		<material name="Vac">
+			<D value="1.225e-11"/>
+			<fraction ref="nitrogen" n="0.781154"/>
+			<fraction ref="oxygen" n="0.209476"/>
+			<fraction ref="argon" n="0.00934"/>
+		</material>
+		<material name="G10">
+			<D value="1.85"/>
+			<fraction ref="Epoxy" n="0.206"/>
+			<fraction ref="Glass" n="0.794"/>
+		</material>
+		<material name="Silicon">
+			<D value="2.33"/>
+			<composite ref="silicon" n="1"/>
+		</material>
+		<material name="EJ280WLS">
+			<D value="1.023"/>
+			<composite ref="carbon" n="9"/>
+			<composite ref="hydrogen" n="10"/>
+		</material>
+		<material name="Y11">
+			<D value="1.023"/>
+			<composite ref="carbon" n="9"/>
+			<composite ref="hydrogen" n="10"/>
+		</material>
+		<material name="Y11C">
+			<D value="1.023"/>
+			<composite ref="carbon" n="9"/>
+			<composite ref="hydrogen" n="10"/>
+		</material>
+		<material name="ESR">
+			<D value="1.38"/>
+			<composite ref="carbon" n="10"/>
+			<composite ref="hydrogen" n="8"/>
+			<composite ref="oxygen" n="4"/>
+		</material>
+		<material name="PSA">
+			<D value="1.18"/>
+			<composite ref="carbon" n="4"/>
+			<composite ref="hydrogen" n="6"/>
+			<composite ref="oxygen" n="2"/>
+		</material>
+		<material name="TPB">
+			<D value="1.079"/>
+			<composite ref="carbon" n="28"/>
+			<composite ref="hydrogen" n="22"/>
+		</material>
+	</materials>
+	<solids>
+		<box name="LongConnector" x="10.0" y="144.4" z="2.0" lunit="cm"/>
+		<box name="InnerConnector" x="57.2" y="10.0" z="2.0" lunit="cm"/>
+		<tube name="Feedthrough160Head" rmin="0.0" rmax="10.100000000000001" z="2.0" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="Feedthrough160Neck" rmin="7.5" rmax="7.800000000000001" z="14.5" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<union name="Feedthrough160">
+			<first ref="Feedthrough160Neck"/>
+			<second ref="Feedthrough160Head"/>
+			<position name="Feedthrough160_translation" x="0.0" y="0.0" z="8.25" unit="cm"/>
+		</union>
+		<tube name="Feedthrough100Head" rmin="0.0" rmax="7.5" z="2.0" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="Feedthrough100Neck" rmin="5.1000000000000005" rmax="5.4" z="11.5" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<union name="Feedthrough100">
+			<first ref="Feedthrough100Neck"/>
+			<second ref="Feedthrough100Head"/>
+			<position name="Feedthrough100_translation" x="0.0" y="0.0" z="6.75" unit="cm"/>
+		</union>
+		<box name="PixelPlane" x="0.4648" y="30.99" z="30.99" lunit="cm"/>
+		<box name="PCB_shape" x="0.3175" y="30.99" z="30.99" lunit="cm"/>
+		<box name="Pixel_shape" x="0.0051" y="0.4" z="0.4" lunit="cm"/>
+		<box name="Asic_shape" x="0.1422" y="1.6" z="1.6" lunit="cm"/>
+		<box name="TPCPlane" x="0.4648" y="124.11" z="62.03" lunit="cm"/>
+		<box name="ArCLight" x="28.465" y="30.939999999999998" z="1.032" lunit="cm"/>
+		<box name="WLS_panel_shape" x="28.0" y="30.0" z="1.0" lunit="cm"/>
+		<box name="DCM_shape" x="28.0" y="30.0" z="0.011000000000000001" lunit="cm"/>
+		<box name="TPB_LAr_shape" x="28.0" y="30.0" z="0.010000000000000002" lunit="cm"/>
+		<box name="SiPM_Mask_shape" x="0.165" y="7.825" z="1.0" lunit="cm"/>
+		<box name="SiPM_Sens_shape" x="0.0002" y="0.6000000000000001" z="0.6000000000000001" lunit="cm"/>
+		<box name="SiPM_shape" x="0.147" y="0.6000000000000001" z="0.6000000000000001" lunit="cm"/>
+		<box name="SiPM_PCB_shape" x="0.30000000000000004" y="9.950000000000001" z="1.0" lunit="cm"/>
+		<box name="OpticalDet" x="29.4581" y="124.11" z="1.032" lunit="cm"/>
+		<box name="PCBBar_shape" x="0.3175" y="30.99" z="1.032" lunit="cm"/>
+		<box name="TPC" x="30.737100000000005" y="124.11" z="62.03" lunit="cm"/>
+		<box name="TPCActive_shape" x="30.2723" y="124.11" z="62.03" lunit="cm"/>
+		<box name="Backplate" x="0.3175" y="142.38809999999998" z="64.7446" lunit="cm"/>
+		<box name="BackplateGap_shape" x="0.3175" y="23.3" z="4.445" lunit="cm"/>
+		<box name="HalfDetector" x="31.6" y="126.82220000000001" z="64.7497" lunit="cm"/>
+		<box name="Fieldcage_shape" x="31.6" y="126.82220000000001" z="64.7497" lunit="cm"/>
+		<box name="LAr_shape" x="31.441250000000004" y="126.18720000000002" z="64.1147" lunit="cm"/>
+		<box name="Bracket_shape" x="1.0668" y="126.0856" z="1.032" lunit="cm"/>
+		<box name="InnerDetector" x="63.2" y="126.82220000000001" z="64.7497" lunit="cm"/>
+		<box name="Pillow" x="65.53" y="13.340100000000001" z="65.53" lunit="cm"/>
+		<box name="PillowSide_shape" x="65.53" y="9.8476" z="65.53" lunit="cm"/>
+		<box name="PillowCavity_shape" x="64.5776" y="9.6889" z="64.5776" lunit="cm"/>
+		<box name="AngleBarTop_shape" x="2.54" y="0.9525000000000001" z="62.763400000000004" lunit="cm"/>
+		<box name="AngleBase_shape" x="2.54" y="0.16510000000000002" z="7.620000000000001" lunit="cm"/>
+		<box name="AngleSide_shape" x="0.16510000000000002" y="2.3749" z="7.620000000000001" lunit="cm"/>
+		<box name="AngleBarSide_shape" x="0.3175" y="1.9050000000000002" z="62.763400000000004" lunit="cm"/>
+		<box name="G10_shape" x="0.3175" y="1.9050000000000002" z="64.7446" lunit="cm"/>
+		<box name="Bucket" x="66.99249999999999" y="173.6852" z="66.99249999999999" lunit="cm"/>
+		<box name="G10Side_shape" x="66.99249999999999" y="173.6852" z="66.99249999999999" lunit="cm"/>
+		<box name="LArPhaseG10Side_shape" x="65.7225" y="152.7081" z="65.7225" lunit="cm"/>
+		<box name="GArPhaseG10Side_shape" x="65.7225" y="20.977099999999997" z="65.7225" lunit="cm"/>
+		<box name="G10Bottom_shape" x="65.72250000000001" y="5.08" z="65.72250000000001" lunit="cm"/>
+		<box name="LArVol1_shape" x="58.1025" y="0.3175" z="58.1025" lunit="cm"/>
+		<box name="LArVol2_shape" x="65.0875" y="3.4924999999999997" z="65.0875" lunit="cm"/>
+		<box name="Backplate_GAr_shape" x="0.3175" y="7.636999999999995" z="64.7446" lunit="cm"/>
+		<box name="TPiece" x="11.200000000000001" y="18.5669" z="14.9975" lunit="cm"/>
+		<tube name="TubeV_shape" rmin="0.0" rmax="4.0" z="14.453100000000001" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="TubeVFlange_shape" rmin="0.0" rmax="5.6000000000000005" z="2.0569" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="TubeVGAr_shape" rmin="0.0" rmax="3.9000000000000004" z="14.453100000000001" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="TubeH_shape" rmin="0.0" rmax="4.0" z="3.3406000000000002" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="TubeHFlange_shape" rmin="0.0" rmax="5.6000000000000005" z="2.0569" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="TubeHGAr_shape" rmin="0.0" rmax="3.9000000000000004" z="3.3406000000000002" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<box name="FlangeFTs" x="57.0" y="26.556200000000004" z="57.0" lunit="cm"/>
+		<tube name="TubeCenter_shape" rmin="0.0" rmax="1.9000000000000001" z="10.590800000000002" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="TubeCenterFlange_shape" rmin="0.0" rmax="3.5" z="1.27" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="TubeCenterGAr_shape" rmin="0.0" rmax="1.8" z="10.590800000000002" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="TubeSide_shape" rmin="0.0" rmax="4.0" z="5.9324" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="TubeSideFlange_shape" rmin="0.0" rmax="5.6000000000000005" z="2.0569" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="TubeSideGAr_shape" rmin="0.0" rmax="3.9000000000000004" z="5.9324" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="HVFeedThrough" rmin="0.06999999999999999" rmax="0.5700000000000001" z="169.7888" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="Insulation_shape" rmin="0.06999999999999999" rmax="0.5700000000000001" z="169.7888" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="Core_shape" rmin="0.0" rmax="0.06999999999999999" z="169.7888" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<box name="ModuleFTs" x="57.0" y="26.556200000000004" z="57.0" lunit="cm"/>
+		<tube name="CryostatTop" rmin="0.0" rmax="110.0" z="26.556200000000004" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="CryostatFlangeFlangeComponent1" rmin="0.0" rmax="110.0" z="2.0" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="CryostatFlangeFlangeComponent2" rmin="105.0" rmax="110.0" z="20.0" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<box name="CryostatFlangeFlangeComponent3" x="134.0" y="134.0" z="4.0" lunit="cm"/>
+		<subtraction name="CryostatFlangeFlangeSubtraction">
+			<first ref="CryostatFlangeFlangeComponent1"/>
+			<second ref="CryostatFlangeFlangeComponent3"/>
+		</subtraction>
+		<tube name="CryostatFlangeFTComponent1" rmin="0.0" rmax="7.5" z="8.0" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="CryostatFlangeFTComponent2" rmin="0.0" rmax="5.1000000000000005" z="8.0" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<subtraction name="CryostatFlangeFTSubtraction10">
+			<first ref="CryostatFlangeFlangeSubtraction"/>
+			<second ref="CryostatFlangeFTComponent1"/>
+			<position name="CryostatFlangeFTSubtraction10_translation" x="84.0" y="-15.100000000000001" z="0.0" unit="cm"/>
+		</subtraction>
+		<subtraction name="CryostatFlangeFTSubtraction20">
+			<first ref="CryostatFlangeFTSubtraction10"/>
+			<second ref="CryostatFlangeFTComponent2"/>
+			<position name="CryostatFlangeFTSubtraction20_translation" x="84.0" y="15.100000000000001" z="0.0" unit="cm"/>
+		</subtraction>
+		<subtraction name="CryostatFlangeFTSubtraction11">
+			<first ref="CryostatFlangeFTSubtraction20"/>
+			<second ref="CryostatFlangeFTComponent1"/>
+			<position name="CryostatFlangeFTSubtraction11_translation" x="-15.099999999999994" y="-84.0" z="0.0" unit="cm"/>
+		</subtraction>
+		<subtraction name="CryostatFlangeFTSubtraction21">
+			<first ref="CryostatFlangeFTSubtraction11"/>
+			<second ref="CryostatFlangeFTComponent2"/>
+			<position name="CryostatFlangeFTSubtraction21_translation" x="15.100000000000007" y="-84.0" z="0.0" unit="cm"/>
+		</subtraction>
+		<subtraction name="CryostatFlangeFTSubtraction12">
+			<first ref="CryostatFlangeFTSubtraction21"/>
+			<second ref="CryostatFlangeFTComponent1"/>
+			<position name="CryostatFlangeFTSubtraction12_translation" x="-84.0" y="15.099999999999989" z="0.0" unit="cm"/>
+		</subtraction>
+		<subtraction name="CryostatFlangeFTSubtraction22">
+			<first ref="CryostatFlangeFTSubtraction12"/>
+			<second ref="CryostatFlangeFTComponent2"/>
+			<position name="CryostatFlangeFTSubtraction22_translation" x="-84.0" y="-15.100000000000012" z="0.0" unit="cm"/>
+		</subtraction>
+		<subtraction name="CryostatFlangeFTSubtraction13">
+			<first ref="CryostatFlangeFTSubtraction22"/>
+			<second ref="CryostatFlangeFTComponent1"/>
+			<position name="CryostatFlangeFTSubtraction13_translation" x="15.099999999999987" y="84.0" z="0.0" unit="cm"/>
+		</subtraction>
+		<subtraction name="CryostatFlangeFTSubtraction23">
+			<first ref="CryostatFlangeFTSubtraction13"/>
+			<second ref="CryostatFlangeFTComponent2"/>
+			<position name="CryostatFlangeFTSubtraction23_translation" x="-15.100000000000016" y="84.0" z="0.0" unit="cm"/>
+		</subtraction>
+		<union name="CryostatFlange">
+			<first ref="CryostatFlangeFTSubtraction23"/>
+			<second ref="CryostatFlangeFlangeComponent2"/>
+			<position name="CryostatFlange_translation" x="0.0" y="0.0" z="-11.0" unit="cm"/>
+		</union>
+		<box name="FlangeCryostatInsertionPlate" x="67.0" y="2.0" z="67.0" lunit="cm"/>
+		<box name="FlangeTop_shape" x="67.0" y="1.8476" z="67.0" lunit="cm"/>
+		<box name="FlangeBtm_shape" x="65.9364" y="0.1524" z="65.9364" lunit="cm"/>
+		<box name="ModuleCryostatInsertionPlate" x="67.0" y="2.0" z="67.0" lunit="cm"/>
+		<box name="DetectorCryostatInsertionPlate" x="134.0" y="134.0" z="2.0" lunit="cm"/>
+		<box name="ModuleBucket" x="66.99249999999999" y="173.6852" z="66.99249999999999" lunit="cm"/>
+		<box name="DetectorBucket" x="133.98499999999999" y="173.6852" z="133.98499999999999" lunit="cm"/>
+		<tube name="CryostatInnerBathCylindricalTube" rmin="0.0" rmax="99.0" z="180.0" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<sphere name="CryostatInnerBathSphere" rmin="0.0" rmax="198.0" deltaphi="6.283185307179586" startphi="0.0" starttheta="0.0" deltatheta="3.141592653589793" lunit="cm" aunit="radian"/>
+		<tube name="CryostatInnerBathTubs1" rmin="0.0" rmax="88.0" z="38.36729658368873" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<intersection name="CryostatInnerBath_SphericalCap">
+			<first ref="CryostatInnerBathTubs1"/>
+			<second ref="CryostatInnerBathSphere"/>
+			<position name="CryostatInnerBath_SphericalCap_translation" x="0.0" y="0.0" z="178.81635170815565" unit="cm"/>
+		</intersection>
+		<torus name="CryostatInnerBathTorus" rmin="0.0" rmax="19.8" rtor="79.2" deltaphi="6.283185307179586" startphi="0.0" lunit="cm" aunit="radian"/>
+		<union name="CryostatInnerBathSphericalCapTorus">
+			<first ref="CryostatInnerBath_SphericalCap"/>
+			<second ref="CryostatInnerBathTorus"/>
+			<position name="CryostatInnerBathSphericalCapTorus_translation" x="0.0" y="0.0" z="19.183648291844364" unit="cm"/>
+		</union>
+		<tube name="CryostatInnerBathTubs2" rmin="0.0" rmax="99.0" z="38.36729658368873" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<intersection name="CryostatInnerBathHead">
+			<first ref="CryostatInnerBathTubs2"/>
+			<second ref="CryostatInnerBathSphericalCapTorus"/>
+		</intersection>
+		<union name="CryostatInnerBath_CylindricalTubeHead">
+			<first ref="CryostatInnerBathCylindricalTube"/>
+			<second ref="CryostatInnerBathHead"/>
+			<position name="CryostatInnerBath_CylindricalTubeHead_translation" x="0.0" y="0.0" z="-109.18364829184436" unit="cm"/>
+		</union>
+		<tube name="CryostatInnerWallCylindricalTube" rmin="0.0" rmax="100.0" z="180.0" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<sphere name="CryostatInnerWallSphere" rmin="0.0" rmax="200.0" deltaphi="6.283185307179586" startphi="0.0" starttheta="0.0" deltatheta="3.141592653589793" lunit="cm" aunit="radian"/>
+		<tube name="CryostatInnerWallTubs1" rmin="0.0" rmax="88.88888888888889" z="38.75484503402902" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<intersection name="CryostatInnerWall_SphericalCap">
+			<first ref="CryostatInnerWallTubs1"/>
+			<second ref="CryostatInnerWallSphere"/>
+			<position name="CryostatInnerWall_SphericalCap_translation" x="0.0" y="0.0" z="180.6225774829855" unit="cm"/>
+		</intersection>
+		<torus name="CryostatInnerWallTorus" rmin="0.0" rmax="20.0" rtor="80.0" deltaphi="6.283185307179586" startphi="0.0" lunit="cm" aunit="radian"/>
+		<union name="CryostatInnerWallSphericalCapTorus">
+			<first ref="CryostatInnerWall_SphericalCap"/>
+			<second ref="CryostatInnerWallTorus"/>
+			<position name="CryostatInnerWallSphericalCapTorus_translation" x="0.0" y="0.0" z="19.37742251701451" unit="cm"/>
+		</union>
+		<tube name="CryostatInnerWallTubs2" rmin="0.0" rmax="100.0" z="38.75484503402902" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<intersection name="CryostatInnerWallHead">
+			<first ref="CryostatInnerWallTubs2"/>
+			<second ref="CryostatInnerWallSphericalCapTorus"/>
+		</intersection>
+		<union name="CryostatInnerWall_CylindricalTubeHead">
+			<first ref="CryostatInnerWallCylindricalTube"/>
+			<second ref="CryostatInnerWallHead"/>
+			<position name="CryostatInnerWall_CylindricalTubeHead_translation" x="0.0" y="0.0" z="-109.37742251701451" unit="cm"/>
+		</union>
+		<tube name="CryostatInsulationCylindricalTube" rmin="0.0" rmax="104.0" z="205.0" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<sphere name="CryostatInsulationSphere" rmin="0.0" rmax="208.0" deltaphi="6.283185307179586" startphi="0.0" starttheta="0.0" deltatheta="3.141592653589793" lunit="cm" aunit="radian"/>
+		<tube name="CryostatInsulationTubs1" rmin="0.0" rmax="92.44444444444446" z="40.30503883539018" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<intersection name="CryostatInsulation_SphericalCap">
+			<first ref="CryostatInsulationTubs1"/>
+			<second ref="CryostatInsulationSphere"/>
+			<position name="CryostatInsulation_SphericalCap_translation" x="0.0" y="0.0" z="187.8474805823049" unit="cm"/>
+		</intersection>
+		<torus name="CryostatInsulationTorus" rmin="0.0" rmax="20.8" rtor="83.2" deltaphi="6.283185307179586" startphi="0.0" lunit="cm" aunit="radian"/>
+		<union name="CryostatInsulationSphericalCapTorus">
+			<first ref="CryostatInsulation_SphericalCap"/>
+			<second ref="CryostatInsulationTorus"/>
+			<position name="CryostatInsulationSphericalCapTorus_translation" x="0.0" y="0.0" z="20.15251941769509" unit="cm"/>
+		</union>
+		<tube name="CryostatInsulationTubs2" rmin="0.0" rmax="104.0" z="40.30503883539018" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<intersection name="CryostatInsulationHead">
+			<first ref="CryostatInsulationTubs2"/>
+			<second ref="CryostatInsulationSphericalCapTorus"/>
+		</intersection>
+		<union name="CryostatInsulation_CylindricalTubeHead">
+			<first ref="CryostatInsulationCylindricalTube"/>
+			<second ref="CryostatInsulationHead"/>
+			<position name="CryostatInsulation_CylindricalTubeHead_translation" x="0.0" y="0.0" z="-122.65251941769509" unit="cm"/>
+		</union>
+		<tube name="CryostatOuterWallCylindricalTube" rmin="0.0" rmax="105.0" z="205.0" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<sphere name="CryostatOuterWallSphere" rmin="0.0" rmax="210.0" deltaphi="6.283185307179586" startphi="0.0" starttheta="0.0" deltatheta="3.141592653589793" lunit="cm" aunit="radian"/>
+		<tube name="CryostatOuterWallTubs1" rmin="0.0" rmax="93.33333333333334" z="40.69258728573047" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<intersection name="CryostatOuterWall_SphericalCap">
+			<first ref="CryostatOuterWallTubs1"/>
+			<second ref="CryostatOuterWallSphere"/>
+			<position name="CryostatOuterWall_SphericalCap_translation" x="0.0" y="0.0" z="189.65370635713475" unit="cm"/>
+		</intersection>
+		<torus name="CryostatOuterWallTorus" rmin="0.0" rmax="21.0" rtor="84.0" deltaphi="6.283185307179586" startphi="0.0" lunit="cm" aunit="radian"/>
+		<union name="CryostatOuterWallSphericalCapTorus">
+			<first ref="CryostatOuterWall_SphericalCap"/>
+			<second ref="CryostatOuterWallTorus"/>
+			<position name="CryostatOuterWallSphericalCapTorus_translation" x="0.0" y="0.0" z="20.346293642865234" unit="cm"/>
+		</union>
+		<tube name="CryostatOuterWallTubs2" rmin="0.0" rmax="105.0" z="40.69258728573047" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<intersection name="CryostatOuterWallHead">
+			<first ref="CryostatOuterWallTubs2"/>
+			<second ref="CryostatOuterWallSphericalCapTorus"/>
+		</intersection>
+		<union name="CryostatOuterWall_CylindricalTubeHead">
+			<first ref="CryostatOuterWallCylindricalTube"/>
+			<second ref="CryostatOuterWallHead"/>
+			<position name="CryostatOuterWall_CylindricalTubeHead_translation" x="0.0" y="0.0" z="-122.84629364286523" unit="cm"/>
+		</union>
+		<tube name="CryostatLegComponent1" rmin="0.0" rmax="6.0" z="76.0" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="CryostatLegComponent2" rmin="0.0" rmax="11.0" z="2.5" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<union name="CryostatLeg">
+			<first ref="CryostatLegComponent1"/>
+			<second ref="CryostatLegComponent2"/>
+			<position name="CryostatLeg_translation" x="0.0" y="0.0" z="-39.25" unit="cm"/>
+		</union>
+		<tube name="CryostatLegConnector" rmin="2.2" rmax="2.5" z="144.0" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="CryostatInletComponent2" rmin="1.1" rmax="1.2000000000000002" z="26.200000000000003" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="CryostatInletComponent1" rmin="1.1" rmax="3.3000000000000003" z="2.5" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<union name="CryostatInletUnion1">
+			<first ref="CryostatInletComponent2"/>
+			<second ref="CryostatInletComponent1"/>
+			<position name="CryostatInletUnion1_translation" x="0.0" y="0.0" z="14.350000000000001" unit="cm"/>
+		</union>
+		<union name="CryostatInlet">
+			<first ref="CryostatInletUnion1"/>
+			<second ref="CryostatInletComponent1"/>
+			<position name="CryostatInlet_translation" x="0.0" y="0.0" z="-2.25" unit="cm"/>
+		</union>
+		<tube name="CryostatConnectionHead" rmin="3.5" rmax="13.700000000000001" z="5.0" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="CryostatConnectionNeck" rmin="7.5" rmax="7.800000000000001" z="15.0" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<union name="CryostatConnection">
+			<first ref="CryostatConnectionNeck"/>
+			<second ref="CryostatConnectionHead"/>
+			<position name="CryostatConnection_translation" x="0.0" y="0.0" z="10.0" unit="cm"/>
+		</union>
+		<tube name="ArgonCubeCryostat" rmin="0.0" rmax="143.7" z="289.5562" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<box name="Box000137" x="20.37" y="190.42000000000002" z="1.26" lunit="cm"/>
+		<box name="Box000138" x="0.79" y="184.77" z="18.1" lunit="cm"/>
+		<union name="Boolean000139">
+			<first ref="Box000138"/>
+			<second ref="Box000137"/>
+			<position name="Boolean000139_translation" x="0.0" y="2.825" z="9.68" unit="cm"/>
+		</union>
+		<union name="Boolean000140">
+			<first ref="Boolean000139"/>
+			<second ref="Box000137"/>
+			<position name="Boolean000140_translation" x="0.0" y="2.825" z="-9.68" unit="cm"/>
+		</union>
+		<box name="Box000141" x="20.37" y="240.54000000000002" z="1.26" lunit="cm"/>
+		<box name="Box000142" x="0.79" y="229.23000000000002" z="18.1" lunit="cm"/>
+		<union name="Boolean000143">
+			<first ref="Box000142"/>
+			<second ref="Box000141"/>
+			<position name="Boolean000143_translation" x="0.0" y="0.0" z="9.68" unit="cm"/>
+		</union>
+		<union name="Boolean000144">
+			<first ref="Boolean000143"/>
+			<second ref="Box000141"/>
+			<position name="Boolean000144_translation" x="0.0" y="0.0" z="-9.68" unit="cm"/>
+		</union>
+		<union name="Boolean000145">
+			<first ref="Boolean000140"/>
+			<second ref="Boolean000144"/>
+			<position name="Boolean000145_translation" x="-99.25950165475344" y="149.69250000000002" z="0.0" unit="cm"/>
+			<rotation name="Boolean000145_rotation" x="0" y="0" z="60" unit="degree"/>
+		</union>
+		<union name="Boolean000146">
+			<first ref="Boolean000145"/>
+			<second ref="Boolean000145"/>
+			<position name="Boolean000146_translation" x="-397.03800661901374" y="0.0" z="0.0" unit="cm"/>
+			<rotation name="Boolean000146_rotation" x="0" y="180" z="0" unit="degree"/>
+		</union>
+		<box name="Box000147" x="20.37" y="416.6275012526178" z="1.26" lunit="cm"/>
+		<box name="Box000148" x="0.79" y="416.6275012526178" z="18.1" lunit="cm"/>
+		<union name="Boolean000149">
+			<first ref="Box000148"/>
+			<second ref="Box000147"/>
+			<position name="Boolean000149_translation" x="0.0" y="0.0" z="9.68" unit="cm"/>
+		</union>
+		<union name="Boolean000150">
+			<first ref="Boolean000149"/>
+			<second ref="Box000147"/>
+			<position name="Boolean000150_translation" x="0.0" y="0.0" z="-9.68" unit="cm"/>
+		</union>
+		<box name="Box000151" x="207.01" y="8.88" z="8.88" lunit="cm"/>
+		<box name="Box000152" x="207.01" y="7.620000000000001" z="7.620000000000001" lunit="cm"/>
+		<subtraction name="Boolean000153">
+			<first ref="Box000151"/>
+			<second ref="Box000152"/>
+		</subtraction>
+		<tube name="Tubs000154" rmin="0.0" rmax="7.620000000000001" z="30.5" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<box name="Box000155" x="39.370000000000005" y="1.9000000000000001" z="39.370000000000005" lunit="cm"/>
+		<box name="Box000156" x="35.56" y="2.8600000000000003" z="35.56" lunit="cm"/>
+		<union name="Boolean000157">
+			<first ref="Box000155"/>
+			<second ref="Box000156"/>
+			<position name="Boolean000157_translation" x="0.0" y="2.3800000000000003" z="0.0" unit="cm"/>
+		</union>
+		<union name="Boolean000158">
+			<first ref="Boolean000157"/>
+			<second ref="Box000156"/>
+			<position name="Boolean000158_translation" x="0.0" y="2.3800000000000003" z="0.0" unit="cm"/>
+		</union>
+		<box name="Box000159" x="20.37" y="300.0" z="1.26" lunit="cm"/>
+		<box name="Box000160" x="0.79" y="300.0" z="18.1" lunit="cm"/>
+		<union name="Boolean000161">
+			<first ref="Box000160"/>
+			<second ref="Box000159"/>
+			<position name="Boolean000161_translation" x="0.0" y="0.0" z="9.68" unit="cm"/>
+		</union>
+		<union name="Boolean000162">
+			<first ref="Boolean000161"/>
+			<second ref="Box000159"/>
+			<position name="Boolean000162_translation" x="0.0" y="0.0" z="-9.68" unit="cm"/>
+		</union>
+		<union name="Boolean000163">
+			<first ref="Boolean000162"/>
+			<second ref="Boolean000158"/>
+			<position name="Boolean000163_translation" x="0.0" y="-150.0" z="0.0" unit="cm"/>
+		</union>
+		<box name="Box000164" x="207.01" y="20.0" z="20.0" lunit="cm"/>
+		<box name="Box000165" x="207.01" y="18.0" z="18.0" lunit="cm"/>
+		<subtraction name="Boolean000166">
+			<first ref="Box000164"/>
+			<second ref="Box000165"/>
+		</subtraction>
+		<box name="Box000167" x="20.37" y="240.0" z="1.26" lunit="cm"/>
+		<box name="Box000168" x="0.79" y="240.0" z="18.1" lunit="cm"/>
+		<union name="Boolean000169">
+			<first ref="Box000168"/>
+			<second ref="Box000167"/>
+			<position name="Boolean000169_translation" x="0.0" y="0.0" z="9.68" unit="cm"/>
+		</union>
+		<union name="Boolean000170">
+			<first ref="Boolean000169"/>
+			<second ref="Box000167"/>
+			<position name="Boolean000170_translation" x="0.0" y="0.0" z="-9.68" unit="cm"/>
+		</union>
+		<box name="Base" x="228.60000000000002" y="91.44" z="213.49" lunit="cm"/>
+		<box name="Box000172" x="228.60000000000002" y="91.44" z="90.81" lunit="cm"/>
+		<tube name="Tubs000173" rmin="0.0" rmax="119.36500000000001" z="300.0" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<box name="Box000174" x="574.04" y="1.7000000000000002" z="271.2" lunit="cm"/>
+		<subtraction name="Boolean000175">
+			<first ref="Box000174"/>
+			<second ref="Tubs000173"/>
+			<position name="Boolean000175_translation" x="56.14500000000003" y="0.0" z="0.0" unit="cm"/>
+			<rotation name="Boolean000175_rotation" x="90" y="0" z="0" unit="degree"/>
+		</subtraction>
+		<box name="Box000176" x="10.16" y="609.6" z="0.71" lunit="cm"/>
+		<box name="Box000177" x="0.58" y="609.6" z="12.9" lunit="cm"/>
+		<union name="Boolean000178">
+			<first ref="Box000177"/>
+			<second ref="Box000176"/>
+			<position name="Boolean000178_translation" x="0.0" y="0.0" z="6.805" unit="cm"/>
+		</union>
+		<union name="Boolean000179">
+			<first ref="Boolean000178"/>
+			<second ref="Box000176"/>
+			<position name="Boolean000179_translation" x="0.0" y="0.0" z="-6.805" unit="cm"/>
+		</union>
+		<box name="Box000180" x="10.16" y="609.6" z="0.71" lunit="cm"/>
+		<box name="Box000181" x="0.58" y="609.6" z="12.9" lunit="cm"/>
+		<union name="Boolean000182">
+			<first ref="Box000181"/>
+			<second ref="Box000180"/>
+			<position name="Boolean000182_translation" x="0.0" y="0.0" z="6.805" unit="cm"/>
+		</union>
+		<union name="Boolean000183">
+			<first ref="Boolean000182"/>
+			<second ref="Box000180"/>
+			<position name="Boolean000183_translation" x="0.0" y="0.0" z="-6.805" unit="cm"/>
+		</union>
+		<box name="Box000184" x="10.16" y="285.1" z="0.71" lunit="cm"/>
+		<box name="Box000185" x="0.58" y="284.5" z="12.9" lunit="cm"/>
+		<union name="Boolean000186">
+			<first ref="Box000185"/>
+			<second ref="Box000184"/>
+			<position name="Boolean000186_translation" x="0.0" y="0.0" z="6.805" unit="cm"/>
+		</union>
+		<union name="Boolean000187">
+			<first ref="Boolean000186"/>
+			<second ref="Box000184"/>
+			<position name="Boolean000187_translation" x="0.0" y="0.0" z="-6.805" unit="cm"/>
+		</union>
+		<box name="Box000188" x="13.330000000000002" y="285.1" z="0.8400000000000001" lunit="cm"/>
+		<box name="Box000189" x="0.58" y="284.5" z="19.0" lunit="cm"/>
+		<union name="Boolean000190">
+			<first ref="Box000189"/>
+			<second ref="Box000188"/>
+			<position name="Boolean000190_translation" x="0.0" y="0.0" z="9.920000000000002" unit="cm"/>
+		</union>
+		<union name="Boolean000191">
+			<first ref="Boolean000190"/>
+			<second ref="Box000188"/>
+			<position name="Boolean000191_translation" x="0.0" y="0.0" z="-9.920000000000002" unit="cm"/>
+		</union>
+		<box name="Box000192" x="13.330000000000002" y="609.6" z="0.8400000000000001" lunit="cm"/>
+		<box name="Box000193" x="0.58" y="609.6" z="19.0" lunit="cm"/>
+		<union name="Boolean000194">
+			<first ref="Box000193"/>
+			<second ref="Box000192"/>
+			<position name="Boolean000194_translation" x="0.0" y="0.0" z="9.920000000000002" unit="cm"/>
+		</union>
+		<union name="Boolean000195">
+			<first ref="Boolean000194"/>
+			<second ref="Box000192"/>
+			<position name="Boolean000195_translation" x="0.0" y="0.0" z="-9.920000000000002" unit="cm"/>
+		</union>
+		<union name="Boolean000196">
+			<first ref="Boolean000175"/>
+			<second ref="Boolean000187"/>
+			<position name="Boolean000196_translation" x="226.07" y="-11.190000000000001" z="0.0" unit="cm"/>
+			<rotation name="Boolean000196_rotation" x="90" y="0" z="0" unit="degree"/>
+		</union>
+		<union name="Boolean000197">
+			<first ref="Boolean000196"/>
+			<second ref="Boolean000187"/>
+			<position name="Boolean000197_translation" x="182.76999999999998" y="-11.190000000000001" z="0.0" unit="cm"/>
+			<rotation name="Boolean000197_rotation" x="90" y="0" z="0" unit="degree"/>
+		</union>
+		<union name="Boolean000198">
+			<first ref="Boolean000197"/>
+			<second ref="Boolean000187"/>
+			<position name="Boolean000198_translation" x="-68.64999999999998" y="-11.190000000000001" z="0.0" unit="cm"/>
+			<rotation name="Boolean000198_rotation" x="90" y="0" z="0" unit="degree"/>
+		</union>
+		<union name="Boolean000199">
+			<first ref="Boolean000198"/>
+			<second ref="Boolean000187"/>
+			<position name="Boolean000199_translation" x="-104.16999999999999" y="-11.190000000000001" z="0.0" unit="cm"/>
+			<rotation name="Boolean000199_rotation" x="90" y="0" z="0" unit="degree"/>
+		</union>
+		<union name="Boolean000200">
+			<first ref="Boolean000199"/>
+			<second ref="Boolean000187"/>
+			<position name="Boolean000200_translation" x="-165.12" y="-11.190000000000001" z="0.0" unit="cm"/>
+			<rotation name="Boolean000200_rotation" x="90" y="0" z="0" unit="degree"/>
+		</union>
+		<union name="Boolean000201">
+			<first ref="Boolean000200"/>
+			<second ref="Boolean000187"/>
+			<position name="Boolean000201_translation" x="-226.07" y="-11.190000000000001" z="0.0" unit="cm"/>
+			<rotation name="Boolean000201_rotation" x="90" y="0" z="0" unit="degree"/>
+		</union>
+		<union name="Boolean000202">
+			<first ref="Boolean000201"/>
+			<second ref="Boolean000191"/>
+			<position name="Boolean000202_translation" x="-287.02" y="-11.190000000000001" z="0.0" unit="cm"/>
+			<rotation name="Boolean000202_rotation" x="90" y="0" z="0" unit="degree"/>
+		</union>
+		<union name="Boolean000203">
+			<first ref="Boolean000202"/>
+			<second ref="Boolean000191"/>
+			<position name="Boolean000203_translation" x="287.02" y="-11.190000000000001" z="0.0" unit="cm"/>
+			<rotation name="Boolean000203_rotation" x="90" y="0" z="0" unit="degree"/>
+		</union>
+		<union name="Boolean000204">
+			<first ref="Boolean000203"/>
+			<second ref="Boolean000195"/>
+			<position name="Boolean000204_translation" x="0.0" y="-11.190000000000001" z="142.25" unit="cm"/>
+			<rotation name="Boolean000204_rotation" x="0" y="90" z="90" unit="degree"/>
+		</union>
+		<union name="Boolean000205">
+			<first ref="Boolean000204"/>
+			<second ref="Boolean000195"/>
+			<position name="Boolean000205_translation" x="0.0" y="-11.190000000000001" z="-142.25" unit="cm"/>
+			<rotation name="Boolean000205_rotation" x="0" y="90" z="90" unit="degree"/>
+		</union>
+		<box name="hall_2x2_air_volume" x="7112.52" y="6932.179999999999" z="16500.0" lunit="cm"/>
+		<box name="HallVol" x="1112.52" y="932.1800000000001" z="4582.16" lunit="cm"/>
+		<arb8 name="ExtraWallvol" v1x="0.0" v1y="-683.26" v2x="-152.39999999999998" v2y="-469.90000000000003" v3x="-152.39999999999998" v3y="0.0" v4x="0.0" v4y="0.0" v5x="0.0" v5y="-683.26" v6x="-152.39999999999998" v6y="-469.90000000000003" v7x="-152.39999999999998" v7y="0.0" v8x="0.0" v8y="0.0" dz="2291.08" lunit="cm"/>
+		<arb8 name="Entrance1Vol" v1x="0.0" v1y="624.84" v2x="878.84" v2y="449.58" v3x="0.0" v3y="-3990.34" v4x="0.0" v4y="-3990.34" v5x="0.0" v5y="624.84" v6x="878.84" v6y="449.58" v7x="0.0" v7y="-3990.34" v8x="0.0" v8y="-3990.34" dz="267.97" lunit="cm"/>
+		<box name="Entrance2Vol" x="896.62" y="601.98" z="1968.5" lunit="cm"/>
+		<box name="Entrance3Vol" x="1793.24" y="601.98" z="289.56" lunit="cm"/>
+		<box name="cut2Vol" x="1759.0880227783844" y="601.98" z="871.5488079817029" lunit="cm"/>
+		<box name="finalhall" x="789.5775012607448" y="601.98" z="4635.5" lunit="cm"/>
+		<tube name="BottomlessPit" rmin="0.0" rmax="335.28" z="3932.1799999999994" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<tube name="BottomlessPitBottom" rmin="0.0" rmax="508.0" z="838.2" startphi="0.0" deltaphi="6.283185307179586" lunit="cm" aunit="radian"/>
+		<union name="Pit">
+			<first ref="BottomlessPitBottom"/>
+			<second ref="BottomlessPit"/>
+			<position name="Pit_translation" x="0.0" y="0.0" z="1546.99" unit="cm"/>
+		</union>
+		<intersection name="HallAirVolTemp3.5">
+			<first ref="Entrance3Vol"/>
+			<second ref="cut2Vol"/>
+			<position name="HallAirVolTemp3.5_translation" x="-896.62" y="0.0" z="-144.78" unit="cm"/>
+			<rotation name="HallAirVolTemp3.5_rotation" x="0" y="11.2" z="0" unit="degree"/>
+		</intersection>
+		<union name="Pitunion">
+			<first ref="finalhall"/>
+			<second ref="Pit"/>
+			<position name="Pitunion_translation" x="0.0" y="118.11" z="2317.75" unit="cm"/>
+			<rotation name="Pitunion_rotation" x="-90" y="0" z="0" unit="degree"/>
+		</union>
+		<union name="Pitunion2">
+			<first ref="HallAirVolTemp3.5"/>
+			<second ref="Pitunion"/>
+			<position name="Pitunion2_translation" x="-499.11" y="0.0" z="2462.53" unit="cm"/>
+		</union>
+		<union name="HallAirVolTemp4">
+			<first ref="Entrance2Vol"/>
+			<second ref="Pitunion2"/>
+			<position name="HallAirVolTemp4_translation" x="448.31" y="0.0" z="1129.03" unit="cm"/>
+		</union>
+		<subtraction name="HallAirVolTemp.5">
+			<first ref="HallVol"/>
+			<second ref="ExtraWallvol"/>
+			<position name="HallAirVolTemp.5_translation" x="556.26" y="466.09000000000003" z="0.0" unit="cm"/>
+		</subtraction>
+		<union name="HallAirVolTemp1">
+			<first ref="HallAirVolTemp.5"/>
+			<second ref="Entrance1Vol"/>
+			<position name="HallAirVolTemp1_translation" x="403.86" y="-198.12" z="2291.08" unit="cm"/>
+			<rotation name="HallAirVolTemp1_rotation" x="90" y="0" z="180" unit="degree"/>
+		</union>
+		<union name="HallAirVolTemp2">
+			<first ref="HallAirVolTemp1"/>
+			<second ref="HallAirVolTemp4"/>
+			<position name="HallAirVolTemp2_translation" x="-210.82" y="-165.1" z="3771.9" unit="cm"/>
+			<rotation name="HallAirVolTemp2_rotation" x="0" y="-11.2" z="0" unit="degree"/>
+		</union>
+		<box name="World" x="7112.52" y="6932.179999999999" z="30000.0" lunit="cm"/>
+	</solids>
+	<structure>
+		<volume name="Volume000704">
+			<materialref ref="SSteel304"/>
+			<solidref ref="Boolean000146"/>
+			<auxiliary auxtype="SensDet" auxvalue="Volume000704"/>
+		</volume>
+		<volume name="Volume000707">
+			<materialref ref="SSteel304"/>
+			<solidref ref="Boolean000150"/>
+			<auxiliary auxtype="SensDet" auxvalue="Volume000707"/>
+		</volume>
+		<volume name="Volume000711">
+			<materialref ref="SSteel304"/>
+			<solidref ref="Boolean000153"/>
+			<auxiliary auxtype="SensDet" auxvalue="Volume000711"/>
+		</volume>
+		<volume name="Volume000718">
+			<materialref ref="SSteel304"/>
+			<solidref ref="Tubs000154"/>
+			<auxiliary auxtype="SensDet" auxvalue="Volume000718"/>
+		</volume>
+		<volume name="Volume000763">
+			<materialref ref="SSteel304"/>
+			<solidref ref="Boolean000163"/>
+			<auxiliary auxtype="SensDet" auxvalue="Volume000763"/>
+		</volume>
+		<volume name="Volume000775">
+			<materialref ref="SSteel304"/>
+			<solidref ref="Boolean000170"/>
+			<auxiliary auxtype="SensDet" auxvalue="Volume000775"/>
+		</volume>
+		<volume name="Volume000779">
+			<materialref ref="SSteel304"/>
+			<solidref ref="Boolean000170"/>
+			<auxiliary auxtype="SensDet" auxvalue="Volume000779"/>
+		</volume>
+		<assembly name="volMinervaStand">
+			<physvol name="Volume000704_PV">
+				<volumeref ref="Volume000704"/>
+				<positionref ref="Msupp_in_MinervaStand"/>
+			</physvol>
+			<physvol name="Volume000707_PV">
+				<volumeref ref="Volume000707"/>
+				<positionref ref="Bot_in_MinervaStand"/>
+				<rotationref ref="Rotation000709"/>
+			</physvol>
+			<physvol name="Volume000711_PV">
+				<volumeref ref="Volume000711"/>
+				<positionref ref="cylsupL_in_MinervaStand"/>
+				<rotationref ref="Rotation000712"/>
+			</physvol>
+			<physvol name="Volume000711_1_PV">
+				<volumeref ref="Volume000711"/>
+				<positionref ref="cylsupR_in_MinervaStand"/>
+				<rotationref ref="Rotation000715"/>
+			</physvol>
+			<physvol name="Volume000718_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylR_-4L_in_MinervaStand"/>
+				<rotationref ref="Rotation000719"/>
+			</physvol>
+			<physvol name="Volume000718_1_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylR_-3L_in_MinervaStand"/>
+				<rotationref ref="Rotation000719"/>
+			</physvol>
+			<physvol name="Volume000718_2_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylR_-2L_in_MinervaStand"/>
+				<rotationref ref="Rotation000719"/>
+			</physvol>
+			<physvol name="Volume000718_3_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylR_-1L_in_MinervaStand"/>
+				<rotationref ref="Rotation000719"/>
+			</physvol>
+			<physvol name="Volume000718_4_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylR_0L_in_MinervaStand"/>
+				<rotationref ref="Rotation000719"/>
+			</physvol>
+			<physvol name="Volume000718_5_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylR_1L_in_MinervaStand"/>
+				<rotationref ref="Rotation000719"/>
+			</physvol>
+			<physvol name="Volume000718_6_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylR_2L_in_MinervaStand"/>
+				<rotationref ref="Rotation000719"/>
+			</physvol>
+			<physvol name="Volume000718_7_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylR_3L_in_MinervaStand"/>
+				<rotationref ref="Rotation000719"/>
+			</physvol>
+			<physvol name="Volume000718_8_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylR_4L_in_MinervaStand"/>
+				<rotationref ref="Rotation000719"/>
+			</physvol>
+			<physvol name="Volume000718_9_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylR_5L_in_MinervaStand"/>
+				<rotationref ref="Rotation000719"/>
+			</physvol>
+			<physvol name="Volume000718_10_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylL_-4L_in_MinervaStand"/>
+				<rotationref ref="Rotation000740"/>
+			</physvol>
+			<physvol name="Volume000718_11_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylL_-3L_in_MinervaStand"/>
+				<rotationref ref="Rotation000740"/>
+			</physvol>
+			<physvol name="Volume000718_12_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylL_-2L_in_MinervaStand"/>
+				<rotationref ref="Rotation000740"/>
+			</physvol>
+			<physvol name="Volume000718_13_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylL_-1L_in_MinervaStand"/>
+				<rotationref ref="Rotation000740"/>
+			</physvol>
+			<physvol name="Volume000718_14_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylL_0L_in_MinervaStand"/>
+				<rotationref ref="Rotation000740"/>
+			</physvol>
+			<physvol name="Volume000718_15_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylL_1L_in_MinervaStand"/>
+				<rotationref ref="Rotation000740"/>
+			</physvol>
+			<physvol name="Volume000718_16_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylL_2L_in_MinervaStand"/>
+				<rotationref ref="Rotation000740"/>
+			</physvol>
+			<physvol name="Volume000718_17_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylL_4L_in_MinervaStand"/>
+				<rotationref ref="Rotation000740"/>
+			</physvol>
+			<physvol name="Volume000718_18_PV">
+				<volumeref ref="Volume000718"/>
+				<positionref ref="cylL_5L_in_MinervaStand"/>
+				<rotationref ref="Rotation000740"/>
+			</physvol>
+			<physvol name="Volume000763_PV">
+				<volumeref ref="Volume000763"/>
+				<positionref ref="sbi1_in_MinervaStand"/>
+			</physvol>
+			<physvol name="Volume000763_1_PV">
+				<volumeref ref="Volume000763"/>
+				<positionref ref="sbi2_in_MinervaStand"/>
+			</physvol>
+			<physvol name="Volume000763_2_PV">
+				<volumeref ref="Volume000763"/>
+				<positionref ref="sbi3_in_MinervaStand"/>
+			</physvol>
+			<physvol name="Volume000763_3_PV">
+				<volumeref ref="Volume000763"/>
+				<positionref ref="sbi4_in_MinervaStand"/>
+			</physvol>
+			<physvol name="Volume000775_PV">
+				<volumeref ref="Volume000775"/>
+				<positionref ref="sidebeam1_in_MinervaStand"/>
+				<rotationref ref="Rotation000777"/>
+			</physvol>
+			<physvol name="Volume000779_PV">
+				<volumeref ref="Volume000779"/>
+				<positionref ref="sidebeam2_in_MinervaStand"/>
+				<rotationref ref="Rotation000781"/>
+			</physvol>
+		</assembly>
+		<volume name="volLongConnector">
+			<materialref ref="SSteel304"/>
+			<solidref ref="LongConnector"/>
+			<auxiliary auxtype="SensDet" auxvalue="volLongConnector"/>
+		</volume>
+		<volume name="volInnerConnector">
+			<materialref ref="SSteel304"/>
+			<solidref ref="InnerConnector"/>
+			<auxiliary auxtype="SensDet" auxvalue="volInnerConnector"/>
+		</volume>
+		<volume name="volFeedthrough160">
+			<materialref ref="SSteel304"/>
+			<solidref ref="Feedthrough160"/>
+			<auxiliary auxtype="SensDet" auxvalue="volFeedthrough160"/>
+		</volume>
+		<volume name="volFeedthrough100">
+			<materialref ref="SSteel304"/>
+			<solidref ref="Feedthrough100"/>
+			<auxiliary auxtype="SensDet" auxvalue="volFeedthrough100"/>
+		</volume>
+		<volume name="volTubeCenterGAr">
+			<materialref ref="GAr"/>
+			<solidref ref="TubeCenterGAr_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTubeCenterGAr"/>
+		</volume>
+		<volume name="volTubeCenter">
+			<materialref ref="Steel"/>
+			<solidref ref="TubeCenter_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTubeCenter"/>
+			<physvol name="volTubeCenterGAr_PV">
+				<volumeref ref="volTubeCenterGAr"/>
+				<positionref ref="TubeCenterGAr_pos"/>
+			</physvol>
+		</volume>
+		<volume name="volTubeCenterFlange">
+			<materialref ref="Steel"/>
+			<solidref ref="TubeCenterFlange_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTubeCenterFlange"/>
+		</volume>
+		<volume name="volTubeSideGAr">
+			<materialref ref="GAr"/>
+			<solidref ref="TubeSideGAr_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTubeSideGAr"/>
+		</volume>
+		<volume name="volTubeSide">
+			<materialref ref="Steel"/>
+			<solidref ref="TubeSide_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTubeSide"/>
+			<physvol name="volTubeSideGAr_PV">
+				<volumeref ref="volTubeSideGAr"/>
+				<positionref ref="TubeSideGAr_pos"/>
+			</physvol>
+		</volume>
+		<volume name="volTubeSideFlange">
+			<materialref ref="Steel"/>
+			<solidref ref="TubeSideFlange_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTubeSideFlange"/>
+		</volume>
+		<volume name="volTubeVGAr">
+			<materialref ref="GAr"/>
+			<solidref ref="TubeVGAr_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTubeVGAr"/>
+		</volume>
+		<volume name="volTubeV">
+			<materialref ref="Steel"/>
+			<solidref ref="TubeV_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTubeV"/>
+			<physvol name="volTubeVGAr_PV">
+				<volumeref ref="volTubeVGAr"/>
+				<positionref ref="TubeVGAr_pos"/>
+			</physvol>
+		</volume>
+		<volume name="volTubeVFlange">
+			<materialref ref="Steel"/>
+			<solidref ref="TubeVFlange_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTubeVFlange"/>
+		</volume>
+		<volume name="volTubeHGAr">
+			<materialref ref="GAr"/>
+			<solidref ref="TubeHGAr_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTubeHGAr"/>
+		</volume>
+		<volume name="volTubeH">
+			<materialref ref="Steel"/>
+			<solidref ref="TubeH_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTubeH"/>
+			<physvol name="volTubeHGAr_PV">
+				<volumeref ref="volTubeHGAr"/>
+				<positionref ref="TubeHGAr_pos"/>
+			</physvol>
+		</volume>
+		<volume name="volTubeHFlange">
+			<materialref ref="Steel"/>
+			<solidref ref="TubeHFlange_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTubeHFlange"/>
+		</volume>
+		<volume name="volTPiece">
+			<materialref ref="Air"/>
+			<solidref ref="TPiece"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTPiece"/>
+			<physvol name="volTubeV_PV">
+				<volumeref ref="volTubeV"/>
+				<positionref ref="TubeV_pos"/>
+				<rotationref ref="TubeV_rot"/>
+			</physvol>
+			<physvol name="volTubeVFlange_PV">
+				<volumeref ref="volTubeVFlange"/>
+				<positionref ref="TubeVFlange_pos_0"/>
+				<rotationref ref="TubeVFlange_rot_0"/>
+			</physvol>
+			<physvol name="volTubeVFlange_1_PV">
+				<volumeref ref="volTubeVFlange"/>
+				<positionref ref="TubeVFlange_pos_1"/>
+				<rotationref ref="TubeVFlange_rot_1"/>
+			</physvol>
+			<physvol name="volTubeH_PV">
+				<volumeref ref="volTubeH"/>
+				<positionref ref="TubeH_pos"/>
+			</physvol>
+			<physvol name="volTubeHFlange_PV">
+				<volumeref ref="volTubeHFlange"/>
+				<positionref ref="TubeHFlange_pos"/>
+				<rotationref ref="TubeHFlange_rot"/>
+			</physvol>
+		</volume>
+		<volume name="volFlangeFTs">
+			<materialref ref="Air"/>
+			<solidref ref="FlangeFTs"/>
+			<auxiliary auxtype="SensDet" auxvalue="volFlangeFTs"/>
+			<physvol name="volTubeCenter_PV">
+				<volumeref ref="volTubeCenter"/>
+				<positionref ref="TubeCenter_pos"/>
+				<rotationref ref="TubeCenter_rot"/>
+			</physvol>
+			<physvol name="volTubeCenterFlange_PV">
+				<volumeref ref="volTubeCenterFlange"/>
+				<positionref ref="TubeCenterFlange_pos_A"/>
+				<rotationref ref="TubeCenter_rot"/>
+			</physvol>
+			<physvol name="volTubeCenterFlange_1_PV">
+				<volumeref ref="volTubeCenterFlange"/>
+				<positionref ref="TubeCenterFlange_pos_B"/>
+				<rotationref ref="TubeCenter_rot"/>
+			</physvol>
+			<physvol name="volTubeSide_PV">
+				<volumeref ref="volTubeSide"/>
+				<positionref ref="TubeSide_pos_0"/>
+				<rotationref ref="TubeSide_rot_0"/>
+			</physvol>
+			<physvol name="volTubeSideFlange_PV">
+				<volumeref ref="volTubeSideFlange"/>
+				<positionref ref="TubeSideFlange_pos_0"/>
+				<rotationref ref="TubeSide_rot_0"/>
+			</physvol>
+			<physvol name="volTubeSide_1_PV">
+				<volumeref ref="volTubeSide"/>
+				<positionref ref="TubeSide_pos_1"/>
+				<rotationref ref="TubeSide_rot_1"/>
+			</physvol>
+			<physvol name="volTubeSideFlange_1_PV">
+				<volumeref ref="volTubeSideFlange"/>
+				<positionref ref="TubeSideFlange_pos_1"/>
+				<rotationref ref="TubeSide_rot_1"/>
+			</physvol>
+			<physvol name="volTubeSide_2_PV">
+				<volumeref ref="volTubeSide"/>
+				<positionref ref="TubeSide_pos_2"/>
+				<rotationref ref="TubeSide_rot_2"/>
+			</physvol>
+			<physvol name="volTubeSideFlange_2_PV">
+				<volumeref ref="volTubeSideFlange"/>
+				<positionref ref="TubeSideFlange_pos_2"/>
+				<rotationref ref="TubeSide_rot_2"/>
+			</physvol>
+			<physvol name="volTubeSide_3_PV">
+				<volumeref ref="volTubeSide"/>
+				<positionref ref="TubeSide_pos_3"/>
+				<rotationref ref="TubeSide_rot_3"/>
+			</physvol>
+			<physvol name="volTubeSideFlange_3_PV">
+				<volumeref ref="volTubeSideFlange"/>
+				<positionref ref="TubeSideFlange_pos_3"/>
+				<rotationref ref="TubeSide_rot_3"/>
+			</physvol>
+			<physvol name="volTPiece_PV">
+				<volumeref ref="volTPiece"/>
+				<positionref ref="TPiece_pos_A"/>
+			</physvol>
+			<physvol name="volTPiece_1_PV">
+				<volumeref ref="volTPiece"/>
+				<positionref ref="TPiece_pos_B"/>
+				<rotationref ref="TPiece_rot_B"/>
+			</physvol>
+		</volume>
+		<volume name="volModuleFTs">
+			<materialref ref="Air"/>
+			<solidref ref="ModuleFTs"/>
+			<auxiliary auxtype="SensDet" auxvalue="volModuleFTs"/>
+			<physvol name="volFlangeFTs_PV">
+				<volumeref ref="volFlangeFTs"/>
+				<positionref ref="FlangeFTs_pos"/>
+			</physvol>
+		</volume>
+		<volume name="volCryostatTop">
+			<materialref ref="Air"/>
+			<solidref ref="CryostatTop"/>
+			<auxiliary auxtype="SensDet" auxvalue="volCryostatTop"/>
+			<physvol name="volLongConnector_PV">
+				<volumeref ref="volLongConnector"/>
+				<positionref ref="CryostatTopvolLongConnector_pos1"/>
+				<rotationref ref="CryostatTopvolLongConnector_rot"/>
+			</physvol>
+			<physvol name="volLongConnector_1_PV">
+				<volumeref ref="volLongConnector"/>
+				<positionref ref="CryostatTopvolLongConnector_pos2"/>
+				<rotationref ref="CryostatTopvolLongConnector_rot"/>
+			</physvol>
+			<physvol name="volLongConnector_2_PV">
+				<volumeref ref="volLongConnector"/>
+				<positionref ref="CryostatTopvolLongConnector_pos3"/>
+				<rotationref ref="CryostatTopvolLongConnector_rot"/>
+			</physvol>
+			<physvol name="volInnerConnector_PV">
+				<volumeref ref="volInnerConnector"/>
+				<positionref ref="CryostatTopvolInnerConnector_pos1"/>
+				<rotationref ref="CryostatTopvolLongConnector_rot"/>
+			</physvol>
+			<physvol name="volInnerConnector_1_PV">
+				<volumeref ref="volInnerConnector"/>
+				<positionref ref="CryostatTopvolInnerConnector_pos2"/>
+				<rotationref ref="CryostatTopvolLongConnector_rot"/>
+			</physvol>
+			<physvol name="volInnerConnector_2_PV">
+				<volumeref ref="volInnerConnector"/>
+				<positionref ref="CryostatTopvolInnerConnector_pos3"/>
+				<rotationref ref="CryostatTopvolLongConnector_rot"/>
+			</physvol>
+			<physvol name="volInnerConnector_3_PV">
+				<volumeref ref="volInnerConnector"/>
+				<positionref ref="CryostatTopvolInnerConnector_pos4"/>
+				<rotationref ref="CryostatTopvolLongConnector_rot"/>
+			</physvol>
+			<physvol name="volInnerConnector_4_PV">
+				<volumeref ref="volInnerConnector"/>
+				<positionref ref="CryostatTopvolInnerConnector_pos5"/>
+				<rotationref ref="CryostatTopvolLongConnector_rot"/>
+			</physvol>
+			<physvol name="volInnerConnector_5_PV">
+				<volumeref ref="volInnerConnector"/>
+				<positionref ref="CryostatTopvolInnerConnector_pos6"/>
+				<rotationref ref="CryostatTopvolLongConnector_rot"/>
+			</physvol>
+			<physvol name="volFeedthrough160_PV">
+				<volumeref ref="volFeedthrough160"/>
+				<positionref ref="CryostatTop100FT0_pos"/>
+			</physvol>
+			<physvol name="volFeedthrough100_PV">
+				<volumeref ref="volFeedthrough100"/>
+				<positionref ref="CryostatTop160FT0_pos"/>
+			</physvol>
+			<physvol name="volFeedthrough160_1_PV">
+				<volumeref ref="volFeedthrough160"/>
+				<positionref ref="CryostatTop100FT1_pos"/>
+			</physvol>
+			<physvol name="volFeedthrough100_1_PV">
+				<volumeref ref="volFeedthrough100"/>
+				<positionref ref="CryostatTop160FT1_pos"/>
+			</physvol>
+			<physvol name="volFeedthrough160_2_PV">
+				<volumeref ref="volFeedthrough160"/>
+				<positionref ref="CryostatTop100FT2_pos"/>
+			</physvol>
+			<physvol name="volFeedthrough100_2_PV">
+				<volumeref ref="volFeedthrough100"/>
+				<positionref ref="CryostatTop160FT2_pos"/>
+			</physvol>
+			<physvol name="volFeedthrough160_3_PV">
+				<volumeref ref="volFeedthrough160"/>
+				<positionref ref="CryostatTop100FT3_pos"/>
+			</physvol>
+			<physvol name="volFeedthrough100_3_PV">
+				<volumeref ref="volFeedthrough100"/>
+				<positionref ref="CryostatTop160FT3_pos"/>
+			</physvol>
+			<physvol name="volModuleFTs_PV">
+				<volumeref ref="volModuleFTs"/>
+				<positionref ref="ModuleFTs_pos_0.0"/>
+				<rotationref ref="CryostatTopvolModuleFTs_rot0.0"/>
+			</physvol>
+			<physvol name="volModuleFTs_1_PV" copynumber="2">
+				<volumeref ref="volModuleFTs"/>
+				<positionref ref="ModuleFTs_pos_0.1"/>
+				<rotationref ref="CryostatTopvolModuleFTs_rot0.1"/>
+			</physvol>
+			<physvol name="volModuleFTs_2_PV" copynumber="1">
+				<volumeref ref="volModuleFTs"/>
+				<positionref ref="ModuleFTs_pos_1.0"/>
+				<rotationref ref="CryostatTopvolModuleFTs_rot1.0"/>
+			</physvol>
+			<physvol name="volModuleFTs_3_PV" copynumber="3">
+				<volumeref ref="volModuleFTs"/>
+				<positionref ref="ModuleFTs_pos_1.1"/>
+				<rotationref ref="CryostatTopvolModuleFTs_rot1.1"/>
+			</physvol>
+		</volume>
+		<volume name="volCryostatFlange">
+			<materialref ref="SSteel304"/>
+			<solidref ref="CryostatFlange"/>
+			<auxiliary auxtype="SensDet" auxvalue="volCryostatFlange"/>
+		</volume>
+		<volume name="volFlangeTop">
+			<materialref ref="Steel"/>
+			<solidref ref="FlangeTop_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volFlangeTop"/>
+		</volume>
+		<volume name="volFlangeBtm">
+			<materialref ref="Steel"/>
+			<solidref ref="FlangeBtm_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volFlangeBtm"/>
+		</volume>
+		<volume name="volFlangeCryostatInsertionPlate">
+			<materialref ref="Air"/>
+			<solidref ref="FlangeCryostatInsertionPlate"/>
+			<auxiliary auxtype="SensDet" auxvalue="volFlangeCryostatInsertionPlate"/>
+			<physvol name="volFlangeTop_PV">
+				<volumeref ref="volFlangeTop"/>
+				<positionref ref="FlangeTop_pos"/>
+			</physvol>
+			<physvol name="volFlangeBtm_PV">
+				<volumeref ref="volFlangeBtm"/>
+				<positionref ref="FlangeBtm_pos"/>
+			</physvol>
+		</volume>
+		<volume name="volModuleCryostatInsertionPlate">
+			<materialref ref="Air"/>
+			<solidref ref="ModuleCryostatInsertionPlate"/>
+			<auxiliary auxtype="SensDet" auxvalue="volModuleCryostatInsertionPlate"/>
+			<physvol name="volFlangeCryostatInsertionPlate_PV">
+				<volumeref ref="volFlangeCryostatInsertionPlate"/>
+				<positionref ref="FlangeCryostatInsertionPlate_pos"/>
+			</physvol>
+		</volume>
+		<volume name="volDetectorCryostatInsertionPlate">
+			<materialref ref="Air"/>
+			<solidref ref="DetectorCryostatInsertionPlate"/>
+			<auxiliary auxtype="SensDet" auxvalue="volDetectorCryostatInsertionPlate"/>
+			<physvol name="volModuleCryostatInsertionPlate_PV">
+				<volumeref ref="volModuleCryostatInsertionPlate"/>
+				<positionref ref="ModuleCryostatInsertionPlate_pos_0.0"/>
+				<rotationref ref="DetectorCryostatInsertionPlatevolModuleCryostatInsertionPlate_rot_ 0.0"/>
+			</physvol>
+			<physvol name="volModuleCryostatInsertionPlate_1_PV" copynumber="2">
+				<volumeref ref="volModuleCryostatInsertionPlate"/>
+				<positionref ref="ModuleCryostatInsertionPlate_pos_0.1"/>
+				<rotationref ref="DetectorCryostatInsertionPlatevolModuleCryostatInsertionPlate_rot_ 0.1"/>
+			</physvol>
+			<physvol name="volModuleCryostatInsertionPlate_2_PV" copynumber="1">
+				<volumeref ref="volModuleCryostatInsertionPlate"/>
+				<positionref ref="ModuleCryostatInsertionPlate_pos_1.0"/>
+				<rotationref ref="DetectorCryostatInsertionPlatevolModuleCryostatInsertionPlate_rot_ 1.0"/>
+			</physvol>
+			<physvol name="volModuleCryostatInsertionPlate_3_PV" copynumber="3">
+				<volumeref ref="volModuleCryostatInsertionPlate"/>
+				<positionref ref="ModuleCryostatInsertionPlate_pos_1.1"/>
+				<rotationref ref="DetectorCryostatInsertionPlatevolModuleCryostatInsertionPlate_rot_ 1.1"/>
+			</physvol>
+		</volume>
+		<volume name="volLArVol1">
+			<materialref ref="LAr"/>
+			<solidref ref="LArVol1_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volLArVol1"/>
+		</volume>
+		<volume name="volLArVol2">
+			<materialref ref="LAr"/>
+			<solidref ref="LArVol2_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volLArVol2"/>
+		</volume>
+		<volume name="volG10Bottom">
+			<materialref ref="G10"/>
+			<solidref ref="G10Bottom_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volG10Bottom"/>
+			<physvol name="volLArVol1_PV">
+				<volumeref ref="volLArVol1"/>
+				<positionref ref="LArVol1_pos"/>
+			</physvol>
+			<physvol name="volLArVol2_PV">
+				<volumeref ref="volLArVol2"/>
+				<positionref ref="LArVol2_pos"/>
+			</physvol>
+		</volume>
+		<volume name="volTPCPCB">
+			<materialref ref="FR4"/>
+			<solidref ref="PCB_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTPCPCB"/>
+		</volume>
+		<volume name="volTPCAsic">
+			<materialref ref="Silicon"/>
+			<solidref ref="Asic_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTPCAsic"/>
+		</volume>
+		<volume name="volPixelPlane">
+			<materialref ref="LAr"/>
+			<solidref ref="PixelPlane"/>
+			<auxiliary auxtype="SensDet" auxvalue="volPixelPlane"/>
+			<physvol name="volTPCPCB_PV">
+				<volumeref ref="volTPCPCB"/>
+				<positionref ref="PCB_pos"/>
+			</physvol>
+			<physvol name="volTPCAsic_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_0.0"/>
+			</physvol>
+			<physvol name="volTPCAsic_1_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_0.1"/>
+			</physvol>
+			<physvol name="volTPCAsic_2_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_0.2"/>
+			</physvol>
+			<physvol name="volTPCAsic_3_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_0.3"/>
+			</physvol>
+			<physvol name="volTPCAsic_4_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_0.4"/>
+			</physvol>
+			<physvol name="volTPCAsic_5_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_0.5"/>
+			</physvol>
+			<physvol name="volTPCAsic_6_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_0.6"/>
+			</physvol>
+			<physvol name="volTPCAsic_7_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_0.7"/>
+			</physvol>
+			<physvol name="volTPCAsic_8_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_0.8"/>
+			</physvol>
+			<physvol name="volTPCAsic_9_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_0.9"/>
+			</physvol>
+			<physvol name="volTPCAsic_10_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_1.0"/>
+			</physvol>
+			<physvol name="volTPCAsic_11_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_1.1"/>
+			</physvol>
+			<physvol name="volTPCAsic_12_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_1.2"/>
+			</physvol>
+			<physvol name="volTPCAsic_13_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_1.3"/>
+			</physvol>
+			<physvol name="volTPCAsic_14_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_1.4"/>
+			</physvol>
+			<physvol name="volTPCAsic_15_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_1.5"/>
+			</physvol>
+			<physvol name="volTPCAsic_16_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_1.6"/>
+			</physvol>
+			<physvol name="volTPCAsic_17_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_1.7"/>
+			</physvol>
+			<physvol name="volTPCAsic_18_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_1.8"/>
+			</physvol>
+			<physvol name="volTPCAsic_19_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_1.9"/>
+			</physvol>
+			<physvol name="volTPCAsic_20_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_2.0"/>
+			</physvol>
+			<physvol name="volTPCAsic_21_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_2.1"/>
+			</physvol>
+			<physvol name="volTPCAsic_22_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_2.2"/>
+			</physvol>
+			<physvol name="volTPCAsic_23_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_2.3"/>
+			</physvol>
+			<physvol name="volTPCAsic_24_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_2.4"/>
+			</physvol>
+			<physvol name="volTPCAsic_25_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_2.5"/>
+			</physvol>
+			<physvol name="volTPCAsic_26_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_2.6"/>
+			</physvol>
+			<physvol name="volTPCAsic_27_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_2.7"/>
+			</physvol>
+			<physvol name="volTPCAsic_28_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_2.8"/>
+			</physvol>
+			<physvol name="volTPCAsic_29_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_2.9"/>
+			</physvol>
+			<physvol name="volTPCAsic_30_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_3.0"/>
+			</physvol>
+			<physvol name="volTPCAsic_31_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_3.1"/>
+			</physvol>
+			<physvol name="volTPCAsic_32_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_3.2"/>
+			</physvol>
+			<physvol name="volTPCAsic_33_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_3.3"/>
+			</physvol>
+			<physvol name="volTPCAsic_34_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_3.4"/>
+			</physvol>
+			<physvol name="volTPCAsic_35_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_3.5"/>
+			</physvol>
+			<physvol name="volTPCAsic_36_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_3.6"/>
+			</physvol>
+			<physvol name="volTPCAsic_37_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_3.7"/>
+			</physvol>
+			<physvol name="volTPCAsic_38_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_3.8"/>
+			</physvol>
+			<physvol name="volTPCAsic_39_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_3.9"/>
+			</physvol>
+			<physvol name="volTPCAsic_40_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_4.0"/>
+			</physvol>
+			<physvol name="volTPCAsic_41_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_4.1"/>
+			</physvol>
+			<physvol name="volTPCAsic_42_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_4.2"/>
+			</physvol>
+			<physvol name="volTPCAsic_43_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_4.3"/>
+			</physvol>
+			<physvol name="volTPCAsic_44_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_4.4"/>
+			</physvol>
+			<physvol name="volTPCAsic_45_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_4.5"/>
+			</physvol>
+			<physvol name="volTPCAsic_46_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_4.6"/>
+			</physvol>
+			<physvol name="volTPCAsic_47_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_4.7"/>
+			</physvol>
+			<physvol name="volTPCAsic_48_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_4.8"/>
+			</physvol>
+			<physvol name="volTPCAsic_49_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_4.9"/>
+			</physvol>
+			<physvol name="volTPCAsic_50_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_5.0"/>
+			</physvol>
+			<physvol name="volTPCAsic_51_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_5.1"/>
+			</physvol>
+			<physvol name="volTPCAsic_52_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_5.2"/>
+			</physvol>
+			<physvol name="volTPCAsic_53_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_5.3"/>
+			</physvol>
+			<physvol name="volTPCAsic_54_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_5.4"/>
+			</physvol>
+			<physvol name="volTPCAsic_55_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_5.5"/>
+			</physvol>
+			<physvol name="volTPCAsic_56_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_5.6"/>
+			</physvol>
+			<physvol name="volTPCAsic_57_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_5.7"/>
+			</physvol>
+			<physvol name="volTPCAsic_58_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_5.8"/>
+			</physvol>
+			<physvol name="volTPCAsic_59_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_5.9"/>
+			</physvol>
+			<physvol name="volTPCAsic_60_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_6.0"/>
+			</physvol>
+			<physvol name="volTPCAsic_61_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_6.1"/>
+			</physvol>
+			<physvol name="volTPCAsic_62_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_6.2"/>
+			</physvol>
+			<physvol name="volTPCAsic_63_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_6.3"/>
+			</physvol>
+			<physvol name="volTPCAsic_64_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_6.4"/>
+			</physvol>
+			<physvol name="volTPCAsic_65_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_6.5"/>
+			</physvol>
+			<physvol name="volTPCAsic_66_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_6.6"/>
+			</physvol>
+			<physvol name="volTPCAsic_67_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_6.7"/>
+			</physvol>
+			<physvol name="volTPCAsic_68_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_6.8"/>
+			</physvol>
+			<physvol name="volTPCAsic_69_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_6.9"/>
+			</physvol>
+			<physvol name="volTPCAsic_70_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_7.0"/>
+			</physvol>
+			<physvol name="volTPCAsic_71_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_7.1"/>
+			</physvol>
+			<physvol name="volTPCAsic_72_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_7.2"/>
+			</physvol>
+			<physvol name="volTPCAsic_73_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_7.3"/>
+			</physvol>
+			<physvol name="volTPCAsic_74_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_7.4"/>
+			</physvol>
+			<physvol name="volTPCAsic_75_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_7.5"/>
+			</physvol>
+			<physvol name="volTPCAsic_76_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_7.6"/>
+			</physvol>
+			<physvol name="volTPCAsic_77_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_7.7"/>
+			</physvol>
+			<physvol name="volTPCAsic_78_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_7.8"/>
+			</physvol>
+			<physvol name="volTPCAsic_79_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_7.9"/>
+			</physvol>
+			<physvol name="volTPCAsic_80_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_8.0"/>
+			</physvol>
+			<physvol name="volTPCAsic_81_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_8.1"/>
+			</physvol>
+			<physvol name="volTPCAsic_82_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_8.2"/>
+			</physvol>
+			<physvol name="volTPCAsic_83_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_8.3"/>
+			</physvol>
+			<physvol name="volTPCAsic_84_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_8.4"/>
+			</physvol>
+			<physvol name="volTPCAsic_85_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_8.5"/>
+			</physvol>
+			<physvol name="volTPCAsic_86_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_8.6"/>
+			</physvol>
+			<physvol name="volTPCAsic_87_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_8.7"/>
+			</physvol>
+			<physvol name="volTPCAsic_88_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_8.8"/>
+			</physvol>
+			<physvol name="volTPCAsic_89_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_8.9"/>
+			</physvol>
+			<physvol name="volTPCAsic_90_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_9.0"/>
+			</physvol>
+			<physvol name="volTPCAsic_91_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_9.1"/>
+			</physvol>
+			<physvol name="volTPCAsic_92_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_9.2"/>
+			</physvol>
+			<physvol name="volTPCAsic_93_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_9.3"/>
+			</physvol>
+			<physvol name="volTPCAsic_94_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_9.4"/>
+			</physvol>
+			<physvol name="volTPCAsic_95_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_9.5"/>
+			</physvol>
+			<physvol name="volTPCAsic_96_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_9.6"/>
+			</physvol>
+			<physvol name="volTPCAsic_97_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_9.7"/>
+			</physvol>
+			<physvol name="volTPCAsic_98_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_9.8"/>
+			</physvol>
+			<physvol name="volTPCAsic_99_PV">
+				<volumeref ref="volTPCAsic"/>
+				<positionref ref="Asic_pos_9.9"/>
+			</physvol>
+		</volume>
+		<volume name="volTPCPlane">
+			<materialref ref="LAr"/>
+			<solidref ref="TPCPlane"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTPCPlane"/>
+			<physvol name="volPixelPlane_PV">
+				<volumeref ref="volPixelPlane"/>
+				<positionref ref="PixelPlane_pos_0_R"/>
+			</physvol>
+			<physvol name="volPixelPlane_1_PV" copynumber="2">
+				<volumeref ref="volPixelPlane"/>
+				<positionref ref="PixelPlane_pos_1_R"/>
+			</physvol>
+			<physvol name="volPixelPlane_2_PV" copynumber="4">
+				<volumeref ref="volPixelPlane"/>
+				<positionref ref="PixelPlane_pos_2_R"/>
+			</physvol>
+			<physvol name="volPixelPlane_3_PV" copynumber="6">
+				<volumeref ref="volPixelPlane"/>
+				<positionref ref="PixelPlane_pos_3_R"/>
+			</physvol>
+			<physvol name="volPixelPlane_4_PV" copynumber="1">
+				<volumeref ref="volPixelPlane"/>
+				<positionref ref="PixelPlane_pos_0_L"/>
+				<rotationref ref="PixelPlane_rot_0_L"/>
+			</physvol>
+			<physvol name="volPixelPlane_5_PV" copynumber="3">
+				<volumeref ref="volPixelPlane"/>
+				<positionref ref="PixelPlane_pos_1_L"/>
+				<rotationref ref="PixelPlane_rot_1_L"/>
+			</physvol>
+			<physvol name="volPixelPlane_6_PV" copynumber="5">
+				<volumeref ref="volPixelPlane"/>
+				<positionref ref="PixelPlane_pos_2_L"/>
+				<rotationref ref="PixelPlane_rot_2_L"/>
+			</physvol>
+			<physvol name="volPixelPlane_7_PV" copynumber="7">
+				<volumeref ref="volPixelPlane"/>
+				<positionref ref="PixelPlane_pos_3_L"/>
+				<rotationref ref="PixelPlane_rot_3_L"/>
+			</physvol>
+		</volume>
+		<volume name="volTPCActive">
+			<materialref ref="LAr"/>
+			<solidref ref="TPCActive_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="TPCActive_shape"/>
+			<auxiliary auxtype="EField" auxvalue="(500.0 V/cm, 0.0 V/cm, 0.0 V/cm)"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTPCActive"/>
+		</volume>
+		<volume name="volTPC">
+			<materialref ref="LAr"/>
+			<solidref ref="TPC"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTPC"/>
+			<physvol name="volTPCPlane_PV">
+				<volumeref ref="volTPCPlane"/>
+				<positionref ref="TPCPlane_pos"/>
+			</physvol>
+			<physvol name="volTPCActive_PV">
+				<volumeref ref="volTPCActive"/>
+				<positionref ref="TPCActive_pos"/>
+			</physvol>
+		</volume>
+		<volume name="volSiPM_Sens">
+			<materialref ref="Silicon"/>
+			<solidref ref="SiPM_Sens_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volSiPM_Sens"/>
+		</volume>
+		<volume name="volWLS">
+			<materialref ref="EJ280WLS"/>
+			<solidref ref="WLS_panel_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volWLS"/>
+			<physvol name="volSiPM_Sens_PV">
+				<volumeref ref="volSiPM_Sens"/>
+				<positionref ref="SiPM_Sens_pos_0"/>
+			</physvol>
+			<physvol name="volSiPM_Sens_1_PV" copynumber="1">
+				<volumeref ref="volSiPM_Sens"/>
+				<positionref ref="SiPM_Sens_pos_1"/>
+			</physvol>
+			<physvol name="volSiPM_Sens_2_PV" copynumber="2">
+				<volumeref ref="volSiPM_Sens"/>
+				<positionref ref="SiPM_Sens_pos_2"/>
+			</physvol>
+			<physvol name="volSiPM_Sens_3_PV" copynumber="3">
+				<volumeref ref="volSiPM_Sens"/>
+				<positionref ref="SiPM_Sens_pos_3"/>
+			</physvol>
+			<physvol name="volSiPM_Sens_4_PV" copynumber="4">
+				<volumeref ref="volSiPM_Sens"/>
+				<positionref ref="SiPM_Sens_pos_4"/>
+			</physvol>
+			<physvol name="volSiPM_Sens_5_PV" copynumber="5">
+				<volumeref ref="volSiPM_Sens"/>
+				<positionref ref="SiPM_Sens_pos_5"/>
+			</physvol>
+		</volume>
+		<volume name="volDCM">
+			<materialref ref="PSA"/>
+			<solidref ref="DCM_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volDCM"/>
+		</volume>
+		<volume name="volTPB_LAr">
+			<materialref ref="LAr"/>
+			<solidref ref="TPB_LAr_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volTPB_LAr"/>
+		</volume>
+		<volume name="volSiPM">
+			<materialref ref="Silicon"/>
+			<solidref ref="SiPM_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volSiPM"/>
+		</volume>
+		<volume name="volSiPM_Mask">
+			<materialref ref="PVT"/>
+			<solidref ref="SiPM_Mask_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volSiPM_Mask"/>
+			<physvol name="volSiPM_PV">
+				<volumeref ref="volSiPM"/>
+				<positionref ref="SiPM_pos_0"/>
+			</physvol>
+			<physvol name="volSiPM_1_PV">
+				<volumeref ref="volSiPM"/>
+				<positionref ref="SiPM_pos_1"/>
+			</physvol>
+		</volume>
+		<volume name="volSiPM_PCB">
+			<materialref ref="FR4"/>
+			<solidref ref="SiPM_PCB_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volSiPM_PCB"/>
+		</volume>
+		<volume name="volArCLight">
+			<materialref ref="LAr"/>
+			<solidref ref="ArCLight"/>
+			<auxiliary auxtype="SensDet" auxvalue="volArCLight"/>
+			<physvol name="volWLS_PV">
+				<volumeref ref="volWLS"/>
+				<positionref ref="WLS_pos"/>
+			</physvol>
+			<physvol name="volDCM_PV">
+				<volumeref ref="volDCM"/>
+				<positionref ref="DCM_pos_inner"/>
+			</physvol>
+			<physvol name="volDCM_1_PV">
+				<volumeref ref="volDCM"/>
+				<positionref ref="DCM_pos_outer"/>
+			</physvol>
+			<physvol name="volTPB_LAr_PV">
+				<volumeref ref="volTPB_LAr"/>
+				<positionref ref="TPB_pos"/>
+			</physvol>
+			<physvol name="volSiPM_Mask_PV">
+				<volumeref ref="volSiPM_Mask"/>
+				<positionref ref="SiPM_Mask_pos_0"/>
+			</physvol>
+			<physvol name="volSiPM_Mask_1_PV" copynumber="1">
+				<volumeref ref="volSiPM_Mask"/>
+				<positionref ref="SiPM_Mask_pos_1"/>
+			</physvol>
+			<physvol name="volSiPM_Mask_2_PV" copynumber="2">
+				<volumeref ref="volSiPM_Mask"/>
+				<positionref ref="SiPM_Mask_pos_2"/>
+			</physvol>
+			<physvol name="volSiPM_PCB_PV">
+				<volumeref ref="volSiPM_PCB"/>
+				<positionref ref="SiPM_PCB_pos_0"/>
+			</physvol>
+			<physvol name="volSiPM_PCB_1_PV">
+				<volumeref ref="volSiPM_PCB"/>
+				<positionref ref="SiPM_PCB_pos_1"/>
+			</physvol>
+			<physvol name="volSiPM_PCB_2_PV">
+				<volumeref ref="volSiPM_PCB"/>
+				<positionref ref="SiPM_PCB_pos_2"/>
+			</physvol>
+		</volume>
+		<volume name="volPCBBar">
+			<materialref ref="FR4"/>
+			<solidref ref="PCBBar_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volPCBBar"/>
+		</volume>
+		<volume name="volOpticalDet">
+			<materialref ref="LAr"/>
+			<solidref ref="OpticalDet"/>
+			<auxiliary auxtype="SensDet" auxvalue="volOpticalDet"/>
+			<physvol name="volArCLight_PV">
+				<volumeref ref="volArCLight"/>
+				<positionref ref="ArCLight_pos_0"/>
+			</physvol>
+			<physvol name="volArCLight_1_PV">
+				<volumeref ref="volArCLight"/>
+				<positionref ref="ArCLight_pos_1"/>
+			</physvol>
+			<physvol name="volArCLight_2_PV">
+				<volumeref ref="volArCLight"/>
+				<positionref ref="ArCLight_pos_2"/>
+			</physvol>
+			<physvol name="volArCLight_3_PV">
+				<volumeref ref="volArCLight"/>
+				<positionref ref="ArCLight_pos_3"/>
+			</physvol>
+			<physvol name="volPCBBar_PV">
+				<volumeref ref="volPCBBar"/>
+				<positionref ref="PCBBar_pos_0"/>
+			</physvol>
+			<physvol name="volPCBBar_1_PV">
+				<volumeref ref="volPCBBar"/>
+				<positionref ref="PCBBar_pos_1"/>
+			</physvol>
+			<physvol name="volPCBBar_2_PV">
+				<volumeref ref="volPCBBar"/>
+				<positionref ref="PCBBar_pos_2"/>
+			</physvol>
+			<physvol name="volPCBBar_3_PV">
+				<volumeref ref="volPCBBar"/>
+				<positionref ref="PCBBar_pos_3"/>
+			</physvol>
+		</volume>
+		<volume name="volLAr">
+			<materialref ref="LAr"/>
+			<solidref ref="LAr_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volLAr"/>
+			<physvol name="volTPC_PV">
+				<volumeref ref="volTPC"/>
+				<positionref ref="TPC_pos"/>
+			</physvol>
+			<physvol name="volOpticalDet_PV">
+				<volumeref ref="volOpticalDet"/>
+				<positionref ref="OpticalDet_pos_L"/>
+			</physvol>
+			<physvol name="volOpticalDet_1_PV">
+				<volumeref ref="volOpticalDet"/>
+				<positionref ref="OpticalDet_pos_R"/>
+				<rotationref ref="OpticalDet_rot"/>
+			</physvol>
+		</volume>
+		<volume name="volFieldcage">
+			<materialref ref="G10"/>
+			<solidref ref="Fieldcage_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volFieldcage"/>
+			<physvol name="volLAr_PV">
+				<volumeref ref="volLAr"/>
+				<positionref ref="LAr_pos"/>
+			</physvol>
+		</volume>
+		<volume name="volHalfDetector">
+			<materialref ref="G10"/>
+			<solidref ref="HalfDetector"/>
+			<auxiliary auxtype="SensDet" auxvalue="volHalfDetector"/>
+			<physvol name="volFieldcage_PV">
+				<volumeref ref="volFieldcage"/>
+				<positionref ref="Fieldcage_pos"/>
+			</physvol>
+		</volume>
+		<volume name="volInnerDetector">
+			<materialref ref="G10"/>
+			<solidref ref="InnerDetector"/>
+			<auxiliary auxtype="SensDet" auxvalue="volInnerDetector"/>
+			<physvol name="volHalfDetector_PV">
+				<volumeref ref="volHalfDetector"/>
+				<positionref ref="HalfDetector_pos_L"/>
+			</physvol>
+			<physvol name="volHalfDetector_1_PV" copynumber="1">
+				<volumeref ref="volHalfDetector"/>
+				<positionref ref="HalfDetector_pos_R"/>
+				<rotationref ref="HalfDetector_rot"/>
+			</physvol>
+		</volume>
+		<volume name="volBackplateGap">
+			<materialref ref="LAr"/>
+			<solidref ref="BackplateGap_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volBackplateGap"/>
+		</volume>
+		<volume name="volBackplate">
+			<materialref ref="G10"/>
+			<solidref ref="Backplate"/>
+			<auxiliary auxtype="SensDet" auxvalue="volBackplate"/>
+			<physvol name="volBackplateGap_PV">
+				<volumeref ref="volBackplateGap"/>
+				<positionref ref="BackplateGap_pos_0"/>
+			</physvol>
+			<physvol name="volBackplateGap_1_PV">
+				<volumeref ref="volBackplateGap"/>
+				<positionref ref="BackplateGap_pos_1"/>
+			</physvol>
+			<physvol name="volBackplateGap_2_PV">
+				<volumeref ref="volBackplateGap"/>
+				<positionref ref="BackplateGap_pos_2"/>
+			</physvol>
+			<physvol name="volBackplateGap_3_PV">
+				<volumeref ref="volBackplateGap"/>
+				<positionref ref="BackplateGap_pos_3"/>
+			</physvol>
+			<physvol name="volBackplateGap_4_PV">
+				<volumeref ref="volBackplateGap"/>
+				<positionref ref="BackplateGap_pos_4"/>
+			</physvol>
+			<physvol name="volBackplateGap_5_PV">
+				<volumeref ref="volBackplateGap"/>
+				<positionref ref="BackplateGap_pos_5"/>
+			</physvol>
+			<physvol name="volBackplateGap_6_PV">
+				<volumeref ref="volBackplateGap"/>
+				<positionref ref="BackplateGap_pos_6"/>
+			</physvol>
+			<physvol name="volBackplateGap_7_PV">
+				<volumeref ref="volBackplateGap"/>
+				<positionref ref="BackplateGap_pos_7"/>
+			</physvol>
+		</volume>
+		<volume name="volLArPhaseG10Side">
+			<materialref ref="LAr"/>
+			<solidref ref="LArPhaseG10Side_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volLArPhaseG10Side"/>
+			<physvol name="volG10Bottom_PV">
+				<volumeref ref="volG10Bottom"/>
+				<positionref ref="G10Bottom_pos"/>
+			</physvol>
+			<physvol name="volInnerDetector_PV">
+				<volumeref ref="volInnerDetector"/>
+				<positionref ref="InnerDetector_pos"/>
+			</physvol>
+			<physvol name="volBackplate_PV">
+				<volumeref ref="volBackplate"/>
+				<positionref ref="Backplate_pos_L"/>
+			</physvol>
+			<physvol name="volBackplate_1_PV" copynumber="1">
+				<volumeref ref="volBackplate"/>
+				<positionref ref="Backplate_pos_R"/>
+			</physvol>
+		</volume>
+		<volume name="volBackplate_GAr">
+			<materialref ref="G10"/>
+			<solidref ref="Backplate_GAr_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volBackplate_GAr"/>
+		</volume>
+		<volume name="volPillowCavity">
+			<materialref ref="Vac"/>
+			<solidref ref="PillowCavity_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volPillowCavity"/>
+		</volume>
+		<volume name="volPillowSide">
+			<materialref ref="Steel"/>
+			<solidref ref="PillowSide_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volPillowSide"/>
+			<physvol name="volPillowCavity_PV">
+				<volumeref ref="volPillowCavity"/>
+				<positionref ref="PillowCavity_pos"/>
+			</physvol>
+		</volume>
+		<volume name="volAngleBarTop">
+			<materialref ref="Steel"/>
+			<solidref ref="AngleBarTop_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volAngleBarTop"/>
+		</volume>
+		<volume name="volAngleBase">
+			<materialref ref="Steel"/>
+			<solidref ref="AngleBase_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volAngleBase"/>
+		</volume>
+		<volume name="volAngleSide">
+			<materialref ref="Steel"/>
+			<solidref ref="AngleSide_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volAngleSide"/>
+		</volume>
+		<volume name="volAngleBarSide">
+			<materialref ref="Steel"/>
+			<solidref ref="AngleBarSide_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volAngleBarSide"/>
+		</volume>
+		<volume name="volG10">
+			<materialref ref="G10"/>
+			<solidref ref="G10_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volG10"/>
+		</volume>
+		<volume name="volPillow">
+			<materialref ref="GAr"/>
+			<solidref ref="Pillow"/>
+			<auxiliary auxtype="SensDet" auxvalue="volPillow"/>
+			<physvol name="volPillowSide_PV">
+				<volumeref ref="volPillowSide"/>
+				<positionref ref="PillowSide_pos"/>
+			</physvol>
+			<physvol name="volAngleBarTop_PV">
+				<volumeref ref="volAngleBarTop"/>
+				<positionref ref="AngleBarTop_L_pos"/>
+			</physvol>
+			<physvol name="volAngleBarTop_1_PV">
+				<volumeref ref="volAngleBarTop"/>
+				<positionref ref="AngleBarTop_R_pos"/>
+				<rotationref ref="AngleBarTop_R_rot"/>
+			</physvol>
+			<physvol name="volAngleBase_PV">
+				<volumeref ref="volAngleBase"/>
+				<positionref ref="AngleBase_pos_0"/>
+			</physvol>
+			<physvol name="volAngleBase_1_PV">
+				<volumeref ref="volAngleBase"/>
+				<positionref ref="AngleBase_pos_1"/>
+			</physvol>
+			<physvol name="volAngleBase_2_PV">
+				<volumeref ref="volAngleBase"/>
+				<positionref ref="AngleBase_pos_2"/>
+			</physvol>
+			<physvol name="volAngleBase_3_PV">
+				<volumeref ref="volAngleBase"/>
+				<positionref ref="AngleBase_pos_3"/>
+			</physvol>
+			<physvol name="volAngleBase_4_PV">
+				<volumeref ref="volAngleBase"/>
+				<positionref ref="AngleBase_pos_4"/>
+			</physvol>
+			<physvol name="volAngleBase_5_PV">
+				<volumeref ref="volAngleBase"/>
+				<positionref ref="AngleBase_pos_5"/>
+			</physvol>
+			<physvol name="volAngleSide_PV">
+				<volumeref ref="volAngleSide"/>
+				<positionref ref="AngleSide_pos_0"/>
+			</physvol>
+			<physvol name="volAngleSide_1_PV">
+				<volumeref ref="volAngleSide"/>
+				<positionref ref="AngleSide_pos_1"/>
+			</physvol>
+			<physvol name="volAngleSide_2_PV">
+				<volumeref ref="volAngleSide"/>
+				<positionref ref="AngleSide_pos_2"/>
+			</physvol>
+			<physvol name="volAngleSide_3_PV">
+				<volumeref ref="volAngleSide"/>
+				<positionref ref="AngleSide_pos_3"/>
+			</physvol>
+			<physvol name="volAngleSide_4_PV">
+				<volumeref ref="volAngleSide"/>
+				<positionref ref="AngleSide_pos_4"/>
+			</physvol>
+			<physvol name="volAngleSide_5_PV">
+				<volumeref ref="volAngleSide"/>
+				<positionref ref="AngleSide_pos_5"/>
+			</physvol>
+			<physvol name="volAngleBarSide_PV">
+				<volumeref ref="volAngleBarSide"/>
+				<positionref ref="AngleBarSide_pos_2"/>
+			</physvol>
+			<physvol name="volAngleBarSide_1_PV">
+				<volumeref ref="volAngleBarSide"/>
+				<positionref ref="AngleBarSide_pos_5"/>
+			</physvol>
+			<physvol name="volG10_PV">
+				<volumeref ref="volG10"/>
+				<positionref ref="G10_pos_2"/>
+			</physvol>
+			<physvol name="volG10_1_PV">
+				<volumeref ref="volG10"/>
+				<positionref ref="G10_pos_5"/>
+			</physvol>
+		</volume>
+		<volume name="volGArPhaseG10Side">
+			<materialref ref="GAr"/>
+			<solidref ref="GArPhaseG10Side_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volGArPhaseG10Side"/>
+			<physvol name="volBackplate_GAr_PV">
+				<volumeref ref="volBackplate_GAr"/>
+				<positionref ref="Backplate_GAr_L_pos"/>
+			</physvol>
+			<physvol name="volBackplate_GAr_1_PV">
+				<volumeref ref="volBackplate_GAr"/>
+				<positionref ref="Backplate_GAr_R_pos"/>
+			</physvol>
+			<physvol name="volPillow_PV">
+				<volumeref ref="volPillow"/>
+				<positionref ref="Pillow_pos"/>
+			</physvol>
+		</volume>
+		<volume name="volG10Side">
+			<materialref ref="G10"/>
+			<solidref ref="G10Side_shape"/>
+			<auxiliary auxtype="SensDet" auxvalue="volG10Side"/>
+			<physvol name="volLArPhaseG10Side_PV">
+				<volumeref ref="volLArPhaseG10Side"/>
+				<positionref ref="LArPhaseG10Side_pos"/>
+			</physvol>
+			<physvol name="volGArPhaseG10Side_PV">
+				<volumeref ref="volGArPhaseG10Side"/>
+				<positionref ref="GArPhaseG10Side_pos"/>
+			</physvol>
+		</volume>
+		<volume name="volBucket">
+			<materialref ref="GAr"/>
+			<solidref ref="Bucket"/>
+			<auxiliary auxtype="SensDet" auxvalue="volBucket"/>
+			<physvol name="volG10Side_PV">
+				<volumeref ref="volG10Side"/>
+				<positionref ref="G10Side_pos"/>
+			</physvol>
+		</volume>
+		<volume name="volModuleBucket">
+			<materialref ref="Air"/>
+			<solidref ref="ModuleBucket"/>
+			<auxiliary auxtype="SensDet" auxvalue="volModuleBucket"/>
+			<physvol name="volBucket_PV">
+				<volumeref ref="volBucket"/>
+				<positionref ref="Bucket_pos"/>
+			</physvol>
+		</volume>
+		<volume name="volDetectorBucket">
+			<materialref ref="Air"/>
+			<solidref ref="DetectorBucket"/>
+			<auxiliary auxtype="SensDet" auxvalue="volDetectorBucket"/>
+			<physvol name="volModuleBucket_PV">
+				<volumeref ref="volModuleBucket"/>
+				<positionref ref="ModuleBucket_pos_0.0"/>
+			</physvol>
+			<physvol name="volModuleBucket_1_PV" copynumber="2">
+				<volumeref ref="volModuleBucket"/>
+				<positionref ref="ModuleBucket_pos_0.1"/>
+			</physvol>
+			<physvol name="volModuleBucket_2_PV" copynumber="1">
+				<volumeref ref="volModuleBucket"/>
+				<positionref ref="ModuleBucket_pos_1.0"/>
+			</physvol>
+			<physvol name="volModuleBucket_3_PV" copynumber="3">
+				<volumeref ref="volModuleBucket"/>
+				<positionref ref="ModuleBucket_pos_1.1"/>
+			</physvol>
+		</volume>
+		<volume name="volCryostatInnerBath_CylindricalTubeHead">
+			<materialref ref="LAr"/>
+			<solidref ref="CryostatInnerBath_CylindricalTubeHead"/>
+			<auxiliary auxtype="SensDet" auxvalue="volCryostatInnerBath_CylindricalTubeHead"/>
+			<physvol name="volDetectorBucket_PV">
+				<volumeref ref="volDetectorBucket"/>
+				<positionref ref="CryostatInnerBathvolDetectorBucket_pos"/>
+				<rotationref ref="CryostatInnerBathvolDetectorBucket_rot"/>
+			</physvol>
+		</volume>
+		<volume name="volCryostatInnerWall_CylindricalTubeHead">
+			<materialref ref="SSteel304"/>
+			<solidref ref="CryostatInnerWall_CylindricalTubeHead"/>
+			<auxiliary auxtype="SensDet" auxvalue="volCryostatInnerWall_CylindricalTubeHead"/>
+			<physvol name="volCryostatInnerBath_CylindricalTubeHead_PV">
+				<volumeref ref="volCryostatInnerBath_CylindricalTubeHead"/>
+				<positionref ref="CryostatInnerWallvolCryostatInnerBath_CylindricalTubeHead_pos"/>
+				<rotationref ref="CryostatInnerWallvolCryostatInnerBath_CylindricalTubeHead_rot"/>
+			</physvol>
+		</volume>
+		<volume name="volCryostatInsulation_CylindricalTubeHead">
+			<materialref ref="NoGas"/>
+			<solidref ref="CryostatInsulation_CylindricalTubeHead"/>
+			<auxiliary auxtype="SensDet" auxvalue="volCryostatInsulation_CylindricalTubeHead"/>
+			<physvol name="volCryostatInnerWall_CylindricalTubeHead_PV">
+				<volumeref ref="volCryostatInnerWall_CylindricalTubeHead"/>
+				<positionref ref="CryostatInsulationvolCryostatInnerWall_CylindricalTubeHead_pos"/>
+				<rotationref ref="CryostatInsulationvolCryostatInnerWall_CylindricalTubeHead_rot"/>
+			</physvol>
+		</volume>
+		<volume name="volCryostatOuterWall_CylindricalTubeHead">
+			<materialref ref="SSteel304"/>
+			<solidref ref="CryostatOuterWall_CylindricalTubeHead"/>
+			<auxiliary auxtype="SensDet" auxvalue="volCryostatOuterWall_CylindricalTubeHead"/>
+			<physvol name="volCryostatInsulation_CylindricalTubeHead_PV">
+				<volumeref ref="volCryostatInsulation_CylindricalTubeHead"/>
+				<positionref ref="CryostatOuterWallvolCryostatInsulation_CylindricalTubeHead_pos"/>
+				<rotationref ref="CryostatOuterWallvolCryostatInsulation_CylindricalTubeHead_rot"/>
+			</physvol>
+		</volume>
+		<volume name="volCryostatConnection">
+			<materialref ref="SSteel304"/>
+			<solidref ref="CryostatConnection"/>
+			<auxiliary auxtype="SensDet" auxvalue="volCryostatConnection"/>
+		</volume>
+		<volume name="volCryostatInlet">
+			<materialref ref="SSteel304"/>
+			<solidref ref="CryostatInlet"/>
+			<auxiliary auxtype="SensDet" auxvalue="volCryostatInlet"/>
+		</volume>
+		<volume name="volCryostatLeg">
+			<materialref ref="SSteel304"/>
+			<solidref ref="CryostatLeg"/>
+			<auxiliary auxtype="SensDet" auxvalue="volCryostatLeg"/>
+		</volume>
+		<volume name="volCryostatLegConnector">
+			<materialref ref="SSteel304"/>
+			<solidref ref="CryostatLegConnector"/>
+			<auxiliary auxtype="SensDet" auxvalue="volCryostatLegConnector"/>
+		</volume>
+		<assembly name="volArgonCubeCryostat">
+			<physvol name="volCryostatTop_PV">
+				<volumeref ref="volCryostatTop"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatTop_pos"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatTop_rot"/>
+			</physvol>
+			<physvol name="volCryostatFlange_PV">
+				<volumeref ref="volCryostatFlange"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatFlange_pos"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatFlange_rot"/>
+			</physvol>
+			<physvol name="volDetectorCryostatInsertionPlate_PV">
+				<volumeref ref="volDetectorCryostatInsertionPlate"/>
+				<positionref ref="ArgonCubeCryostatvolDetectorCryostatInsertionPlate_pos"/>
+				<rotationref ref="ArgonCubeCryostatvolDetectorCryostatInsertionPlate_rot"/>
+			</physvol>
+			<physvol name="volCryostatOuterWall_CylindricalTubeHead_PV">
+				<volumeref ref="volCryostatOuterWall_CylindricalTubeHead"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatOuterWall_CylindricalTubeHead_pos"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatOuterWall_CylindricalTubeHead_rot"/>
+			</physvol>
+			<physvol name="volCryostatConnection_PV">
+				<volumeref ref="volCryostatConnection"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatConnection1_pos"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatConnection1_rot"/>
+			</physvol>
+			<physvol name="volCryostatConnection_1_PV">
+				<volumeref ref="volCryostatConnection"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatConnection2_pos"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatConnection2_rot"/>
+			</physvol>
+			<physvol name="volCryostatConnection_2_PV">
+				<volumeref ref="volCryostatConnection"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatConnection3_pos"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatConnection3_rot"/>
+			</physvol>
+			<physvol name="volCryostatInlet_PV">
+				<volumeref ref="volCryostatInlet"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatInlet1_pos"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatInlet1_rot"/>
+			</physvol>
+			<physvol name="volCryostatInlet_1_PV">
+				<volumeref ref="volCryostatInlet"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatInlet2_pos"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatInlet2_rot"/>
+			</physvol>
+			<physvol name="volCryostatInlet_2_PV">
+				<volumeref ref="volCryostatInlet"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatInlet3_pos"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatInlet3_rot"/>
+			</physvol>
+			<physvol name="volCryostatInlet_3_PV">
+				<volumeref ref="volCryostatInlet"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatInlet4_pos"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatInlet4_rot"/>
+			</physvol>
+			<physvol name="volCryostatLeg_PV">
+				<volumeref ref="volCryostatLeg"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatLeg_pos1"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatLeg_rot1"/>
+			</physvol>
+			<physvol name="volCryostatLeg_1_PV">
+				<volumeref ref="volCryostatLeg"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatLeg_pos2"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatLeg_rot2"/>
+			</physvol>
+			<physvol name="volCryostatLeg_2_PV">
+				<volumeref ref="volCryostatLeg"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatLeg_pos3"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatLeg_rot3"/>
+			</physvol>
+			<physvol name="volCryostatLeg_3_PV">
+				<volumeref ref="volCryostatLeg"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatLeg_pos4"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatLeg_rot4"/>
+			</physvol>
+			<physvol name="volCryostatLegConnector_PV">
+				<volumeref ref="volCryostatLegConnector"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatLegConnector_pos1"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatLegConnector_rot1"/>
+			</physvol>
+			<physvol name="volCryostatLegConnector_1_PV">
+				<volumeref ref="volCryostatLegConnector"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatLegConnector_pos2"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatLegConnector_rot2"/>
+			</physvol>
+			<physvol name="volCryostatLegConnector_2_PV">
+				<volumeref ref="volCryostatLegConnector"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatLegConnector_pos3"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatLegConnector_rot3"/>
+			</physvol>
+			<physvol name="volCryostatLegConnector_3_PV">
+				<volumeref ref="volCryostatLegConnector"/>
+				<positionref ref="ArgonCubeCryostatvolCryostatLegConnector_pos4"/>
+				<rotationref ref="ArgonCubeCryostatvolCryostatLegConnector_rot4"/>
+			</physvol>
+		</assembly>
+		<volume name="Volume000784">
+			<materialref ref="ReifConcrete"/>
+			<solidref ref="Box000172"/>
+			<auxiliary auxtype="SensDet" auxvalue="Volume000784"/>
+		</volume>
+		<volume name="volBase">
+			<materialref ref="Air"/>
+			<solidref ref="Base"/>
+			<auxiliary auxtype="SensDet" auxvalue="volBase"/>
+			<physvol name="Volume000784_PV">
+				<volumeref ref="Volume000784"/>
+				<positionref ref="block1_in_Base"/>
+			</physvol>
+			<physvol name="Volume000784_1_PV">
+				<volumeref ref="Volume000784"/>
+				<positionref ref="block2_in_Base"/>
+			</physvol>
+		</volume>
+		<volume name="Volume000825">
+			<materialref ref="SSteel304"/>
+			<solidref ref="Boolean000205"/>
+			<auxiliary auxtype="SensDet" auxvalue="Volume000825"/>
+		</volume>
+		<assembly name="volSurroundings2x2">
+			<physvol name="volMinervaStand_PV">
+				<volumeref ref="volMinervaStand"/>
+				<positionref ref="Position000790"/>
+			</physvol>
+			<physvol name="volMinervaStand_1_PV">
+				<volumeref ref="volMinervaStand"/>
+				<positionref ref="Position000791"/>
+				<rotationref ref="Rotation000793"/>
+			</physvol>
+			<physvol name="volArgonCubeCryostat_PV">
+				<volumeref ref="volArgonCubeCryostat"/>
+				<positionref ref="ArgonCubeCryostat_pos"/>
+				<rotationref ref="Rotation000796"/>
+			</physvol>
+			<physvol name="volBase_PV">
+				<volumeref ref="volBase"/>
+				<positionref ref="Base_pos"/>
+			</physvol>
+			<physvol name="Volume000825_PV">
+				<volumeref ref="Volume000825"/>
+				<positionref ref="Position000826"/>
+			</physvol>
+		</assembly>
+		<volume name="volMinosNDHall">
+			<materialref ref="Air"/>
+			<solidref ref="HallAirVolTemp2"/>
+			<auxiliary auxtype="SensDet" auxvalue="volMinosNDHall"/>
+			<physvol name="volSurroundings2x2_PV">
+				<volumeref ref="volSurroundings2x2"/>
+				<positionref ref="Surroundings2x2_pos"/>
+				<rotationref ref="Rotation000844"/>
+			</physvol>
+		</volume>
+		<volume name="volhall_2x2_air_volume">
+			<materialref ref="Rock"/>
+			<solidref ref="hall_2x2_air_volume"/>
+			<auxiliary auxtype="SensDet" auxvalue="volhall_2x2_air_volume"/>
+			<physvol name="volMinosNDHall_PV">
+				<volumeref ref="volMinosNDHall"/>
+				<positionref ref="HallPosition"/>
+				<rotationref ref="Rotation000847"/>
+			</physvol>
+		</volume>
+		<volume name="volWorld">
+			<materialref ref="Vac"/>
+			<solidref ref="World"/>
+			<auxiliary auxtype="SensDet" auxvalue="volWorld"/>
+			<physvol name="volhall_2x2_air_volume_PV">
+				<volumeref ref="volhall_2x2_air_volume"/>
+				<positionref ref="volhall_2x2_air_volume_pos"/>
+				<rotationref ref="volhall_2x2_air_volume_rot"/>
+			</physvol>
+		</volume>
+	</structure>
+	<setup name="Default" version="1.0">
+		<world ref="volWorld"/>
+	</setup>
+</gdml>
