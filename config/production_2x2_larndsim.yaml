@@ -31,5 +31,5 @@ SEARCH_LIGHT_DET_NOISE: light_noise_2x2_4mod_July2023.npy
 SET_LIGHT_SIMULATION:   False
 
 # items project_larndsim.py search under dunend_train_prod repository
-SEARCH_GEOMETRY: 2x2.gdml
+SEARCH_GEOMETRY: arc2x2_sensLAr.gdml
 SEARCH_MPVMPR:   mpvmpr_2x2.yaml
