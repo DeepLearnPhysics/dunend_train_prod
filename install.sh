@@ -5,7 +5,7 @@ git submodule update --remote
 
 echo "installing larnd-sim"
 cd modules/larnd-sim
-git checkout c5042f1c6fc9b1f6b6a37e6e6c3ff0615c7c5c26
+git checkout 1b8d97bf9ccdbee56ded4ceb4582ab3570c32d3a
 export SKIP_CUPY_INSTALL=1
 pip install . --user
 if [ $? -gt 0 ]
@@ -17,7 +17,7 @@ cd -
 
 echo "installing event parser"
 cd modules/larpix_readout_parser
-git checkout 281549740d15c0c2a2a8a9bf33ad58ea74cc50cb
+git checkout 6f6fad0c0977dc4b420770d81d5647d2345ed828
 pip install . --user
 if [ $? -gt 0 ]
 then
