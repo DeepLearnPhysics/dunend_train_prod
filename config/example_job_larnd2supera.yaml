@@ -5,7 +5,7 @@ STORE_IMAGE: False
 SLURM_WORK_DIR:  /lscratch/$USER
 SLURM_NUM_JOBS:  5        # number of jobs to submit
 SLURM_PARTITION: ampere   # partition
-SLURM_TIME:      20:00:00 # max time HH:MM:SS
+SLURM_TIME:      1:00:00 # max time HH:MM:SS
 SLURM_MEM:       24       # total in GB
 SLURM_CPU:       6        # number of CPUs
 SLURM_NODELIST: ''
