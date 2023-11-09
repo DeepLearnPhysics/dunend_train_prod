@@ -6,7 +6,7 @@ SLURM_WORK_DIR:  /lscratch/$USER
 SLURM_NUM_JOBS:  2        # number of jobs to submit
 SLURM_PARTITION: ampere   # partition
 SLURM_ACCOUNT:   neutrino:dune-ml # account
-SLURM_TIME:      0:30:00 # max time HH:MM:SS
+SLURM_TIME:      1:00:00 # max time HH:MM:SS
 SLURM_MEM:       24       # total in GB
 SLURM_CPU:       6        # number of CPUs
 SLURM_NODELIST: ''
