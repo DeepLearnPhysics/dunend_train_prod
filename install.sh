@@ -51,7 +51,7 @@ cd -
 
 echo "installing larnd2supera"
 cd modules/larnd2supera
-git checkout 6e2cae6684dcdebabae08e068d72c312dee063da
+git checkout a86d512a6ab83f563655d4dfdef3cca92c606dc9
 pip install . --user
 if [ $? -gt 0 ]
 then
