@@ -193,6 +193,7 @@ def gen_submission_script(cfg):
 #SBATCH --job-name=dntp-{os.getpid()}
 #SBATCH --nodes=1
 #SBATCH --partition={cfg['SLURM_PARTITION']}
+#SBATCH --account={cfg['SLURM_ACCOUNT']}
 #SBATCH --output={cfg['JOB_LOG_DIR']}/slurm-%A-%a.out
 #SBATCH --error={cfg['JOB_LOG_DIR']}/slurm-%A-%a.err
 #SBATCH --ntasks=1
