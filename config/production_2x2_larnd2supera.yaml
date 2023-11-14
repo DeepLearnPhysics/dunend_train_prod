@@ -1,5 +1,5 @@
 STORAGE_DIR: /sdf/data/neutrino/$USER/dunend_train_prod/prod2x2_v0_1_larnd2supera
-SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub20.04-cuda11.6-pytorch1.13-larndsim.sif
+SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub20.04-cuda11.6-pytorch1.13-larndsim-2023-11-07.sif
 STORE_IMAGE: False
 
 SLURM_WORK_DIR:  $LSCRATCH/$USER
@@ -11,7 +11,7 @@ SLURM_NODELIST: ''
 SLURM_EXCLUDE:  ''
 
 # larnd2supera config
-SUPERA_CONFIG: 2x2
+SUPERA_CONFIG: 2x2_only
 
 #SLURM_NUM_JOBS: 132%40
 #GLOB: "/sdf/data/neutrino/kterao/dunend_train_prod/prod2x2_v0_1/production_828284/job_17842428_0*/output*larndsim.h5"
