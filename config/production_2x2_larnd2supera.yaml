@@ -11,7 +11,7 @@ SLURM_NODELIST: ''
 SLURM_EXCLUDE:  ''
 
 # larnd2supera config
-SUPERA_CONFIG: 2x2_only
+SUPERA_CONFIG: 2x2_MR45
 
 #SLURM_NUM_JOBS: 132%40
 #GLOB: "/sdf/data/neutrino/kterao/dunend_train_prod/prod2x2_v0_1/production_828284/job_17842428_0*/output*larndsim.h5"
