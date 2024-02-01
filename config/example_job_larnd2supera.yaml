@@ -12,5 +12,5 @@ SLURM_NODELIST: ''
 SLURM_EXCLUDE:  ''
 
 # larnd2supera config
-SUPERA_CONFIG: 2x2_only 
+SUPERA_CONFIG: 2x2_MR45
 GLOB: "/sdf/data/neutrino/$USER/dunend_train_prod/larnd-sim/production_*/job_*/*larndsim.h5"

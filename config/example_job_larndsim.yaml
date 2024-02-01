@@ -22,7 +22,7 @@ LARNDSIM_SCRIPT: simulate_pixels.py
 
 # items project_larndsim.py search under larnd-sim repository
 SEARCH_PIXEL_LAYOUT:   multi_tile_layout-2.4.16.yaml
-SEARCH_DET_PROPERTIES:  2x2_only.yaml
+SEARCH_DET_PROPERTIES:  2x2.yaml
 SEARCH_SIM_PROPERTIES:  singles_sim.yaml
 SEARCH_RESPONSE:        response_44.npy
 SEARCH_LIGHT_LUT:       lightLUT.npz
@@ -30,5 +30,5 @@ SEARCH_LIGHT_DET_NOISE: light_noise_2x2_4mod_July2023.npy
 SET_LIGHT_SIMULATION:   False
 
 # items project_larndsim.py search under dunend_train_prod repository
-SEARCH_GEOMETRY: arc2x2_sensLAr.gdml
+SEARCH_GEOMETRY: Merged2x2MINERvA_v4_noRock.gdml
 SEARCH_MPVMPR:   mpvmpr_2x2.yaml
