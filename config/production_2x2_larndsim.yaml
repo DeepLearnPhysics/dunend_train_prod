@@ -29,8 +29,8 @@ USE_SIM_PROPERTIES:     config/sim_2x2.yaml
 SEARCH_RESPONSE:        response_44.npy
 SEARCH_LIGHT_LUT:       lightLUT.npz
 SEARCH_LIGHT_DET_NOISE: light_noise_2x2_4mod_July2023.npy
-SET_LIGHT_SIMULATION:   False
+SET_LIGHT_SIMULATION:   True
 
 # items project_larndsim.py search under dunend_train_prod repository
 SEARCH_GEOMETRY: Merged2x2MINERvA_v4_noRock.gdml
-SEARCH_MPVMPR:   mpvmpr_2x2.yaml
+SEARCH_MPVMPR:   single_muon_2x2.yaml #mpvmpr_2x2.yaml
