@@ -1,0 +1,36 @@
+# ===============
+# single_muon_2x2.yaml
+# ===============
+
+# 2x2 geometry boundaries in mm
+# 
+# X: -639.31 => 639.31
+# Y: -198.543 => 1038.543
+# Z: -643.163 => 643.163
+#
+# geo_v4
+# X: -639.31 => 639.31
+# Y: -618.543 => 1038.543
+# Z: -643.163 => 643.163
+
+SEED: -1
+## with lepton, generate 4cm from the wall
+Generator1:
+  NumEvent: [1,1]
+  NumParticle: [1,1]
+  #  XRange: [-679.31,679.31] #mm
+  #  YRange: [-2418.543,-1261.457] # [-158,543,998.543] #mm
+  #  ZRange: [12396.837,13603.163] # [-603.163,604.163] #mm
+  XRange: [-599.31,599.31] #mm
+  YRange: [-578.543,578.543] #mm
+  #YRange: [-158.543,998.543] #mm
+  ZRange: [-603.163,603.163] #mm
+  TRange: [0,10] #ns
+  AddParent: True
+  Particles:
+    -
+      PDG:      [13]
+      NumRange: [1,1]
+      KERange:  [0.01,4.]
+      UseMom:   True
+      Weight:   1
