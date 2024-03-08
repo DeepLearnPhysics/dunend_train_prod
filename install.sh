@@ -26,6 +26,16 @@ then
 fi
 cd -
 
+echo "installing ndlar_flow"
+cd modules/ndlar_flow
+pip install . --user
+if [ $? -gt 0 ]
+then
+    echo "Failed to install ndlar_flow"
+    exit 1
+fi
+cd -
+
 echo "installing SuperaAtomic"
 cd modules/SuperaAtomic
 #git checkout bde4a158ff31034a6381c37c81b13fe9c0feb2b6
