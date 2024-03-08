@@ -16,6 +16,7 @@ REQUIRED = dict(GEOMETRY=os.path.join(pathlib.Path(__file__).parent.resolve(),'g
     LIGHT_DET_NOISE='larndsim/bin',
     LIGHT_SIMULATION=False,
     FLOW_YAML=pathlib.Path(__file__).parent.resolve().as_posix(),
+    FLOW_DATA=pathlib.Path(__file__).parent.resolve().as_posix(),
     )
 
 class project_larndsim(project_base):
@@ -25,6 +26,7 @@ class project_larndsim(project_base):
         cfg['G4_MACRO_PATH']=os.path.join(cfg['JOB_SOURCE_DIR'],'g4.mac')
 
         cfg['FLOW_YAML']=os.path.join(pathlib.Path(os.path.abspath(__file__)).parent.resolve(), cfg['FLOW_REPOSITORY'],'yamls')
+        cfg['FLOW_DATA']=os.path.join(pathlib.Path(os.path.abspath(__file__)).parent.resolve(), cfg['FLOW_REPOSITORY'],'data')
 
         # Check required configuration files
         for word in REQUIRED.keys():
@@ -60,7 +62,6 @@ class project_larndsim(project_base):
                     raise ValueError('Please add local larnd-sim installation path to LARNDSIM_REPOSITORY in the config')
 
                 path = os.path.join(REQUIRED[word],cfg[opt2])
-                print("path: ", path)
                 if not path.startswith('/'):
                     path = os.path.join(cfg['LARNDSIM_REPOSITORY'],path)
 
@@ -83,8 +84,6 @@ class project_larndsim(project_base):
         self.gen_job_script(cfg)
 
         for key in REQUIRED.keys():
-            print("key: ", key)
-            print("type(REQUIRED[key]) ", type(REQUIRED[key]))
             if type(REQUIRED[key]) == str:
                 self.COPY_FILES.append(cfg[key])
 
@@ -122,7 +121,6 @@ pwd
 inFile={cfg['JOB_OUTPUT_ID']}-larndsim.h5
 
 outFile={cfg['JOB_OUTPUT_ID']}-flow.h5
-#outFile={cfg['STORAGE_DIR']}/{cfg['JOB_WORK_DIR']}/{cfg['JOB_OUTPUT_ID']}-flow.h5
 
 echo $inFile
 echo $outFile
@@ -140,15 +138,6 @@ workflow7='yamls/proto_nd_flow/workflows/light/light_event_reconstruction.yaml'
 
 # charge-light trigger matching
 workflow8='yamls/proto_nd_flow/workflows/charge/charge_light_assoc.yaml'
-
-h5flow -c $workflow1 $workflow2 $workflow3 $workflow4 $workflow5\
-    -i $inFile -o $outFile
-
-h5flow -c $workflow6 $workflow7\
-    -i $inFile -o $outFile
-
-h5flow -c $workflow8\
-    -i $outFile -o $outFile
 
         '''
         return macro
@@ -180,7 +169,14 @@ h5flow -c $workflow8\
 --save_memory=log_resources.h5 \
 '''
 
-        cmd_flow = self.gen_flow_script(cfg)
+        cmd_flow_def = self.gen_flow_script(cfg)
+
+        cmd_flow_charge = f'''h5flow -c $workflow1 $workflow2 $workflow3 $workflow4 $workflow5\
+                              -i $inFile -o $outFile'''
+        cmd_flow_light = f'''h5flow -c $workflow6 $workflow7\
+                              -i $inFile -o $outFile'''
+        cmd_flow_charge_light = f'''h5flow -c $workflow8\
+                              -i $outFile -o $outFile'''
 
         self.PROJECT_SCRIPT=f'''#!/bin/bash
 date
@@ -219,9 +215,14 @@ echo {cmd_larndsim}
 date
 echo "Running ndlar_flow"
 
-echo {cmd_flow}
+echo {cmd_flow_def}
+echo {cmd_flow_charge}
+echo {cmd_flow_light}
+echo {cmd_flow_charge_light}
 
-{cmd_flow} &>> log_flow.txt
+{cmd_flow_charge} &>> log_flow.txt
+{cmd_flow_light} &>> log_flow.txt
+{cmd_flow_charge_light} &>> log_flow.txt
 
 date
 echo "Removing the response file..."

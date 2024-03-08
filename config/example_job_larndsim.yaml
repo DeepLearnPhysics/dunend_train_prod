@@ -35,4 +35,5 @@ SEARCH_MPVMPR:   single_muon_2x2.yaml #mpvmpr_2x2.yaml
 
 FLOW_REPOSITORY: modules/ndlar_flow
 SEARCH_FLOW_YAML: modules/ndlar_flow/yamls
+SEARCH_FLOW_DATA: modules/ndlar_flow/data
 
