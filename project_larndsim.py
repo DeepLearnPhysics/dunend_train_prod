@@ -15,6 +15,7 @@ REQUIRED = dict(GEOMETRY=os.path.join(pathlib.Path(__file__).parent.resolve(),'g
     LIGHT_LUT='larndsim/bin',
     LIGHT_DET_NOISE='larndsim/bin',
     LIGHT_SIMULATION=False,
+    FLOW_YAML=pathlib.Path(__file__).parent.resolve().as_posix(),
     )
 
 class project_larndsim(project_base):
@@ -22,6 +23,8 @@ class project_larndsim(project_base):
     def parse_project_config(self,cfg):
 
         cfg['G4_MACRO_PATH']=os.path.join(cfg['JOB_SOURCE_DIR'],'g4.mac')
+
+        cfg['FLOW_YAML']=os.path.join(pathlib.Path(os.path.abspath(__file__)).parent.resolve(), cfg['FLOW_REPOSITORY'],'yamls')
 
         # Check required configuration files
         for word in REQUIRED.keys():
@@ -57,10 +60,11 @@ class project_larndsim(project_base):
                     raise ValueError('Please add local larnd-sim installation path to LARNDSIM_REPOSITORY in the config')
 
                 path = os.path.join(REQUIRED[word],cfg[opt2])
+                print("path: ", path)
                 if not path.startswith('/'):
                     path = os.path.join(cfg['LARNDSIM_REPOSITORY'],path)
 
-                if not os.path.isfile(path):
+                if not os.path.isfile(path) and not os.path.isdir(path):
                     print(f'Searched a file {cfg[opt2]} but not found...')
                     raise FileNotFoundError(f'{path}')
 
@@ -79,6 +83,8 @@ class project_larndsim(project_base):
         self.gen_job_script(cfg)
 
         for key in REQUIRED.keys():
+            print("key: ", key)
+            print("type(REQUIRED[key]) ", type(REQUIRED[key]))
             if type(REQUIRED[key]) == str:
                 self.COPY_FILES.append(cfg[key])
 
@@ -101,6 +107,48 @@ class project_larndsim(project_base):
 /generator/count/fixed/number 1
 /generator/count/set fixed
 /generator/add
+
+        '''
+        return macro
+
+    def gen_flow_script(self, cfg):
+
+        macro=f'''
+
+scp {cfg['FLOW_REPOSITORY']}/yamls .
+
+pwd
+
+inFile={cfg['JOB_OUTPUT_ID']}-larndsim.h5
+
+outFile={cfg['JOB_OUTPUT_ID']}-flow.h5
+#outFile={cfg['STORAGE_DIR']}/{cfg['JOB_WORK_DIR']}/{cfg['JOB_OUTPUT_ID']}-flow.h5
+
+echo $inFile
+echo $outFile
+
+# charge workflows
+workflow1='yamls/proto_nd_flow/workflows/charge/charge_event_building.yaml'
+workflow2='yamls/proto_nd_flow/workflows/charge/charge_event_reconstruction.yaml'
+workflow3='yamls/proto_nd_flow/workflows/combined/combined_reconstruction.yaml'
+workflow4='yamls/proto_nd_flow/workflows/charge/prompt_calibration.yaml'
+workflow5='yamls/proto_nd_flow/workflows/charge/final_calibration.yaml'
+
+# light workflows
+workflow6='yamls/proto_nd_flow/workflows/light/light_event_building_mc.yaml'
+workflow7='yamls/proto_nd_flow/workflows/light/light_event_reconstruction.yaml'
+
+# charge-light trigger matching
+workflow8='yamls/proto_nd_flow/workflows/charge/charge_light_assoc.yaml'
+
+h5flow -c $workflow1 $workflow2 $workflow3 $workflow4 $workflow5\
+    -i $inFile -o $outFile
+
+h5flow -c $workflow6 $workflow7\
+    -i $inFile -o $outFile
+
+h5flow -c $workflow8\
+    -i $outFile -o $outFile
 
         '''
         return macro
@@ -131,6 +179,8 @@ class project_larndsim(project_base):
 --output_filename={cfg['JOB_OUTPUT_ID']}-larndsim.h5 \
 --save_memory=log_resources.h5 \
 '''
+
+        cmd_flow = self.gen_flow_script(cfg)
 
         self.PROJECT_SCRIPT=f'''#!/bin/bash
 date
@@ -165,6 +215,13 @@ echo "Running larnd-sim"
 echo {cmd_larndsim}
 
 {cmd_larndsim} &>> log_larndsim.txt
+
+date
+echo "Running ndlar_flow"
+
+echo {cmd_flow}
+
+{cmd_flow} &>> log_flow.txt
 
 date
 echo "Removing the response file..."

@@ -79,6 +79,10 @@ def parse(data):
     res['JOB_OUTPUT_ID' ] = 'output_${SLURM_ARRAY_JOB_ID}_${SLURM_ARRAY_TASK_ID}'
     res['JOB_LOG_DIR'   ] = os.path.join(res['STORAGE_DIR'],'slurm_logs')
 
+    # append cfg
+    cfg['STORAGE_DIR'   ] = res['JOB_SOURCE_DIR']
+    cfg['JOB_WORK_DIR'  ] = os.path.join(res['STORAGE_DIR'], res['JOB_WORK_DIR'  ])
+
     # ensure singularity image is valid
     if not 'SINGULARITY_IMAGE' in cfg:
         raise KeyError('SINGULARITY_IMAGE must be specified in the config.')
@@ -213,6 +217,9 @@ mkdir -p {cfg['SLURM_WORK_DIR']}
 cd {cfg['SLURM_WORK_DIR']}
 
 scp -r {cfg['JOB_SOURCE_DIR']} {cfg['JOB_WORK_DIR']}
+
+echo "this job dir"
+echo {cfg['JOB_WORK_DIR']}
 
 cd {cfg['JOB_WORK_DIR']}
 

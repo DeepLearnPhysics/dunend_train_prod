@@ -1,5 +1,5 @@
 STORAGE_DIR: /sdf/data/neutrino/$USER/dunend_train_prod/larnd-sim
-NUM_EVENTS:  20
+NUM_EVENTS:  2
 SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub20.04-cuda11.6-pytorch1.13-larndsim-2023-11-07.sif
 #SINGULARITY_IMAGE: /sdf/group/neutrino/images/develop.sif
 STORE_IMAGE: False
@@ -12,7 +12,7 @@ SLURM_TIME:      1:00:00  # max time HH:MM:SS
 SLURM_MEM:       40       # total in GB
 SLURM_CPU:       4        # number of CPUs
 SLURM_NODELIST: ''
-SLURM_EXCLUDE:  ''
+SLURM_EXCLUDE:  'sdfampere021'
 
 #
 # Below are configurations specific to running simulations up to larndsim
@@ -25,10 +25,14 @@ SEARCH_PIXEL_LAYOUT:   multi_tile_layout-2.4.16.yaml
 SEARCH_DET_PROPERTIES:  2x2.yaml
 SEARCH_SIM_PROPERTIES:  singles_sim.yaml
 SEARCH_RESPONSE:        response_44.npy
-SEARCH_LIGHT_LUT:       lightLUT.npz
+SEARCH_LIGHT_LUT:       /sdf/data/neutrino/2x2/light_lut/lightLUT_Mod123.npz   #lightLUT.npz
 SEARCH_LIGHT_DET_NOISE: light_noise_2x2_4mod_July2023.npy
 SET_LIGHT_SIMULATION:   True
 
 # items project_larndsim.py search under dunend_train_prod repository
 SEARCH_GEOMETRY: Merged2x2MINERvA_v4_withRock.gdml
 SEARCH_MPVMPR:   single_muon_2x2.yaml #mpvmpr_2x2.yaml
+
+FLOW_REPOSITORY: modules/ndlar_flow
+SEARCH_FLOW_YAML: modules/ndlar_flow/yamls
+

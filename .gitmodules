@@ -2,6 +2,10 @@
 	path = modules/larnd-sim
 	url = https://github.com/dune/larnd-sim
 	branch = develop
+[submodule "modules/ndlar_flow"]
+        path = modules/ndlar_flow
+        url = https://github.com/DUNE/ndlar_flow.git
+        branch = develop
 [submodule "modules/SuperaAtomic"]
 	path = modules/SuperaAtomic
 	url = https://github.com/DeepLearnPhysics/SuperaAtomic

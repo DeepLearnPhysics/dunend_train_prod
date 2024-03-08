@@ -56,9 +56,14 @@ class project_base():
         res['JOB_SOURCE_DIR'] = os.path.join(sdir,'job_source')
 
         # add job work directory and output name
-        res['JOB_WORK_DIR'  ] = 'job_${SLURM_ARRAY_JOB_ID}_${SLURM_ARRAY_TASK_ID}'
+        res['JOB_WORK_DIR'  ] = "(printf 'job_%d_%04d' $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID)"
+        #res['JOB_WORK_DIR'  ] = (printf "job_%d_%04d" $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID) #'job_${SLURM_ARRAY_JOB_ID}_${SLURM_ARRAY_TASK_ID}'
         res['JOB_OUTPUT_ID' ] = 'output_${SLURM_ARRAY_JOB_ID}_${SLURM_ARRAY_TASK_ID}'
         res['JOB_LOG_DIR'   ] = os.path.join(res['STORAGE_DIR'],'slurm_logs')
+
+        ## append cfg
+        #cfg['STORAGE_DIR'   ] = res['JOB_SOURCE_DIR']
+        #cfg['JOB_WORK_DIR'  ] = os.path.join(res['STORAGE_DIR'], res['JOB_WORK_DIR'  ])
 
         # ensure singularity image is valid
         if not 'SINGULARITY_IMAGE' in cfg:
@@ -193,8 +198,14 @@ scp -r $JOB_WORK_DIR {cfg['STORAGE_DIR']}/
                 f.close()
             # Copy necessary files
             for f in self.COPY_FILES:
-                src,target=f,os.path.basename(f)
-                shutil.copyfile(src,os.path.join(jsdir,target))
+                if os.path.isdir(f):
+                    src,target=f,os.path.basename(f)
+                    shutil.copytree(src,os.path.join(jsdir,target))
+                elif os.path.isfile(f):
+                    src,target=f,os.path.basename(f)
+                    shutil.copyfile(src,os.path.join(jsdir,target))
+                else:
+                    raise ValueError("can only copy files or directories")
 
             #
             # Log the config contents
