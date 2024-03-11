@@ -2,6 +2,7 @@ import yaml, os, pathlib, shutil
 import numpy as np
 from yaml import Loader
 from datetime import timedelta
+import warnings
 
 class project_base():
 
@@ -42,10 +43,12 @@ class project_base():
         # Check the storage directory and create this job's output directory
         if not 'STORAGE_DIR' in cfg:
             raise KeyError('STORAGE_DIR key is missing in the configuration file.')
-        if not os.path.isdir(os.path.expandvars(cfg['STORAGE_DIR'])):
-            raise FileNotFoundError(f'Storage path {cfg["STORAGE_DIR"]} is invalid.')
         if not 'SLURM_NUM_JOBS' in cfg:
             raise KeyError('SLURM_NUM_JOBS key is missing in the configuration file.')
+        if not os.path.isdir(os.path.expandvars(cfg['STORAGE_DIR'])):
+            os.makedirs(cfg['STORAGE_DIR'])
+            warnings.warn(f'Storage path {cfg["STORAGE_DIR"]} does not exist. Making one.')
+            #raise FileNotFoundError(f'Storage path {cfg["STORAGE_DIR"]} is invalid.')
 
         sdir=os.path.abspath(os.path.join(os.path.expandvars(cfg['STORAGE_DIR']),f'production_{os.getpid()}'))
         if os.path.isdir(sdir):
@@ -121,6 +124,7 @@ class project_base():
         script += f'''
 mkdir -p {cfg['SLURM_WORK_DIR']} 
 cd {cfg['SLURM_WORK_DIR']}
+echo {cfg['SLURM_WORK_DIR']}
 
 JOB_WORK_DIR=$(printf "job_%d_%04d" $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID)
 
