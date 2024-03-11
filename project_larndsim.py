@@ -8,13 +8,15 @@ from project_base import project_base
 
 REQUIRED = dict(GEOMETRY=os.path.join(pathlib.Path(__file__).parent.resolve(),'geometry'),
     MPVMPR=os.path.join(pathlib.Path(__file__).parent.resolve(),'config'),
-    SIM_PROPERTIES='larndsim/simulation_properties/',
-    PIXEL_LAYOUT='larndsim/pixel_layouts/',
-    DET_PROPERTIES='larndsim/detector_properties/',
-    RESPONSE='larndsim/bin',
-    LIGHT_LUT='larndsim/bin',
-    LIGHT_DET_NOISE='larndsim/bin',
-    LIGHT_SIMULATION=False,
+    LARNDSIM_SIM_PROPERTIES='larndsim/simulation_properties/',
+    LARNDSIM_PIXEL_LAYOUT='larndsim/pixel_layouts/',
+    LARNDSIM_DET_PROPERTIES='larndsim/detector_properties/',
+    LARNDSIM_RESPONSE='larndsim/bin',
+    LARNDSIM_LIGHT_LUT='larndsim/bin',
+    LARNDSIM_LIGHT_DET_NOISE='larndsim/bin',
+    LARNDSIM_LIGHT_SIMULATION=False,
+    LARNDSIM_LIGHT_LUT_EXT="['/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod0.npz', '/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod123.npz']",
+    LARNDSIM_CONFIG='2x2_mod2mod_variation_mpvmpr',
     FLOW_YAML=pathlib.Path(__file__).parent.resolve().as_posix(),
     FLOW_DATA=pathlib.Path(__file__).parent.resolve().as_posix(),
     )
@@ -85,7 +87,15 @@ class project_larndsim(project_base):
 
         for key in REQUIRED.keys():
             if type(REQUIRED[key]) == str:
-                self.COPY_FILES.append(cfg[key])
+                # No need to copy the configuration files which are in the larndsim package since the configuration is recorded
+                if key.startswith("LARNDSIM_"):
+                    continue
+                else:
+                    if isinstance(cfg[key], list):
+                        for f in cfg[key]:
+                            self.COPY_FILES.append(f)
+                    elif os.path.exists(cfg[key]):
+                        self.COPY_FILES.append(cfg[key])
 
 
     def gen_g4macro(self, mpv_config):
@@ -114,16 +124,9 @@ class project_larndsim(project_base):
 
         macro=f'''
 
-scp {cfg['FLOW_REPOSITORY']}/yamls .
-
-pwd
-
 inFile={cfg['JOB_OUTPUT_ID']}-larndsim.h5
 
 outFile={cfg['JOB_OUTPUT_ID']}-flow.h5
-
-echo $inFile
-echo $outFile
 
 # charge workflows
 workflow1='yamls/proto_nd_flow/workflows/charge/charge_event_building.yaml'
@@ -157,13 +160,8 @@ workflow8='yamls/proto_nd_flow/workflows/charge/charge_light_assoc.yaml'
 '''
 
         cmd_larndsim = f'''{cfg['LARNDSIM_SCRIPT']} \
---simulation_properties={os.path.basename(cfg['SIM_PROPERTIES'])} \
---pixel_layout={os.path.basename(cfg['PIXEL_LAYOUT'])} \
---detector_properties={os.path.basename(cfg['DET_PROPERTIES'])} \
---response_file={os.path.basename(cfg['RESPONSE'])} \
---light_lut_filename={os.path.basename(cfg['LIGHT_LUT'])} \
---light_det_noise_filename={os.path.basename(cfg['LIGHT_DET_NOISE'])} \
---light_simulated={str(cfg['LIGHT_SIMULATION'])} \
+--config={cfg['LARNDSIM_CONFIG']} \
+--light_lut_filename="{cfg['LARNDSIM_LIGHT_LUT_EXT']}" \
 --input_filename={cfg['JOB_OUTPUT_ID']}-edepsim.h5 \
 --output_filename={cfg['JOB_OUTPUT_ID']}-larndsim.h5 \
 --save_memory=log_resources.h5 \
@@ -226,7 +224,6 @@ echo {cmd_flow_charge_light}
 
 date
 echo "Removing the response file..."
-rm {os.path.basename(cfg['RESPONSE'])}
 
 echo "Exiting"
     
