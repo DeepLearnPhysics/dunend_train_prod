@@ -57,8 +57,7 @@ class project_base():
 
         # add job work directory and output name
         res['JOB_WORK_DIR'  ] = "(printf 'job_%d_%04d' $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID)"
-        #res['JOB_WORK_DIR'  ] = (printf "job_%d_%04d" $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID) #'job_${SLURM_ARRAY_JOB_ID}_${SLURM_ARRAY_TASK_ID}'
-        res['JOB_OUTPUT_ID' ] = 'output_${SLURM_ARRAY_JOB_ID}_${SLURM_ARRAY_TASK_ID}'
+        res['JOB_OUTPUT_ID' ] = "$(printf 'output_%d_%04d' $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID)"
         res['JOB_LOG_DIR'   ] = os.path.join(res['STORAGE_DIR'],'slurm_logs')
 
         ## append cfg
