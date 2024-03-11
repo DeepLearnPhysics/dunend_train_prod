@@ -1,20 +1,19 @@
 STORAGE_DIR: /sdf/data/neutrino/$USER/dunend_train_prod/prod2x2_single_muon_v0_1
-NUM_EVENTS:  100
+NUM_EVENTS:  1000
 SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub20.04-cuda11.6-pytorch1.13-larndsim-2023-11-07.sif
 #SINGULARITY_IMAGE: /sdf/group/neutrino/images/develop.sif
 STORE_IMAGE: False
 
 SLURM_WORK_DIR:  $LSCRATCH/$USER
-SLURM_NUM_JOBS:  1   # number of jobs to submit
-#SLURM_NUM_JOBS:  240%12   # number of jobs to submit
+SLURM_NUM_JOBS:  50%5   # number of jobs to submit
 SLURM_PARTITION: ampere   # partition
 SLURM_ACCOUNT:   neutrino:cider-nu # account
 SLURM_GPU:       a100     # GPU type
-SLURM_TIME:      6:00:00  # max time HH:MM:SS
+SLURM_TIME:      8:00:00  # max time HH:MM:SS
 SLURM_MEM:       40       # total in GB
 SLURM_CPU:       4        # number of CPUs
 SLURM_NODELIST: ''
-SLURM_EXCLUDE:  ''
+SLURM_EXCLUDE:  'sdfampere021'
 
 #
 # Below are configurations specific to running simulations up to larndsim
