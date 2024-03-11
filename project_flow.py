@@ -87,13 +87,13 @@ class project_larndsim(project_base):
 
         for key in REQUIRED.keys():
             if type(REQUIRED[key]) == str:
-                # No need to copy the configuration files which are in the larndsim package since the configuration is recorded
-                if key.startswith("LARNDSIM_"):
+                if key.startswith("LARNDSIM_") and not key.endswith("_EXT"):
                     continue
                 else:
                     if isinstance(cfg[key], list):
-                        for f in cfg[key]:
+                        for i_f, f in enumerate(cfg[key]):
                             self.COPY_FILES.append(f)
+                            cfg[key][i_f] = os.path.basename(f)
                     elif os.path.exists(cfg[key]):
                         self.COPY_FILES.append(cfg[key])
 
@@ -223,7 +223,8 @@ echo {cmd_flow_charge_light}
 {cmd_flow_charge_light} &>> log_flow.txt
 
 date
-echo "Removing the response file..."
+echo "Removing the some configuration files..."
+rm lightLUT_Mod*.npz
 
 echo "Exiting"
     
