@@ -100,7 +100,7 @@ class project_larndsim(project_base):
 
     def gen_g4macro(self, mpv_config):
         macro=f'''
-/edep/hitSeparation TPCActive_shape -1 mm
+/edep/hitSeparation volTPCActive -1 mm
 /edep/hitSagitta drift 1.0 mm
 /edep/hitLength drift 1.0 mm
 /edep/db/set/neutronThreshold 0 MeV
@@ -161,6 +161,7 @@ workflow8='yamls/proto_nd_flow/workflows/charge/charge_light_assoc.yaml'
 
         cmd_larndsim = f'''{cfg['LARNDSIM_SCRIPT']} \
 --config={cfg['LARNDSIM_CONFIG']} \
+--light_simulated={str(cfg['LARNDSIM_LIGHT_SIMULATION'])} \
 --light_lut_filename="{cfg['LARNDSIM_LIGHT_LUT_EXT']}" \
 --input_filename={cfg['JOB_OUTPUT_ID']}-edepsim.h5 \
 --output_filename={cfg['JOB_OUTPUT_ID']}-larndsim.h5 \
@@ -203,24 +204,24 @@ echo {cmd_dumptree}
 {cmd_dumptree} &>> log_dumptree.txt
 
 
-date
-echo "Running larnd-sim"
-
-echo {cmd_larndsim}
-
-{cmd_larndsim} &>> log_larndsim.txt
-
-date
-echo "Running ndlar_flow"
-
-echo {cmd_flow_def}
-echo {cmd_flow_charge}
-echo {cmd_flow_light}
-echo {cmd_flow_charge_light}
-
-{cmd_flow_charge} &>> log_flow.txt
-{cmd_flow_light} &>> log_flow.txt
-{cmd_flow_charge_light} &>> log_flow.txt
+#date
+#echo "Running larnd-sim"
+#
+#echo {cmd_larndsim}
+#
+#{cmd_larndsim} &>> log_larndsim.txt
+#
+#date
+#echo "Running ndlar_flow"
+#
+#echo {cmd_flow_def}
+#echo {cmd_flow_charge}
+#echo {cmd_flow_light}
+#echo {cmd_flow_charge_light}
+#
+#{cmd_flow_charge} &>> log_flow.txt
+#{cmd_flow_light} &>> log_flow.txt
+#{cmd_flow_charge_light} &>> log_flow.txt
 
 date
 echo "Removing the some configuration files..."
