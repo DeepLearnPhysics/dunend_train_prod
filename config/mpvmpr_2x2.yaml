@@ -17,7 +17,7 @@ SEED: -1
 ## with lepton, generate 4cm from the wall
 Generator1:
   NumEvent: [0,1]
-  NumParticle: [1,10]
+  NumParticle: [1,8]
   #  XRange: [-679.31,679.31] #mm
   #  YRange: [-2418.543,-1261.457] # [-158,543,998.543] #mm
   #  ZRange: [12396.837,13603.163] # [-603.163,604.163] #mm
@@ -65,7 +65,7 @@ Generator1:
 # NC
 Generator2:
   NumEvent: [0,1]
-  NumParticle: [1,10]
+  NumParticle: [1,7]
   XRange: [-599.31,599.31] #mm
   YRange: [-578.543,578.543] #mm
   ZRange: [-603.163,604.163] #mm
@@ -102,7 +102,7 @@ Generator2:
 
 
 Singles:
-  NumEvent: [2,6]
+  NumEvent: [1,4]
   NumParticle: [1,1]
   #XRange: [-679.31,679.31] #mm
   #YRange: [-2418.543,-1261.457] # [-158,543,998.543] #mm
