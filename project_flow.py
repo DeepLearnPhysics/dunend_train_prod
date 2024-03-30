@@ -204,22 +204,22 @@ echo {cmd_dumptree}
 {cmd_dumptree} &>> log_dumptree.txt
 
 
-#date
-#echo "Running larnd-sim"
-#
-#echo {cmd_larndsim}
-#
-#{cmd_larndsim} &>> log_larndsim.txt
-#
-#date
-#echo "Running ndlar_flow"
-#
-#echo {cmd_flow_def}
-#echo {cmd_flow_charge}
-#echo {cmd_flow_light}
-#echo {cmd_flow_charge_light}
-#
-#{cmd_flow_charge} &>> log_flow.txt
+date
+echo "Running larnd-sim"
+
+echo {cmd_larndsim}
+
+{cmd_larndsim} &>> log_larndsim.txt
+
+date
+echo "Running ndlar_flow"
+
+echo {cmd_flow_def}
+echo {cmd_flow_charge}
+echo {cmd_flow_light}
+echo {cmd_flow_charge_light}
+
+{cmd_flow_charge} &>> log_flow.txt
 #{cmd_flow_light} &>> log_flow.txt
 #{cmd_flow_charge_light} &>> log_flow.txt
 
