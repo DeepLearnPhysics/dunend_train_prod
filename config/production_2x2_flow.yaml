@@ -1,11 +1,11 @@
-STORAGE_DIR: /sdf/data/neutrino/$USER/dunend_train_prod/prod2x2_mlreco_mpvmpr_v0_2
+STORAGE_DIR: /sdf/data/neutrino/$USER/dunend_train_prod/prod2x2_mlreco_mpvmpr_v0_3
 NUM_EVENTS:  1000
 SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub20.04-cuda11.6-pytorch1.13-larndsim-2023-11-07.sif
 #SINGULARITY_IMAGE: /sdf/group/neutrino/images/develop.sif
 STORE_IMAGE: False
 
 SLURM_WORK_DIR:  $LSCRATCH/$USER
-SLURM_NUM_JOBS:  50%5   # number of jobs to submit
+SLURM_NUM_JOBS:  50%1   # number of jobs to submit
 SLURM_PARTITION: ampere   # partition
 SLURM_ACCOUNT:   neutrino:dune-ml # account
 SLURM_GPU:       a100     # GPU type
