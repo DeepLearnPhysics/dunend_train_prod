@@ -56,7 +56,21 @@ Generator1:
       Weight:   1
 
     -
+      PDG:      [2112]
+      NumRange: [0,2]
+      KERange:  [0.02,3.]
+      UseMom:   True
+      Weight:   1
+
+    -
       PDG:      [130, 321, -321, 310]
+      NumRange: [0,1]
+      KERange:  [0.01,4.]
+      UseMom:   True
+      Weight:   0.25
+
+    -
+      PDG:      [3122]
       NumRange: [0,1]
       KERange:  [0.01,4.]
       UseMom:   True
@@ -94,15 +108,28 @@ Generator2:
       Weight:   1
 
     -
+      PDG:      [2112]
+      NumRange: [0,2]
+      KERange:  [0.02,3.]
+      UseMom:   True
+      Weight:   1
+
+    -
       PDG:      [130, 321, -321, 310]
       NumRange: [0,1]
       KERange:  [0.01,4.]
       UseMom:   True
       Weight:   0.25
 
+    -
+      PDG:      [3122]
+      NumRange: [0,1]
+      KERange:  [0.01,4.]
+      UseMom:   True
+      Weight:   0.25
 
 Singles:
-  NumEvent: [1,4]
+  NumEvent: [1,5]
   NumParticle: [1,1]
   #XRange: [-679.31,679.31] #mm
   #YRange: [-2418.543,-1261.457] # [-158,543,998.543] #mm
@@ -114,27 +141,36 @@ Singles:
   TRange: [0,10000] #ns
   Particles:
     -
-      PDG:  [13]
+      PDG:  [13, -13]
       NumRange: [0,1]
       KERange:  [0.05,4.]
       UseMom:   True
       Weight:   1
 
     -
-      PDG:  [13]
+      PDG:  [22]
       NumRange: [0,1]
-      KERange:  [0.01,0.05]
+      KERange:  [0.01,1.]
       UseMom:   True
-      Weight:   1
+      Weight:   0.5
 
+    -
       PDG:  [211,-211]
       NumRange: [0,1]
-      KERange:  [0.01,4.]
+      KERange:  [0.05,1.]
       UseMom:   True
       Weight:   0.5
 
+    -
       PDG:  [2212]
       NumRange: [0,1]
-      KERange:  [0.1,0.4]
+      KERange:  [0.05,1.]
       UseMom:   True
       Weight:   0.5
+
+    -
+      PDG:  [2112]
+      NumRange: [0,1]
+      KERange:  [0.05,0.5]
+      UseMom:   True
+      Weight:   0.25
