@@ -1,0 +1,18 @@
+STORAGE_DIR: /sdf/data/neutrino/$USER/dunend_train_prod/prod2x2_v0_3_flow2supera
+SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub20.04-cuda11.6-pytorch1.13-larndsim-2023-11-07.sif
+STORE_IMAGE: False
+
+SLURM_WORK_DIR:  $LSCRATCH/$USER
+SLURM_PARTITION: ampere   # partition
+SLURM_ACCOUNT:   neutrino:dune-ml # account
+SLURM_TIME:      5:00:00 # max time HH:MM:SS
+SLURM_MEM:       24       # total in GB
+SLURM_CPU:       6        # number of CPUs
+SLURM_NODELIST: ''
+SLURM_EXCLUDE:  ''
+
+# flow2supera config (this config requirement should be removed from flow2supera)
+SUPERA_CONFIG: 2x2
+
+SLURM_NUM_JOBS: 1%1
+GLOB: "/sdf/data/neutrino/cyifan/dunend_train_prod/prod2x2_mlreco_mpvmpr_v0_3/production_791642/job_46271608_0001/output_46271608_0001-flow.h5"
