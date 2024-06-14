@@ -45,6 +45,17 @@ class project_base():
             raise KeyError('STORAGE_DIR key is missing in the configuration file.')
         if not 'SLURM_NUM_JOBS' in cfg:
             raise KeyError('SLURM_NUM_JOBS key is missing in the configuration file.')
+        else:
+            value = str(cfg['SLURM_NUM_JOBS'])
+            if value.isdigit():
+                value = int(value)-1
+            else:
+                values = value.split('%')
+                if not len(values) == 2 or not (values[0].isdigit() and values[1].isdigit()):
+                    raise ValueError('Invalid SLURM_NUM_JOBS argument:',value)
+                value = '%d%%%d' % (int(values[0])-1,int(values[1]))
+            res['SLURM_NUM_JOBS']=str(value)
+        
         if not os.path.isdir(os.path.expandvars(cfg['STORAGE_DIR'])):
             os.makedirs(cfg['STORAGE_DIR'])
             warnings.warn(f'Storage path {cfg["STORAGE_DIR"]} does not exist. Making one.')
@@ -111,8 +122,8 @@ class project_base():
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task={cfg['SLURM_CPU']}
 #SBATCH --mem-per-cpu={round(cfg['SLURM_MEM']/cfg['SLURM_CPU'])}G
-#SBATCH --time={cfg['SLURM_TIME']}                                                                                                
-#SBATCH --array=1-{cfg['SLURM_NUM_JOBS']}
+#SBATCH --time={cfg['SLURM_TIME']}
+#SBATCH --array=0-{cfg['SLURM_NUM_JOBS']}
 '''
         if 'SLURM_GPU' in cfg:
             script += f'#SBATCH --gpus={cfg["SLURM_GPU"]}:1\n'
