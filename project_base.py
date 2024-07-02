@@ -33,29 +33,55 @@ class project_base():
         '''
         pass
 
-    def parse(self,data):
+    def load_yaml(self,data):
+        print('Parsing project configuration at:',data)
         cfg = yaml.safe_load(data)
-        # SLURM_TIME converted to seconds automatically
-        # convert back to HH:MM:SS format
-        cfg['SLURM_TIME'] = str(timedelta(seconds=cfg['SLURM_TIME']))
+
+        fname = None
+        for key,val in cfg.items():
+            if not key.lower() == 'slurm_config'
+                continue
+            fname = val
+        if fname is None:
+            raise KeyError('SLURM_CONFIG is required (not found)')
+
+        # check if it exists
+        # 0. if starts with '/', abs path search
+        # else:
+        #   1. current dir
+        #   2. the config yaml dir
+        if fname.startswith('/') and not os.path.isfile(fname):
+            raise FileNotFoundError(f'SLURM_CONFIG not found at {fname}')
+        else:
+            case0 = os.path.join(os.getcwd(),fname)
+            case1 = os.path.join(os.path.dirname(data),fname)
+
+            if os.path.isfile(case0):
+                fname = case0
+            elif os.path.isfile(case1):
+                fanme = case1
+            else:
+                raise FileNotFoundError(f'SLURM_CONFIG not found {fname}')
+
+        print('Parsing slurm   configuration at:',fname)
+        slurm_cfg = yaml.safe_load(fname)
+        cfg.update(slurm_cfg)
+        return cfg
+
+
+    def parse(self,data):
+        # Find slurm yaml first
+        cfg = self.load_yaml(data)
+
+        # The "res" will be returned
         res = dict(cfg)
 
         # Check the storage directory and create this job's output directory
         if not 'STORAGE_DIR' in cfg:
             raise KeyError('STORAGE_DIR key is missing in the configuration file.')
-        if not 'SLURM_NUM_JOBS' in cfg:
-            raise KeyError('SLURM_NUM_JOBS key is missing in the configuration file.')
-        else:
-            value = str(cfg['SLURM_NUM_JOBS'])
-            if value.isdigit():
-                value = int(value)-1
-            else:
-                values = value.split('%')
-                if not len(values) == 2 or not (values[0].isdigit() and values[1].isdigit()):
-                    raise ValueError('Invalid SLURM_NUM_JOBS argument:',value)
-                value = '%d%%%d' % (int(values[0])-1,int(values[1]))
-            res['SLURM_NUM_JOBS']=str(value)
-        
+        if not 'SLURM_ARRAY' in cfg:
+            raise KeyError('SLURM_ARRAY key is missing in the configuration file.')
+
         if not os.path.isdir(os.path.expandvars(cfg['STORAGE_DIR'])):
             os.makedirs(cfg['STORAGE_DIR'])
             warnings.warn(f'Storage path {cfg["STORAGE_DIR"]} does not exist. Making one.')
@@ -95,12 +121,38 @@ class project_base():
 
         # define paths to be bound to the singularity session
         self.BIND_PATHS.append(self.get_top_dir(res['STORAGE_DIR']))
-        self.BIND_PATHS.append(self.get_top_dir(res['SLURM_WORK_DIR']))
+        self.BIND_PATHS.append(self.get_top_dir(res['JOB_WORK_DIR']))
         self.BIND_PATHS.append(self.get_top_dir(res['JOB_IMAGE_NAME']))
         self.BIND_PATHS.append(self.get_top_dir(res['JOB_SOURCE_DIR']))
 
         return res
 
+    def gen_slurm_flags(self,cfg):
+
+        # Find slurm related parameters
+        params = {key.lower().lstrip('slurm_'):cfg[key] for key in cfg.keys() if key.lower.startswith('slurm_')}
+
+        # Parse params that need parsing
+        # SLURM_TIME converted to seconds automatically
+        # convert back to HH:MM:SS format
+        if 'time' in params.keys():
+            param['time'] = str(timedelta(seconds=param['time']))
+
+        # Set required params in case not set by config
+        defaults = dict(nodes=1, 
+            ntasks=1,
+            output=f"{cfg['JOB_LOG_DIR']}/slurm-%A-%a.out",
+            error=f"{cfg['JOB_LOG_DIR']}/slurm-%A-%a.out",
+            )
+        for key in defaults.keys():
+            if not key in params:
+                params[key]=defaults[key]
+
+        # Complete the flags
+        flags = f'#SBATCH --jobname=dntp-{os.getpid()}\n'
+        for key,val in params:
+            flags += f'#SBATCH --{key}={val}'
+        return flags
 
     def gen_submission_script(self,cfg):
 
@@ -112,30 +164,12 @@ class project_base():
             else:
                 bflag += f',{str(pt)}'
 
-        script=f'''#!/bin/bash
-#SBATCH --job-name=dntp-{os.getpid()}
-#SBATCH --nodes=1
-#SBATCH --partition={cfg['SLURM_PARTITION']}
-#SBATCH --account={cfg['SLURM_ACCOUNT']}
-#SBATCH --output={cfg['JOB_LOG_DIR']}/slurm-%A-%a.out
-#SBATCH --error={cfg['JOB_LOG_DIR']}/slurm-%A-%a.out
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task={cfg['SLURM_CPU']}
-#SBATCH --mem-per-cpu={round(cfg['SLURM_MEM']/cfg['SLURM_CPU'])}G
-#SBATCH --time={cfg['SLURM_TIME']}
-#SBATCH --array=0-{cfg['SLURM_NUM_JOBS']}
-'''
-        if 'SLURM_GPU' in cfg:
-            script += f'#SBATCH --gpus={cfg["SLURM_GPU"]}:1\n'
-        if 'SLURM_EXCLUDE' in cfg:
-            script += f'#SBATCH --exclude="{cfg["SLURM_EXCLUDE"]}"\n'
-        if 'SLURM_NODELIST' in cfg:
-            script += f'#SBATCH --nodelist="{cfg["SLURM_NODELIST"]}"\n'
+        script=f'#!/bin/bash\n{gen_slurm_flags(cfg)}'
 
         script += f'''
-mkdir -p {cfg['SLURM_WORK_DIR']} 
-cd {cfg['SLURM_WORK_DIR']}
-echo {cfg['SLURM_WORK_DIR']}
+mkdir -p {cfg['JOB_WORK_DIR']} 
+cd {cfg['JOB_WORK_DIR']}
+echo {cfg['JOB_WORK_DIR']}
 
 JOB_WORK_DIR=$(printf "job_%d_%04d" $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID)
 

@@ -6,6 +6,19 @@ from project_base import project_base
 
 class project_flow2supera(project_base):
 
+    def num_jobs(self,cfg):
+        for key in cfg:
+            if not key.lower() == 'slurm_array':
+                continue
+            num_jobs = cfg[key]
+            if '%' in num_jobs:
+                num_jobs = num_jobs.split('%')[0]
+            if '-' in num_jobs:
+                jmin,jmax = num_jobs.split('-')
+                num_jobs = int(jmax) - int(jmin) + 1
+            return int(num_jobs)
+        raise KeyError('SLURM_ARRAY not found in the config. Cannot parse the job count')
+
     def parse_project_config(self,cfg):
 
         if not 'SUPERA_CONFIG' in cfg:
@@ -24,12 +37,10 @@ class project_flow2supera(project_base):
             raise KeyError(f'GLOB {cfg["GLOB"]} returned no file!')
 
         # assert the file count matches the requested job count
-        num_jobs = str(cfg['SLURM_NUM_JOBS'])
-        if '%' in num_jobs:
-            num_jobs = int(num_jobs.split('%')[0])
-        if not len(filelist) == int(num_jobs):
+
+        if not len(filelist) == self.num_jobs(cfg):
             print(f'GLOB {cfg["GLOB"]} returned {len(filelist)} files')
-            print(f'But requested job count is {cfg["SLURM_NUM_JOBS"]} (must match)')
+            print(f'But requested job count is {self.num_jobs(cfg)} (must match)')
             raise ValueError(f'GLOB {cfg["GLOB"]} returned unexpected file count')
 
         # create a filelist
