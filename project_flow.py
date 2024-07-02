@@ -170,12 +170,9 @@ workflow8='yamls/proto_nd_flow/workflows/charge/charge_light_assoc.yaml'
 
         cmd_flow_def = self.gen_flow_script(cfg)
 
-        cmd_flow_charge = f'''h5flow -c $workflow1 $workflow2 $workflow3 $workflow4 $workflow5\
-                              -i $inFile -o $outFile'''
-        cmd_flow_light = f'''h5flow -c $workflow6 $workflow7\
-                              -i $inFile -o $outFile'''
-        cmd_flow_charge_light = f'''h5flow -c $workflow8\
-                              -i $outFile -o $outFile'''
+        cmd_flow_charge = 'h5flow -c $workflow1 $workflow2 $workflow3 $workflow4 -i $inFile -o $outFile'
+        cmd_flow_light = 'h5flow -c $workflow6 $workflow7 -i $inFile -o $outFile'
+        cmd_flow_charge_light = 'h5flow -c $workflow8 -i $outFile -o $outFile'
 
         self.PROJECT_SCRIPT=f'''#!/bin/bash
 date
@@ -212,20 +209,22 @@ echo {cmd_larndsim}
 {cmd_larndsim} &>> log_larndsim.txt
 
 date
-echo "Running ndlar_flow"
+echo "Running ndlar_flow charge"
 
-echo {cmd_flow_def}
 echo {cmd_flow_charge}
-echo {cmd_flow_light}
-echo {cmd_flow_charge_light}
-
 {cmd_flow_charge} &>> log_flow.txt
-#{cmd_flow_light} &>> log_flow.txt
-#{cmd_flow_charge_light} &>> log_flow.txt
+
+#date
+#echo "Running ndlar_flow light"
+#{cmd_flow_light} &>> log_flow_light.txt
+
+#date
+#echo "Running ndlar_flow charge_light"
+#{cmd_flow_charge_light} &>> log_flow_charge_light.txt
 
 date
 echo "Removing the some configuration files..."
-rm lightLUT_Mod*.npz
+rm -f lightLUT_Mod*.npz
 
 echo "Exiting"
     
