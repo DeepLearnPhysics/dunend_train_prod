@@ -35,13 +35,12 @@ class project_base():
 
     def load_yaml(self,data):
         print('Parsing project configuration at:',data)
-        cfg = yaml.safe_load(data)
+        cfg = dict()
 
-        fname = None
-        for key,val in cfg.items():
-            if not key.lower() == 'slurm_config'
-                continue
-            fname = val
+        for key,val in yaml.safe_load(open(data,'r').read()).items():
+            cfg[key.upper()]=val
+
+        fname = cfg.get('SLURM_CONFIG',None)
         if fname is None:
             raise KeyError('SLURM_CONFIG is required (not found)')
 
@@ -59,13 +58,19 @@ class project_base():
             if os.path.isfile(case0):
                 fname = case0
             elif os.path.isfile(case1):
-                fanme = case1
+                fname = case1
             else:
                 raise FileNotFoundError(f'SLURM_CONFIG not found {fname}')
 
         print('Parsing slurm   configuration at:',fname)
-        slurm_cfg = yaml.safe_load(fname)
-        cfg.update(slurm_cfg)
+        slurm_cfg = yaml.safe_load(open(fname,'r').read())
+        main_keys = [key.upper() for key in cfg.keys()]
+        for key,val in slurm_cfg.items():
+            slurm_key = f'SLURM_{key.upper()}'
+            if slurm_key in main_keys:
+                continue
+            cfg[slurm_key] = val
+
         return cfg
 
 
@@ -96,13 +101,8 @@ class project_base():
         res['JOB_SOURCE_DIR'] = os.path.join(sdir,'job_source')
 
         # add job work directory and output name
-        res['JOB_WORK_DIR'  ] = "(printf 'job_%d_%04d' $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID)"
         res['JOB_OUTPUT_ID' ] = "$(printf 'output_%d_%04d' $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID)"
         res['JOB_LOG_DIR'   ] = os.path.join(res['STORAGE_DIR'],'slurm_logs')
-
-        ## append cfg
-        #cfg['STORAGE_DIR'   ] = res['JOB_SOURCE_DIR']
-        #cfg['JOB_WORK_DIR'  ] = os.path.join(res['STORAGE_DIR'], res['JOB_WORK_DIR'  ])
 
         # ensure singularity image is valid
         if not 'SINGULARITY_IMAGE' in cfg:
@@ -130,13 +130,13 @@ class project_base():
     def gen_slurm_flags(self,cfg):
 
         # Find slurm related parameters
-        params = {key.lower().lstrip('slurm_'):cfg[key] for key in cfg.keys() if key.lower.startswith('slurm_')}
+        params = {key.lower().lstrip('slurm_'):cfg[key] for key in cfg.keys() if key.lower().startswith('slurm_')}
 
         # Parse params that need parsing
         # SLURM_TIME converted to seconds automatically
         # convert back to HH:MM:SS format
         if 'time' in params.keys():
-            param['time'] = str(timedelta(seconds=param['time']))
+            params['time'] = str(timedelta(seconds=params['time']))
 
         # Set required params in case not set by config
         defaults = dict(nodes=1, 
@@ -145,12 +145,12 @@ class project_base():
             error=f"{cfg['JOB_LOG_DIR']}/slurm-%A-%a.out",
             )
         for key in defaults.keys():
-            if not key in params:
+            if not key in params.keys():
                 params[key]=defaults[key]
 
         # Complete the flags
         flags = f'#SBATCH --jobname=dntp-{os.getpid()}\n'
-        for key,val in params:
+        for key,val in params.items():
             flags += f'#SBATCH --{key}={val}'
         return flags
 
@@ -164,18 +164,18 @@ class project_base():
             else:
                 bflag += f',{str(pt)}'
 
-        script=f'#!/bin/bash\n{gen_slurm_flags(cfg)}'
+        script=f'#!/bin/bash\n{self.gen_slurm_flags(cfg)}'
 
         script += f'''
 mkdir -p {cfg['JOB_WORK_DIR']} 
 cd {cfg['JOB_WORK_DIR']}
 echo {cfg['JOB_WORK_DIR']}
 
-JOB_WORK_DIR=$(printf "job_%d_%04d" $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID)
+LOCAL_WORK_DIR=$(printf "job_%d_%04d" $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID)
 
-scp -r {cfg['JOB_SOURCE_DIR']} $JOB_WORK_DIR
+scp -r {cfg['JOB_SOURCE_DIR']} $LOCAL_WORK_DIR
 
-cd $JOB_WORK_DIR
+cd $LOCAL_WORK_DIR
 
 export PATH=$HOME/.local/bin:$PATH
 
@@ -190,17 +190,13 @@ date
 echo "Copying the output"
 
 cd ..
-scp -r $JOB_WORK_DIR {cfg['STORAGE_DIR']}/
+scp -r $LOCAL_WORK_DIR {cfg['STORAGE_DIR']}/
     
     '''
         return script
 
 
     def generate(self,cfg):
-        
-        if cfg.endswith('.yaml'):
-            with open(cfg,'r') as f:
-                cfg = f.read()
 
         # parse the configuration            
         cfg = self.parse(cfg)

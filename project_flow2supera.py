@@ -86,7 +86,7 @@ echo "Using larcv from {cfg['LARCV_DIR']}"
 source {cfg['LARCV_DIR']}/configure.sh
 '''
 
-    self.PROJECT_SCRIPT += f'''
+        self.PROJECT_SCRIPT += f'''
 
 echo "Running Supera"
 export PATH=$HOME/.local/bin:$PATH
