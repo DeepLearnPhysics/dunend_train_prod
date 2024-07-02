@@ -1,6 +1,6 @@
-STORAGE_DIR: /sdf/data/neutrino/$USER/dunend_train_prod/prod2x2_mlreco_mpvmpr_v0_3
+STORAGE_DIR: /sdf/data/neutrino/$USER/dunend_train_prod/prod2x2_mlreco_mpvmpr_v0_4
 JOB_WORK_DIR:  $LSCRATCH/$USER
-NUM_EVENTS:  1000
+NUM_EVENTS:  200
 SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub20.04-cuda11.6-pytorch1.13-larndsim-2023-11-07.sif
 #SINGULARITY_IMAGE: /sdf/group/neutrino/images/develop.sif
 STORE_IMAGE: False
@@ -21,7 +21,7 @@ SEARCH_LARNDSIM_RESPONSE:        response_44.npy
 SEARCH_LARNDSIM_LIGHT_LUT:       /sdf/data/neutrino/2x2/light_lut/lightLUT_Mod123.npz   #lightLUT.npz
 SEARCH_LARNDSIM_LIGHT_DET_NOISE: light_noise_2x2_4mod_July2023.npy
 SET_LARNDSIM_LIGHT_SIMULATION:   False
-SET_LARNDSIM_CONFIG:    2x2_mod2mod_variation_mpvmpr
+SET_LARNDSIM_CONFIG:    2x2_mod2mod_variation_old_response
 SET_LARNDSIM_LIGHT_LUT_EXT:       ['/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod0.npz','/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod123.npz']   #lightLUT.npz
 
 # items project_larndsim.py search under dunend_train_prod repository

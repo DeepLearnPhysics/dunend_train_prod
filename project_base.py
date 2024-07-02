@@ -81,6 +81,7 @@ class project_base():
             raise KeyError('STORAGE_DIR key is missing in the configuration file.')
         if not 'SLURM_ARRAY' in cfg:
             raise KeyError('SLURM_ARRAY key is missing in the configuration file.')
+
         if not os.path.isdir(os.path.expandvars(cfg['STORAGE_DIR'])):
             os.makedirs(cfg['STORAGE_DIR'])
             warnings.warn(f'Storage path {cfg["STORAGE_DIR"]} does not exist. Making one.')
@@ -164,7 +165,6 @@ class project_base():
                 bflag += f',{str(pt)}'
 
         script=f'#!/bin/bash\n{gen_slurm_flags(cfg)}'
-
 
         script += f'''
 mkdir -p {cfg['JOB_WORK_DIR']} 
