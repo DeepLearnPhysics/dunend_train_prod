@@ -78,6 +78,15 @@ INPUT_FILE_NAME=`basename $SOURCE_FILE_NAME`
 echo scp $SOURCE_FILE_NAME $INPUT_FILE_NAME
 scp $SOURCE_FILE_NAME $INPUT_FILE_NAME
 date
+'''
+        if 'LARCV_DIR' in cfg:
+            self.PROJECT_SCRIPT += f'''
+
+echo "Using larcv from {cfg['LARCV_DIR']}"
+source {cfg['LARCV_DIR']}/configure.sh
+'''
+
+        self.PROJECT_SCRIPT += f'''
 
 echo "Running Supera"
 export PATH=$HOME/.local/bin:$PATH

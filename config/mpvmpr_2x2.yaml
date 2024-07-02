@@ -16,7 +16,7 @@
 SEED: -1
 ## with lepton, generate 4cm from the wall
 Generator1:
-  NumEvent: [0,1]
+  NumEvent: [1,2]
   NumParticle: [1,8]
   #  XRange: [-679.31,679.31] #mm
   #  YRange: [-2418.543,-1261.457] # [-158,543,998.543] #mm
@@ -144,6 +144,13 @@ Singles:
       PDG:  [13, -13]
       NumRange: [0,1]
       KERange:  [0.05,4.]
+      UseMom:   True
+      Weight:   1
+
+    -
+      PDG:  [-13]
+      NumRange: [0,1]
+      KERange:  [0.03,0.1]
       UseMom:   True
       Weight:   1
 
