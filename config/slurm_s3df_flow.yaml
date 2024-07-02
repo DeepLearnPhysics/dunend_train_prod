@@ -1,0 +1,11 @@
+ARRAY: 0-49%1   # number of jobs to submit
+NODES: 1
+NTASKS: 1
+CPUS-PER-TASK: 4
+MEM-PER-CPU: 10G
+PARTITION: ampere   # partition
+ACCOUNT:   neutrino:dune-ml # account
+GPUS:      a100     # GPU type
+TIME:      10:00:00  # max time HH:MM:SS
+NODELIST: ''
+EXCLUDE:  ''
