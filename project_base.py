@@ -40,10 +40,9 @@ class project_base():
         for key,val in yaml.safe_load(open(data,'r').read()).items():
             cfg[key.upper()]=val
 
-        fname = cfg.get('SLURM_CONFIG',None)
-        if fname is None:
+        if not 'SLURM_CONFIG' in cfg:
             raise KeyError('SLURM_CONFIG is required (not found)')
-
+        fname = cfg.pop('SLURM_CONFIG')
         # check if it exists
         # 0. if starts with '/', abs path search
         # else:
@@ -130,13 +129,15 @@ class project_base():
     def gen_slurm_flags(self,cfg):
 
         # Find slurm related parameters
-        params = {key.lower().lstrip('slurm_'):cfg[key] for key in cfg.keys() if key.lower().startswith('slurm_')}
+        params = {key.lower().replace('slurm_',''):val for key,val in cfg.items() if key.lower().startswith('slurm_')}
 
         # Parse params that need parsing
         # SLURM_TIME converted to seconds automatically
         # convert back to HH:MM:SS format
-        if 'time' in params.keys():
-            params['time'] = str(timedelta(seconds=params['time']))
+        #if 'time' in params.keys():
+        #    print(type(params['time']))
+        #    print(params['time'])
+        #    params['time'] = str(timedelta(seconds=params['time']))
 
         # Set required params in case not set by config
         defaults = dict(nodes=1, 
@@ -149,9 +150,9 @@ class project_base():
                 params[key]=defaults[key]
 
         # Complete the flags
-        flags = f'#SBATCH --jobname=dntp-{os.getpid()}\n'
+        flags = f'#SBATCH --job-name=dntp-{os.getpid()}\n'
         for key,val in params.items():
-            flags += f'#SBATCH --{key}={val}'
+            flags += f'#SBATCH --{key}={val}\n'
         return flags
 
     def gen_submission_script(self,cfg):

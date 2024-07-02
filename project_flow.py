@@ -208,9 +208,10 @@ echo {cmd_larndsim}
 
 {cmd_larndsim} &>> log_larndsim.txt
 
+{cmd_flow_def}
+
 date
 echo "Running ndlar_flow charge"
-
 echo {cmd_flow_charge}
 {cmd_flow_charge} &>> log_flow.txt
 
