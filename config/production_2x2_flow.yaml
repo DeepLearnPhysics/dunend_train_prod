@@ -26,7 +26,7 @@ SET_LARNDSIM_LIGHT_LUT_EXT:       []   #lightLUT.npz
 #SET_LARNDSIM_LIGHT_LUT_EXT:       ['/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod0.npz', '/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod123.npz']   #lightLUT.npz
 
 # items project_larndsim.py search under dunend_train_prod repository
-SEARCH_GEOMETRY: Merged2x2MINERvA_v4_withRock.gdml
+SEARCH_GEOMETRY: Merged2x2MINERvA_v4_withRock_LArSens.gdml
 SEARCH_MPVMPR:   mpvmpr_2x2.yaml #single_muon_2x2.yaml
 
 FLOW_REPOSITORY: modules/ndlar_flow
