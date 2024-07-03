@@ -9,6 +9,7 @@ from project_base import project_base
 REQUIRED = dict(GEOMETRY=os.path.join(pathlib.Path(__file__).parent.resolve(),'geometry'),
     MPVMPR=os.path.join(pathlib.Path(__file__).parent.resolve(),'config'),
     LARNDSIM_SIM_PROPERTIES='larndsim/simulation_properties/',
+    LARNDSIM_SIM_PROPERTIES_EXT=os.path.join(pathlib.Path(__file__).parent.resolve(),'config'),
     LARNDSIM_PIXEL_LAYOUT='larndsim/pixel_layouts/',
     LARNDSIM_DET_PROPERTIES='larndsim/detector_properties/',
     LARNDSIM_RESPONSE='larndsim/bin',
@@ -16,7 +17,7 @@ REQUIRED = dict(GEOMETRY=os.path.join(pathlib.Path(__file__).parent.resolve(),'g
     LARNDSIM_LIGHT_DET_NOISE='larndsim/bin',
     LARNDSIM_LIGHT_SIMULATION=False,
     LARNDSIM_LIGHT_LUT_EXT="['/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod0.npz', '/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod123.npz']",
-    LARNDSIM_CONFIG='2x2_mod2mod_variation_mpvmpr',
+    LARNDSIM_CONFIG='2x2_mpvmpr',
     FLOW_YAML=pathlib.Path(__file__).parent.resolve().as_posix(),
     FLOW_DATA=pathlib.Path(__file__).parent.resolve().as_posix(),
     )
@@ -161,6 +162,7 @@ workflow8='yamls/proto_nd_flow/workflows/charge/charge_light_assoc.yaml'
 
         cmd_larndsim = f'''{cfg['LARNDSIM_SCRIPT']} \
 --config={cfg['LARNDSIM_CONFIG']} \
+--simulation_properties={os.path.basename(cfg['LARNDSIM_SIM_PROPERTIES_EXT'])} \
 --light_simulated={str(cfg['LARNDSIM_LIGHT_SIMULATION'])} \
 --light_lut_filename="{cfg['LARNDSIM_LIGHT_LUT_EXT']}" \
 --input_filename={cfg['JOB_OUTPUT_ID']}-edepsim.h5 \
