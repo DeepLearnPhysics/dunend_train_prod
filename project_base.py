@@ -9,7 +9,7 @@ class project_base():
     def __init__(self):
         self.COPY_FILES=[]
         self.PROJECT_SCRIPT=''
-        self.BIND_PATHS=[]
+        self.CONTAINER_CMD=None
 
     def get_top_dir(self,path):
         p=pathlib.Path(path)
@@ -40,9 +40,10 @@ class project_base():
         for key,val in yaml.safe_load(open(data,'r').read()).items():
             cfg[key.upper()]=val
 
-        if not 'SLURM_CONFIG' in cfg:
+        fname = cfg.get('SLURM_CONFIG',None)
+        if fname is None:
             raise KeyError('SLURM_CONFIG is required (not found)')
-        fname = cfg.pop('SLURM_CONFIG')
+
         # check if it exists
         # 0. if starts with '/', abs path search
         # else:
@@ -103,33 +104,61 @@ class project_base():
         res['JOB_OUTPUT_ID' ] = "$(printf 'output_%d_%04d' $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID)"
         res['JOB_LOG_DIR'   ] = os.path.join(res['STORAGE_DIR'],'slurm_logs')
 
+        if 'SINGULARITY_IMAGE' in cfg:
+
+            if not os.path.isfile(os.path.expandvars(cfg['SINGULARITY_IMAGE'])):
+                raise FileNotFoundError(f'Singularity image invalid in the config:{cfg["SINGULARITY_IMAGE"]}')
+            # resolve symbolic link
+            res['SINGULARITY_IMAGE']=os.path.abspath(os.path.realpath(os.path.expandvars(cfg['SINGULARITY_IMAGE'])))
+
+            # define a copied image name
+            if cfg.get('STORE_IMAGE',True):
+                res['JOB_IMAGE_NAME']=os.path.join(sdir,f'image_{os.getpid()}.sif')
+                res['STORE_IMAGE']=True
+            else:
+                res['JOB_IMAGE_NAME']=res['SINGULARITY_IMAGE']
+
+            # define paths to be bound to the singularity session
+            blist=[]
+            blist.append(self.get_top_dir(res['STORAGE_DIR']))
+            blist.append(self.get_top_dir(res['JOB_WORK_DIR']))
+            blist.append(self.get_top_dir(res['JOB_IMAGE_NAME']))
+            blist.append(self.get_top_dir(res['JOB_SOURCE_DIR']))
+
+            # singularity bind flag
+            bflag = None
+            for pt in np.unique(blist):
+                if bflag is None:
+                    bflag=f'-B {str(pt)}'
+                else:
+                    bflag += f',{str(pt)}'
+
+            self.CONTAINER_CMD=f"singularity exec --nv {bflag} {cfg['JOB_IMAGE_NAME']} ./run.sh"
+
+        elif 'SHIFTER_IMAGE' in cfg:
+            try:
+                subprocess.check_output(["shifterimg", "lookup", cfg['SHIFTER_IMAGE']])
+            except subprocess.CalledProcessError:
+                raise FileNotFoundError(f'Shifter image not found: {cfg["SHIFTER_IMAGE"]}')
+                
+            if cfg.get('STORE_IMAGE',False):
+                raise NotImplementedError('STORE_IMAGE option is not available when using shifter')
+            cfg['STORE_IMAGE']=False
+            cfg['JOB_IMAGE_NAME']=cfg['SHIFTER_IMAGE']
+            self.CONTAINER_CMD=f"shifter --image={cfg['JOB_IMAGE_NAME']} ./run.sh"
+
         # ensure singularity image is valid
         if not 'SINGULARITY_IMAGE' in cfg:
             raise KeyError('SINGULARITY_IMAGE must be specified in the config.')
-        if not os.path.isfile(os.path.expandvars(cfg['SINGULARITY_IMAGE'])):
-            raise FileNotFoundError(f'Singularity image invalid in the config:{cfg["SINGULARITY_IMAGE"]}')
-        # resolve symbolic link
-        res['SINGULARITY_IMAGE']=os.path.abspath(os.path.realpath(os.path.expandvars(cfg['SINGULARITY_IMAGE'])))
 
-        # define a copied image name
-        if cfg.get('STORE_IMAGE',True):
-            res['JOB_IMAGE_NAME']=os.path.join(sdir,f'image_{os.getpid()}.sif')
-            res['STORE_IMAGE']=True
-        else:
-            res['JOB_IMAGE_NAME']=res['SINGULARITY_IMAGE']
 
-        # define paths to be bound to the singularity session
-        self.BIND_PATHS.append(self.get_top_dir(res['STORAGE_DIR']))
-        self.BIND_PATHS.append(self.get_top_dir(res['JOB_WORK_DIR']))
-        self.BIND_PATHS.append(self.get_top_dir(res['JOB_IMAGE_NAME']))
-        self.BIND_PATHS.append(self.get_top_dir(res['JOB_SOURCE_DIR']))
 
         return res
 
     def gen_slurm_flags(self,cfg):
 
         # Find slurm related parameters
-        params = {key.lower().replace('slurm_',''):val for key,val in cfg.items() if key.lower().startswith('slurm_')}
+        params = {key.lower().lstrip('slurm_'):cfg[key] for key in cfg.keys() if key.lower().startswith('slurm_')}
 
         # Parse params that need parsing
         # SLURM_TIME converted to seconds automatically
@@ -148,20 +177,12 @@ class project_base():
                 params[key]=defaults[key]
 
         # Complete the flags
-        flags = f'#SBATCH --job-name=dntp-{os.getpid()}\n'
+        flags = f'#SBATCH --jobname=dntp-{os.getpid()}\n'
         for key,val in params.items():
-            flags += f'#SBATCH --{key}={val}\n'
+            flags += f'#SBATCH --{key}={val}'
         return flags
 
     def gen_submission_script(self,cfg):
-
-        # singularity bind flag
-        bflag = None
-        for pt in np.unique(self.BIND_PATHS):
-            if bflag is None:
-                bflag=f'-B {str(pt)}'
-            else:
-                bflag += f',{str(pt)}'
 
         script=f'#!/bin/bash\n{self.gen_slurm_flags(cfg)}'
 
@@ -183,7 +204,7 @@ uname -a &> jobinfo_node.txt
 
 chmod 774 run.sh
 
-singularity exec --nv {bflag} {cfg['JOB_IMAGE_NAME']} ./run.sh
+{self.CONTAINER_CMD}
 
 date
 echo "Copying the output"
