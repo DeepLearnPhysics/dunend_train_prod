@@ -134,10 +134,8 @@ class project_base():
         # Parse params that need parsing
         # SLURM_TIME converted to seconds automatically
         # convert back to HH:MM:SS format
-        #if 'time' in params.keys():
-        #    print(type(params['time']))
-        #    print(params['time'])
-        #    params['time'] = str(timedelta(seconds=params['time']))
+        if 'time' in params.keys():
+            params['time'] = str(timedelta(seconds=params['time']))
 
         # Set required params in case not set by config
         defaults = dict(nodes=1, 

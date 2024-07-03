@@ -22,6 +22,7 @@ SEARCH_LARNDSIM_LIGHT_LUT:       /sdf/data/neutrino/2x2/light_lut/lightLUT_Mod12
 SEARCH_LARNDSIM_LIGHT_DET_NOISE: light_noise_2x2_4mod_July2023.npy
 SET_LARNDSIM_LIGHT_SIMULATION:   False
 SET_LARNDSIM_CONFIG:    2x2_mpvmpr_old_response
+SET_LARNDSIM_LIGHT_LUT_EXT:       []   #lightLUT.npz
 #SET_LARNDSIM_LIGHT_LUT_EXT:       ['/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod0.npz', '/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod123.npz']   #lightLUT.npz
 
 # items project_larndsim.py search under dunend_train_prod repository
