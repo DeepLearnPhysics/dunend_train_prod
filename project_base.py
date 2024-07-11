@@ -205,6 +205,7 @@ scp -r {cfg['JOB_SOURCE_DIR']} $LOCAL_WORK_DIR
 cd $LOCAL_WORK_DIR
 
 export PATH=$HOME/.local/bin:$PATH
+export CUDA_HOME=/usr/local/cuda
 
 printenv &> jobinfo_env.txt
 uname -a &> jobinfo_node.txt
