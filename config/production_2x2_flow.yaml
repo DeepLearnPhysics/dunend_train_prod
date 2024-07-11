@@ -1,11 +1,16 @@
-STORAGE_DIR: /sdf/data/neutrino/$USER/dunend_train_prod/prod2x2_mlreco_mpvmpr_v0_4
-JOB_WORK_DIR:  $LSCRATCH/$USER
-NUM_EVENTS:  200
-SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub20.04-cuda11.6-pytorch1.13-larndsim-2023-11-07.sif
-#SINGULARITY_IMAGE: /sdf/group/neutrino/images/develop.sif
+#SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub20.04-cuda11.6-pytorch1.13-larndsim-2023-11-07.sif
+#STORAGE_DIR: /sdf/data/neutrino/$USER/dunend_train_prod/prod2x2_mlreco_mpvmpr_v0_4
+#JOB_WORK_DIR:  $LSCRATCH/$USER
+#SLURM_CONFIG: slurm_s3df_flow.yaml
+
+SHIFTER_IMAGE: deeplearnphysics/larcv2:ub20.04-cuda11.6-pytorch1.13-larndsim 
+STORAGE_DIR: /global/cfs/cdirs/m4617/$USER/dunend_train_prod/prod2x2_mlreco_mpvmpr_v0_4
+JOB_WORK_DIR:  $PSCRATCH/$USER
+SLURM_CONFIG: slurm_perlmutter_flow.yaml
+
 STORE_IMAGE: False
 
-SLURM_CONFIG: slurm_s3df_flow.yaml
+NUM_EVENTS:  10
 
 #
 # Below are configurations specific to running simulations up to larndsim
@@ -18,7 +23,8 @@ SEARCH_LARNDSIM_PIXEL_LAYOUT:    multi_tile_layout-2.4.16.yaml
 SEARCH_LARNDSIM_DET_PROPERTIES:  2x2.yaml
 SEARCH_LARNDSIM_SIM_PROPERTIES:  singles_sim_mod2mod_variation.yaml
 SEARCH_LARNDSIM_RESPONSE:        response_44.npy
-SEARCH_LARNDSIM_LIGHT_LUT:       /sdf/data/neutrino/2x2/light_lut/lightLUT_Mod123.npz   #lightLUT.npz
+SEARCH_LARNDSIM_LIGHT_LUT:       /global/cfs/cdirs/m4617/2x2/light_lut/lightLUT_Mod123.npz   #lightLUT.npz
+#SEARCH_LARNDSIM_LIGHT_LUT:      /sdf/data/neutrino/2x2/light_lut/lightLUT_Mod123.npz   #lightLUT.npz
 SEARCH_LARNDSIM_LIGHT_DET_NOISE: light_noise_2x2_4mod_July2023.npy
 SET_LARNDSIM_LIGHT_SIMULATION:   False
 SET_LARNDSIM_CONFIG:    2x2_mpvmpr_old_response
