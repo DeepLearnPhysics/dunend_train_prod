@@ -121,31 +121,6 @@ class project_larndsim(project_base):
         '''
         return macro
 
-    def gen_flow_script(self, cfg):
-
-        macro=f'''
-
-inFile={cfg['JOB_OUTPUT_ID']}-larndsim.h5
-
-outFile={cfg['JOB_OUTPUT_ID']}-flow.h5
-
-# charge workflows
-workflow1='yamls/proto_nd_flow/workflows/charge/charge_event_building.yaml'
-workflow2='yamls/proto_nd_flow/workflows/charge/charge_event_reconstruction.yaml'
-workflow3='yamls/proto_nd_flow/workflows/combined/combined_reconstruction.yaml'
-workflow4='yamls/proto_nd_flow/workflows/charge/prompt_calibration.yaml'
-workflow5='yamls/proto_nd_flow/workflows/charge/final_calibration.yaml'
-
-# light workflows
-workflow6='yamls/proto_nd_flow/workflows/light/light_event_building_mc.yaml'
-workflow7='yamls/proto_nd_flow/workflows/light/light_event_reconstruction.yaml'
-
-# charge-light trigger matching
-workflow8='yamls/proto_nd_flow/workflows/charge/charge_light_assoc.yaml'
-
-        '''
-        return macro
-
 
     def gen_job_script(self, cfg):
 
@@ -170,7 +145,27 @@ workflow8='yamls/proto_nd_flow/workflows/charge/charge_light_assoc.yaml'
 --save_memory=log_resources.h5 \
 '''
 
-        cmd_flow_def = self.gen_flow_script(cfg)
+        cmd_flow_def = f'''
+
+inFile={cfg['JOB_OUTPUT_ID']}-larndsim.h5
+
+outFile={cfg['JOB_OUTPUT_ID']}-flow.h5
+
+# charge workflows
+workflow1='yamls/proto_nd_flow/workflows/charge/charge_event_building.yaml'
+workflow2='yamls/proto_nd_flow/workflows/charge/charge_event_reconstruction.yaml'
+workflow3='yamls/proto_nd_flow/workflows/combined/combined_reconstruction.yaml'
+workflow4='yamls/proto_nd_flow/workflows/charge/prompt_calibration.yaml'
+workflow5='yamls/proto_nd_flow/workflows/charge/final_calibration.yaml'
+
+# light workflows
+workflow6='yamls/proto_nd_flow/workflows/light/light_event_building_mc.yaml'
+workflow7='yamls/proto_nd_flow/workflows/light/light_event_reconstruction.yaml'
+
+# charge-light trigger matching
+workflow8='yamls/proto_nd_flow/workflows/charge/charge_light_assoc.yaml'
+
+        '''
 
         cmd_flow_charge = 'h5flow -c $workflow1 $workflow2 $workflow3 $workflow4 -i $inFile -o $outFile'
         cmd_flow_light = 'h5flow -c $workflow6 $workflow7 -i $inFile -o $outFile'
