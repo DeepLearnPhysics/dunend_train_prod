@@ -21,6 +21,7 @@ LARNDSIM_SCRIPT: simulate_pixels.py
 # items project_larndsim.py search under larnd-sim repository
 SEARCH_LARNDSIM_PIXEL_LAYOUT:    multi_tile_layout-2.4.16.yaml
 SEARCH_LARNDSIM_DET_PROPERTIES:  2x2.yaml
+SEARCH_LARNDSIM_SIM_PROPERTIES_EXT:  sim_2x2.yaml
 SEARCH_LARNDSIM_SIM_PROPERTIES:  singles_sim_mod2mod_variation.yaml
 SEARCH_LARNDSIM_RESPONSE:        response_44.npy
 SEARCH_LARNDSIM_LIGHT_LUT:       /global/cfs/cdirs/m4617/2x2/light_lut/lightLUT_Mod123.npz   #lightLUT.npz
