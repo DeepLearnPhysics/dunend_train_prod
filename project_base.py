@@ -2,7 +2,7 @@ import yaml, os, pathlib, shutil
 import numpy as np
 from yaml import Loader
 from datetime import timedelta
-import warnings
+import warnings, subprocess
 
 class project_base():
 
@@ -136,20 +136,23 @@ class project_base():
             self.CONTAINER_CMD=f"singularity exec --nv {bflag} {cfg['JOB_IMAGE_NAME']} ./run.sh"
 
         elif 'SHIFTER_IMAGE' in cfg:
-            try:
-                subprocess.check_output(["shifterimg", "lookup", cfg['SHIFTER_IMAGE']])
-            except subprocess.CalledProcessError:
-                raise FileNotFoundError(f'Shifter image not found: {cfg["SHIFTER_IMAGE"]}')
+            #try:
+            #    subprocess.check_output(["shifterimg", "lookup", cfg['SHIFTER_IMAGE']])
+            #except subprocess.CalledProcessError:
+            #    raise FileNotFoundError(f'Shifter image not found: {cfg["SHIFTER_IMAGE"]}')
                 
             if cfg.get('STORE_IMAGE',False):
                 raise NotImplementedError('STORE_IMAGE option is not available when using shifter')
-            cfg['STORE_IMAGE']=False
-            cfg['JOB_IMAGE_NAME']=cfg['SHIFTER_IMAGE']
-            self.CONTAINER_CMD=f"shifter --image={cfg['JOB_IMAGE_NAME']} ./run.sh"
+            res['STORE_IMAGE']=False
+            res['JOB_IMAGE_NAME']=cfg['SHIFTER_IMAGE']
+            self.CONTAINER_CMD=f"shifter --image={res['JOB_IMAGE_NAME']}"
+            if 'SLURM_GPUS' in res or 'SLURM_GPUS-PER-TASK' in res:
+                self.CONTAINER_CMD += " --module=gpu "
+            self.CONTAINER_CMD += " ./run.sh"
 
         # ensure singularity image is valid
-        if not 'SINGULARITY_IMAGE' in cfg:
-            raise KeyError('SINGULARITY_IMAGE must be specified in the config.')
+        else:
+            raise KeyError('SINGULARITY_IMAGE or SHIFTER_IMAGE must be specified in the config.')
 
 
 
@@ -158,16 +161,19 @@ class project_base():
     def gen_slurm_flags(self,cfg):
 
         # Find slurm related parameters
-        params = {key.lower().lstrip('slurm_'):cfg[key] for key in cfg.keys() if key.lower().startswith('slurm_')}
+        params = {key.lower().replace('slurm_',''):cfg[key] for key in cfg.keys() if key.lower().startswith('slurm_')}
+        params.pop('config')
 
-        # Parse params that need parsing
+	# Parse params that need parsing
         # SLURM_TIME converted to seconds automatically
         # convert back to HH:MM:SS format
-        if 'time' in params.keys():
-            params['time'] = str(timedelta(seconds=params['time']))
+        #if 'time' in params.keys():
+	#    print(type(params['time']))
+        #    print(params['time'])
+        #    params['time'] = str(timedelta(seconds=params['time']))   
 
-        # Set required params in case not set by config
-        defaults = dict(nodes=1, 
+        # Set required params in case not set by config                                                                                                                                      
+        defaults = dict(nodes=1,
             ntasks=1,
             output=f"{cfg['JOB_LOG_DIR']}/slurm-%A-%a.out",
             error=f"{cfg['JOB_LOG_DIR']}/slurm-%A-%a.out",
@@ -177,10 +183,11 @@ class project_base():
                 params[key]=defaults[key]
 
         # Complete the flags
-        flags = f'#SBATCH --jobname=dntp-{os.getpid()}\n'
+        flags = f'#SBATCH --job-name=dntp-{os.getpid()}\n'
         for key,val in params.items():
-            flags += f'#SBATCH --{key}={val}'
+            flags += f'#SBATCH --{key}={val}\n'
         return flags
+
 
     def gen_submission_script(self,cfg):
 
@@ -238,7 +245,7 @@ scp -r $LOCAL_WORK_DIR {cfg['STORAGE_DIR']}/
             os.makedirs(jsdir)
             print(f'Creating a dir: {ldir}')
             os.makedirs(ldir)
-            print(f'Using a singularity image: {cfg["SINGULARITY_IMAGE"]}')
+            print(f'Using a container image: {cfg["JOB_IMAGE_NAME"]}')
             if cfg['STORE_IMAGE']:
                 print('Copying the singularity image file.')
                 print(f'Destination: {cfg["JOB_IMAGE_NAME"]}')
