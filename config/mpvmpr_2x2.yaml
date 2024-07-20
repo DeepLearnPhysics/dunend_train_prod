@@ -150,7 +150,7 @@ Singles:
     -
       PDG:  [-13]
       NumRange: [0,1]
-      KERange:  [0.03,0.1]
+      KERange:  [0.075,0.25]
       UseMom:   True
       Weight:   1
 
