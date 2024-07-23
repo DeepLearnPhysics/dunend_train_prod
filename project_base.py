@@ -133,7 +133,7 @@ class project_base():
                 else:
                     bflag += f',{str(pt)}'
 
-            self.CONTAINER_CMD=f"singularity exec --nv {bflag} {cfg['JOB_IMAGE_NAME']} ./run.sh"
+            self.CONTAINER_CMD=f"singularity exec --nv {bflag} {res['JOB_IMAGE_NAME']} ./run.sh"
 
         elif 'SHIFTER_IMAGE' in cfg:
             #try:

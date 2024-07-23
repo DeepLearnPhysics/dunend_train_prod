@@ -2,6 +2,7 @@ import yaml, os, pathlib, shutil
 import numpy as np
 from yaml import Loader
 import larndsim
+import flow2supera
 from datetime import timedelta
 from project_base import project_base
 
@@ -201,8 +202,7 @@ workflow8='yamls/proto_nd_flow/workflows/charge/charge_light_assoc.yaml'
         cmd_supera = f'''run_flow2supera.py \
 -o {cfg['JOB_OUTPUT_ID']}-larcv.root \
 -c {cfg['SUPERA_CONFIG']} \
-{cfg['JOB_OUTPUT_ID']}-flow.h5
-'''
+{cfg['JOB_OUTPUT_ID']}-flow.h5'''
 
         self.PROJECT_SCRIPT=f'''#!/bin/bash
 date
@@ -262,10 +262,10 @@ echo {cmd_flow_charge}
 #echo "Running ndlar_flow charge_light"
 #{cmd_flow_charge_light} &>> log_flow_charge_light.txt
 
+date
 echo "Running Supera"
 echo {cmd_supera} 
-{cmd_supera} $INPUT_FILE_NAME &> log_supera.txt
-date
+{cmd_supera} &> log_supera.txt
 
 date
 echo "Removing the some configuration files..."
