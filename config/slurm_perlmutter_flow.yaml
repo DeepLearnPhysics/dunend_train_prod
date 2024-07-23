@@ -1,4 +1,4 @@
-ARRAY:  0-5%5   # number of jobs to submit
+ARRAY:  0-999%1000   # number of jobs to submit
 NODES:  1
 NTASKS: 1
 QOS:    shared
@@ -7,4 +7,4 @@ CPUS-PER-TASK: 32
 MEM-PER-CPU: 6G
 ACCOUNT: m4617
 GPUS:    1  
-TIME:    00:10:00
+TIME:    03:00:00

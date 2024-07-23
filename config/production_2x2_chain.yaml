@@ -1,0 +1,46 @@
+SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub20.04-cuda11.6-pytorch1.13-larndsim-2023-11-07.sif
+STORAGE_DIR: /sdf/data/neutrino/$USER/dunend_train_prod/prod2x2_mlreco_mpvmpr_v0_4
+JOB_WORK_DIR:  $LSCRATCH/$USER
+SLURM_CONFIG: slurm_s3df_chain.yaml
+
+#SHIFTER_IMAGE: deeplearnphysics/larcv2:ub20.04-cuda11.6-pytorch1.13-larndsim 
+#STORAGE_DIR: /global/cfs/cdirs/m4617/$USER/dunend_train_prod/prod2x2_mlreco_mpvmpr_v0_4
+#JOB_WORK_DIR:  $PSCRATCH/$USER
+#SLURM_CONFIG: slurm_perlmutter_flow.yaml
+
+STORE_IMAGE: False
+
+NUM_EVENTS:  200
+
+#
+# Below are configurations specific to running simulations up to larndsim
+#
+LARNDSIM_REPOSITORY: modules/larnd-sim
+LARNDSIM_SCRIPT: simulate_pixels.py
+
+# items project_larndsim.py search under larnd-sim repository
+SEARCH_LARNDSIM_PIXEL_LAYOUT:    multi_tile_layout-2.4.16.yaml
+SEARCH_LARNDSIM_DET_PROPERTIES:  2x2.yaml
+SEARCH_LARNDSIM_SIM_PROPERTIES_EXT:  sim_2x2.yaml
+SEARCH_LARNDSIM_SIM_PROPERTIES:  singles_sim_mod2mod_variation.yaml
+SEARCH_LARNDSIM_RESPONSE:        response_44.npy
+#SEARCH_LARNDSIM_LIGHT_LUT:       /global/cfs/cdirs/m4617/2x2/light_lut/lightLUT_Mod123.npz   #lightLUT.npz
+SEARCH_LARNDSIM_LIGHT_LUT:      /sdf/data/neutrino/2x2/light_lut/lightLUT_Mod123.npz   #lightLUT.npz
+SEARCH_LARNDSIM_LIGHT_DET_NOISE: light_noise_2x2_4mod_July2023.npy
+SET_LARNDSIM_LIGHT_SIMULATION:   False
+SET_LARNDSIM_CONFIG:    2x2_mpvmpr_old_response
+SET_LARNDSIM_LIGHT_LUT_EXT:       []   #lightLUT.npz
+#SET_LARNDSIM_LIGHT_LUT_EXT:       ['/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod0.npz', '/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod123.npz']   #lightLUT.npz
+
+# items project_larndsim.py search under dunend_train_prod repository
+SEARCH_GEOMETRY: Merged2x2MINERvA_v4_withRock_LArSens.gdml
+SEARCH_MPVMPR:   mpvmpr_2x2.yaml #single_muon_2x2.yaml
+
+FLOW_REPOSITORY: modules/ndlar_flow
+SEARCH_FLOW_YAML: modules/ndlar_flow/yamls
+SEARCH_FLOW_DATA: modules/ndlar_flow/data
+
+# flow2supera config
+#LARCV_DIR: /global/common/software/m4617/$USER/dunend_train_prod/modules/larcv2
+LARCV_DIR: /sdf/group/neutrino/kterao/sw/dunend_train_prod/modules/larcv2
+SUPERA_CONFIG: 2x2_mpvmpr

@@ -5,7 +5,7 @@ STORE_IMAGE: False
 SLURM_CONFIG: slurm_s3df_flow2supera.yaml
 SLURM_ARRAY: 1%1
 
-LARCV_DIR=/global/common/software/m4617/$USER/dunend_train_prod/modules/larcv2
+LARCV_DIR: /global/common/software/m4617/$USER/dunend_train_prod/modules/larcv2
 
 # flow2supera config (this config requirement should be removed from flow2supera)
 SUPERA_CONFIG: 2x2_mpvmpr
