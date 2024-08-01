@@ -4,34 +4,42 @@ from yaml import Loader
 from datetime import timedelta
 import warnings, subprocess
 
-class project_base():
+from tiers import *
+
+class project_main(project_base):
 
     def __init__(self):
-        self.COPY_FILES=[]
-        self.PROJECT_SCRIPT=''
+        super().__init__()
         self.CONTAINER_CMD=None
+        self.PROJECTS={}
+        self._TIERS=[]
+        self.PROJECT_INIT_CMD='''#!/bin/bash
+
+echo "Starting a job"
+date
+
+export PATH=$HOME/.local/bin:$PATH
+
+'''
+
+    def num_jobs(self,cfg):
+        for key in cfg:
+            if not key.lower() == 'slurm_array':
+                continue
+            num_jobs = cfg[key]
+            if '%' in num_jobs:
+                num_jobs = num_jobs.split('%')[0]
+            if '-' in num_jobs:
+                jmin,jmax = num_jobs.split('-')
+                num_jobs = int(jmax) - int(jmin) + 1
+            return int(num_jobs)
+        raise KeyError('SLURM_ARRAY not found in the config. Cannot parse the job count')
+
 
     def get_top_dir(self,path):
         p=pathlib.Path(path)
         return p.parents[len(p.parents)-2]
 
-    def parse_project_config(self,cfg):
-        '''
-        Function to be implemented.
-        cfg is a configuration dictionary.
-        Parse configuration as necessary.
-        '''
-        pass
-
-    def gen_project_script(self,cfg):
-        '''
-        Function to be implemented.
-        cfg is a configuration dictionary.
-        Fill the contents of a project script in self.PROJECT_SCRIPT attribute.
-        Fill the list of files to be copied to self.COPY_FILES.
-        Those files will be available under the job directory with the same name.
-        '''
-        pass
 
     def load_yaml(self,data):
         print('Parsing project configuration at:',data)
@@ -74,6 +82,73 @@ class project_base():
         return cfg
 
 
+    def parse_input_files(self, fdata):
+
+        #
+        # Check the format:
+        #
+        lines = open(fdata,'r').read().split('\n')
+        exist_h5=False
+        exist_root=False
+        flist=[]
+        for line in lines:
+            fs=line.replace(',',' ').split()
+            valid_line=False
+            job_flist=[]
+            for f in fs:
+                fname = os.path.expandvars(f)
+                if not os.path.isfile(fname):
+                    raise FileNotFoundError(fname)
+                if fname.endswith('.root'):
+                    exist_root=True 
+                elif fname.endswith('.h5'):
+                    exist_h5=True
+                else:
+                    print('Found unexpected file format (must be root or h5)')
+                    print(line)
+                    raise TypeError(line)
+                job_flist.append(os.path.abspath(fname))
+            if len(job_flist):
+                flist.append(job_flist)
+        if exist_root and exist_h5:
+            raise TypeError(f'The file list has both h5 and root format (should be unique)')
+
+        if len(flist)<1:
+            raise ValueError(f'The INPUT_FILES {fdata} does not contain any valid file.')
+
+
+        # create a filelist
+        with open(os.path.join(self.JOB_SOURCE_DIR,'flist.txt'),'w') as f:
+            for fs in flist:
+                for f in fs:
+                    f.write(os.path.abspath(f)+' ')
+                    self.BIND_PATHS.append(self.get_top_dir(f))
+                f.write('\n')
+        script = '''
+import sys,subprocess
+jobid = int(sys.argv[1])-1
+line = open('flist.txt','r').read().split('\n')[jobid]
+message = ''
+for f in line.split():
+    subprocess.run(["scp", f, "./"]) 
+    message += os.path.basename(f)
+    message += ' '
+print(message[:-1])
+'''
+        with open(os.path.join(self.JOB_SOURCE_DIR,'input_files.py'),'w') as f:
+            f.write(script)
+
+        # set the initial command
+        self.PROJECT_INIT_CMD='''
+echo "Copying a file"
+echo python3 input_files.py $SLURM_ARRAY_TASK_ID
+INPUT_FILES=`python3 input_files.py $SLURM_ARRAY_TASK_ID`
+date
+
+'''
+        return len(flist)
+
+
     def parse(self,data):
         # Find slurm yaml first
         cfg = self.load_yaml(data)
@@ -81,12 +156,7 @@ class project_base():
         # The "res" will be returned
         res = dict(cfg)
 
-        # Check the storage directory and create this job's output directory
-        if not 'STORAGE_DIR' in cfg:
-            raise KeyError('STORAGE_DIR key is missing in the configuration file.')
-        if not 'SLURM_ARRAY' in cfg:
-            raise KeyError('SLURM_ARRAY key is missing in the configuration file.')
-
+        # Check the storage directories
         if not os.path.isdir(os.path.expandvars(cfg['STORAGE_DIR'])):
             os.makedirs(cfg['STORAGE_DIR'])
             warnings.warn(f'Storage path {cfg["STORAGE_DIR"]} does not exist. Making one.')
@@ -98,12 +168,45 @@ class project_base():
         res['STORAGE_DIR']=sdir
 
         # define a job source directory
-        res['JOB_SOURCE_DIR'] = os.path.join(sdir,'job_source')
+        self.JOB_SOURCE_DIR = os.path.join(sdir,'job_source')
+        res['JOB_SOURCE_DIR'] = self.JOB_SOURCE_DIR
+
+        # Check the storage directory and create this job's output directory
+        if not 'STORAGE_DIR' in cfg:
+            raise KeyError('STORAGE_DIR key is missing in the configuration file.')
+
+        # Check if the input files are specified
+        num_jobs = -1
+        if 'INPUT_FILES' in res:
+            num_jobs = self.parse_input_files(res['INPUT_FILES'])
+
+        # Ensure the SLURM_ARRAY is set
+        if not 'SLURM_ARRAY' in cfg:
+            if num_jobs == -1:
+                raise KeyError('SLURM_ARRAY key is missing in the configuration file.')
+            else:
+                cfg['SLURM_ARRAY']=res['SLURM_ARRAY']=num_jobs
+        elif not num_jobs == -1:
+            print(f'WARNING: changing SLURM_ARRAY value from {cfg["SLURM_ARRAY"]} to {num_jobs} (set by the {cfg["INPUT_FILES"]})')
+            cfg['SLURM_ARRAY']=res['SLURM_ARRAY']=num_jobs
 
         # add job work directory and output name
         res['JOB_OUTPUT_ID' ] = "$(printf 'output_%d_%04d' $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID)"
         res['JOB_LOG_DIR'   ] = os.path.join(res['STORAGE_DIR'],'slurm_logs')
 
+        # Configure the stages
+        if not 'TIERS' in cfg:
+            raise KeyError('Configuration requires TIERS specification')
+        else:
+            if type(cfg['TIERS']) == type(str()):
+                res['TIERS']=cfg['TIERS']=[cfg['TIERS']]
+            self._TIERS=[]
+            for t in cfg['TIERS']:
+                if not hasattr(tiers,t):
+                    raise KeyError(f'TIER with the name "{t}" is not defined.')
+                self._TIERS.append(getattr(tiers,t)())
+
+        # container command
         if 'SINGULARITY_IMAGE' in cfg:
 
             if not os.path.isfile(os.path.expandvars(cfg['SINGULARITY_IMAGE'])):
@@ -164,11 +267,11 @@ class project_base():
         params = {key.lower().replace('slurm_',''):cfg[key] for key in cfg.keys() if key.lower().startswith('slurm_')}
         params.pop('config')
 
-	# Parse params that need parsing
+    # Parse params that need parsing
         # SLURM_TIME converted to seconds automatically
         # convert back to HH:MM:SS format
         #if 'time' in params.keys():
-	#    print(type(params['time']))
+    #    print(type(params['time']))
         #    print(params['time'])
         #    params['time'] = str(timedelta(seconds=params['time']))   
 
@@ -260,14 +363,18 @@ scp -r $LOCAL_WORK_DIR {cfg['STORAGE_DIR']}/
             #
             # Perform project-specific tasks
             #
-            # Parse configuration for the project
-            self.parse_project_config(cfg)
-            # Generate a project script contents
-            self.gen_project_script(cfg)
+            # Parse configuration for the project + generate script content
+            for t in self._TIERS:
+                t.parse_project_config(cfg)
+                self.PROJECT_SCRIPT += self.gen_project_script(cfg)
+                self.PROJECT_SCRIPT += '\n\n'
+                self.COPY_FILES += t.COPY_FILES
+
             # Generate a job script
             with open(os.path.join(jsdir,'run.sh'),'w') as f:
                 f.write(self.PROJECT_SCRIPT)
                 f.close()
+
             # Copy necessary files
             for f in self.COPY_FILES:
                 if os.path.isdir(f):
@@ -305,16 +412,6 @@ scp -r $LOCAL_WORK_DIR {cfg['STORAGE_DIR']}/
         return True
 
 
-class project_example(project_base):
-
-
-    def parse_project_config(self,cfg):
-
-        return
-
-    def gen_project_script(self,cfg):
-
-        return '#!/bin/bash\necho "hello world"\n'
 
 if __name__ == '__main__':
     import sys
@@ -328,6 +425,6 @@ if __name__ == '__main__':
         print(f'(provided: {os.path.basename(sys.argv[1])})')
         sys.exit(2)
 
-    p=project_example()
+    p=project_main()
     p.generate(sys.argv[1])
     sys.exit(0)

@@ -4,22 +4,15 @@ import flow2supera
 from project_base import project_base
 
 
-class project_flow2supera(project_base):
+class flow2supera(project_base):
 
-    def num_jobs(self,cfg):
-        for key in cfg:
-            if not key.lower() == 'slurm_array':
-                continue
-            num_jobs = cfg[key]
-            if '%' in num_jobs:
-                num_jobs = num_jobs.split('%')[0]
-            if '-' in num_jobs:
-                jmin,jmax = num_jobs.split('-')
-                num_jobs = int(jmax) - int(jmin) + 1
-            return int(num_jobs)
-        raise KeyError('SLURM_ARRAY not found in the config. Cannot parse the job count')
+    def __init__(self):
+        super().__init__()
+
 
     def parse_project_config(self,cfg):
+
+        super().parse_project_config(cfg)
 
         if not 'SUPERA_CONFIG' in cfg:
             raise KeyError(f'SUPERA_CONFIG key is missing in the configuration data!\n{cfg}')
@@ -31,32 +24,6 @@ class project_flow2supera(project_base):
                 raise FileNotFoundError(f'SUPERA_CONFIG {cfg["SUPERA_CONFIG"]} not found.')
             self.COPY_FILES.append(cfg['SUPERA_CONFIG'])
             cfg['SUPERA_CONFIG'] = os.path.basename(cfg['SUPERA_CONFIG'])
-
-        filelist = glob.glob(os.path.expandvars(cfg['GLOB']))
-        if len(filelist) < 1:
-            raise KeyError(f'GLOB {cfg["GLOB"]} returned no file!')
-
-        # assert the file count matches the requested job count
-
-        if not len(filelist) == self.num_jobs(cfg):
-            print(f'GLOB {cfg["GLOB"]} returned {len(filelist)} files')
-            print(f'But requested job count is {self.num_jobs(cfg)} (must match)')
-            raise ValueError(f'GLOB {cfg["GLOB"]} returned unexpected file count')
-
-        # create a filelist
-        with open(os.path.join(cfg['JOB_SOURCE_DIR'],'flist.txt'),'w') as f:
-            for name in filelist:
-                f.write(os.path.abspath(name)+'\n')
-                self.BIND_PATHS.append(self.get_top_dir(name))
-
-        script = '''
-import sys
-jobid = int(sys.argv[1])-1
-print(open('flist.txt','r').read().split()[jobid])
-        '''
-        with open(os.path.join(cfg['JOB_SOURCE_DIR'],'input_name.py'),'w') as f:
-            f.write(script)
-
 
 
     def gen_project_script(self,cfg):

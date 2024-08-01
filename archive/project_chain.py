@@ -25,59 +25,32 @@ REQUIRED = dict(GEOMETRY=os.path.join(pathlib.Path(__file__).parent.resolve(),'g
 
 class project_larndsim(project_base):
 
+
+    def __init__(self):
+        super().__init__()
+
+        project_dict = dict(LARNDSIM_SIM_PROPERTIES='larndsim/simulation_properties/',
+            LARNDSIM_SIM_PROPERTIES_EXT=os.path.join(pathlib.Path(__file__).parent.resolve(),'config'),
+            LARNDSIM_PIXEL_LAYOUT='larndsim/pixel_layouts/',
+            LARNDSIM_DET_PROPERTIES='larndsim/detector_properties/',
+            LARNDSIM_RESPONSE='larndsim/bin',
+            LARNDSIM_LIGHT_LUT='larndsim/bin',
+            LARNDSIM_LIGHT_DET_NOISE='larndsim/bin',
+            LARNDSIM_LIGHT_SIMULATION=False,
+            LARNDSIM_LIGHT_LUT_EXT="['/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod0.npz', '/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod123.npz']",
+            LARNDSIM_CONFIG='2x2_mpvmpr',
+            )
+
+        self.REQUIRED.update(project_dict)
+
+
     def parse_project_config(self,cfg):
 
-        cfg['G4_MACRO_PATH']=os.path.join(cfg['JOB_SOURCE_DIR'],'g4.mac')
+        super().parse_project_config(cfg)
+
 
         cfg['FLOW_YAML']=os.path.join(pathlib.Path(os.path.abspath(__file__)).parent.resolve(), cfg['FLOW_REPOSITORY'],'yamls')
         cfg['FLOW_DATA']=os.path.join(pathlib.Path(os.path.abspath(__file__)).parent.resolve(), cfg['FLOW_REPOSITORY'],'data')
-
-        # Check required configuration files
-        for word in REQUIRED.keys():
-            opt1 = 'USE_' + word
-            opt2 = 'SEARCH_' + word
-            opt3 = 'SET_' + word
-
-            duplicate = int(opt1 in cfg) + int(opt2 in cfg) + int(opt3 in cfg)
-            if duplicate > 1:
-                print(f'ERROR: only one of "USE"/"SEARCH"/"SET can be requested for {word}.')
-                print(f'{opt1}: {cfg.get(opt1,None)}')
-                print(f'{opt2}: {cfg.get(opt2,None)}')
-                print(f'{opt2}: {cfg.get(opt3,None)}')
-                raise ValueError('Please fix the configuration file.')
-                
-            if duplicate == 0:
-                print(f'ERROR: keyword not found (need either USE_{word} or SEARCH_{word} or SET_{word})')
-                print(f'{cfg}')
-                raise ValueError('Please fix the configuration file.')
-
-            # option 1: take the path specified by the user
-            if opt1 in cfg:
-                if not os.path.isfile(cfg[opt1]):
-                    print(f'ERROR: {word} file not found at the specified location.')
-                    print(f'       {cfg[opt1]}')
-                    raise FileNotFoundError(f'{cfg[opt1]}')
-                cfg[word]=cfg[opt1]
-
-            # option 2: grab from larnd-sim repository
-            if opt2 in cfg:
-                if not 'LARNDSIM_REPOSITORY' in cfg:
-                    print(f'ERROR: to SEARCH {word}, you must provide LARNDSIM_REPOSITORY in the config.')
-                    raise ValueError('Please add local larnd-sim installation path to LARNDSIM_REPOSITORY in the config')
-
-                path = os.path.join(REQUIRED[word],cfg[opt2])
-                if not path.startswith('/'):
-                    path = os.path.join(cfg['LARNDSIM_REPOSITORY'],path)
-
-                if not os.path.isfile(path) and not os.path.isdir(path):
-                    print(f'Searched a file {cfg[opt2]} but not found...')
-                    raise FileNotFoundError(f'{path}')
-
-                cfg[word]=path
-
-            # option 3: set the option to the specified value w/o check
-            if opt3 in cfg:
-                cfg[word]=cfg[opt3]
 
 
         if not 'SUPERA_CONFIG' in cfg:
