@@ -31,6 +31,6 @@ Generator1:
     -
       PDG:      [13]
       NumRange: [1,1]
-      KERange:  [0.01,4.]
+      KERange:  [2,4.]
       UseMom:   True
       Weight:   1
