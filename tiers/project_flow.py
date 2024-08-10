@@ -2,7 +2,7 @@ import yaml, os, pathlib, shutil
 import numpy as np
 from yaml import Loader
 from datetime import timedelta
-from project_base import project_base
+from .project_base import project_base
 
 
 class flow(project_base):
@@ -10,26 +10,16 @@ class flow(project_base):
 
     def __init__(self):
         super().__init__()
-        
-        project_dict = dict(
-            FLOW_YAML=pathlib.Path(__file__).parent.resolve().as_posix(),
-            FLOW_DATA=pathlib.Path(__file__).parent.resolve().as_posix(),
-            )
-
+        project_dict = dict(FLOW_YAML='',FLOW_DATA='')
         self.REQUIRED.update(project_dict)
-
+        
     def parse_project_config(self,cfg):
         super().parse_project_config(cfg)
-        cfg['FLOW_YAML']=os.path.join(pathlib.Path(os.path.abspath(__file__)).parent.resolve(), cfg['FLOW_REPOSITORY'],'yamls')
-        cfg['FLOW_DATA']=os.path.join(pathlib.Path(os.path.abspath(__file__)).parent.resolve(), cfg['FLOW_REPOSITORY'],'data')
-
 
     def gen_project_script(self,cfg):
 
         cmd_flow_def = f'''
-
-inFile={cfg['JOB_OUTPUT_ID']}-larndsim.h5
-
+inFile=$INPUT_FILES
 outFile={cfg['JOB_OUTPUT_ID']}-flow.h5
 
 # charge workflows
@@ -52,7 +42,7 @@ workflow8='yamls/proto_nd_flow/workflows/charge/charge_light_assoc.yaml'
         cmd_flow_light = 'h5flow -c $workflow6 $workflow7 -i $inFile -o $outFile'
         cmd_flow_charge_light = 'h5flow -c $workflow8 -i $outFile -o $outFile'
 
-        self.PROJECT_SCRIPT=f'''
+        PROJECT_SCRIPT=f'''
 
 {cmd_flow_def}
 
@@ -68,6 +58,10 @@ echo {cmd_flow_charge}
 #date
 #echo "Running ndlar_flow charge_light"
 #{cmd_flow_charge_light} &>> log_flow_charge_light.txt
+
+# for the next stage
+INPUT_FILES=$outFile
     
 '''
-
+        
+        return PROJECT_SCRIPT

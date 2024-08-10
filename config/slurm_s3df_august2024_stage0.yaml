@@ -1,0 +1,11 @@
+ARRAY: 0-99%20   # number of jobs to submit
+NODES: 1
+NTASKS: 1
+CPUS-PER-TASK: 12
+MEM-PER-CPU: 5G
+PARTITION: ampere   # partition
+ACCOUNT:   neutrino:cider-ml # account
+GPUS:      a100     # GPU type
+TIME:      01:30:00  # max time HH:MM:SS
+NODELIST: ''
+EXCLUDE:  ''

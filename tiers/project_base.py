@@ -4,10 +4,11 @@ from yaml import Loader
 from datetime import timedelta
 import warnings, subprocess
 
-
 class project_base():
 
     def __init__(self):
+        TIERS_DIR=pathlib.Path(__file__).parent.resolve().as_posix()
+        self.FMWK_DIR=pathlib.Path(TIERS_DIR).parent.resolve().as_posix()
         self.COPY_FILES=[]
         self.REQUIRED={}
 
@@ -49,14 +50,26 @@ class project_base():
             # option 2: grab from larnd-sim repository
             if opt2 in cfg:
 
-                if word.startswith('LARNDSIM'):
-                    if not 'LARNDSIM_REPOSITORY' in cfg:
-                        print(f'ERROR: to SEARCH {word}, you must provide LARNDSIM_REPOSITORY in the config.')
-                        raise ValueError('Please add local larnd-sim installation path to LARNDSIM_REPOSITORY in the config')
+                parent_path = self.REQUIRED[word]
 
-                    if not path.startswith('/'):
-                        path = os.path.join(cfg['LARNDSIM_REPOSITORY'],path)
+                software_repos = dict(LARNDSIM=os.path.join(self.FMWK_DIR,'modules','larnd-sim'),
+                                      FLOW=os.path.join(self.FMWK_DIR,'modules','ndlar_flow'),
+                                      )
 
+                for software, default_repo in software_repos.items():
+                
+                    if word.startswith(software):
+                        repository_path = default_repo
+                        repo_keyword = software + '_REPOSITORY'
+                        if repo_keyword in cfg:
+                            repository_path = cfg[repo_keyword]
+                        if not os.path.isdir(repository_path):                    
+                            print(f'ERROR: to SEARCH {word}, you must provide a valid {repo_keyword} in the config.')
+                            raise ValueError(f'Please add local larnd-sim installation path to {repo_keyword} in the config')
+                        parent_path = os.path.join(repository_path,parent_path)
+
+                path = os.path.join(parent_path,cfg[opt2])
+                
                 if not os.path.isfile(path) and not os.path.isdir(path):
                     print(f'Searched a file {cfg[opt2]} but not found...')
                     raise FileNotFoundError(f'{path}')
@@ -69,8 +82,8 @@ class project_base():
 
 
         # Register required file to the list to be copied
-        for key in REQUIRED.keys():
-            if type(REQUIRED[key]) == str:
+        for key in self.REQUIRED.keys():
+            if type(self.REQUIRED[key]) == str:
                 if key.startswith("LARNDSIM_") and not key.endswith("_EXT"):
                     continue
                 else:

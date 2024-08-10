@@ -4,15 +4,32 @@ from yaml import Loader
 from datetime import timedelta
 import warnings, subprocess
 
-from tiers import *
+import tiers
+ENVPATH_TO_BIND_IF_EXISTS=['LSCRATCH','PSCRATCH']
 
-class project_main(project_base):
+class project_main(tiers.project_base):
 
     def __init__(self):
         super().__init__()
+        self.INPUT_FILES=None
+        self.INPUT_PARSER_CMD=None
         self.CONTAINER_CMD=None
         self.PROJECTS={}
         self._TIERS=[]
+        self.BIND_PATHS=[]
+        self.PROJECT_END_CMD='''
+if [ -z ${FILES_TO_REMOVE+1} ];
+then
+    echo Deleting input files $FILES_TO_REMOVE
+    rm -f $FILES_TO_REMOVE
+    echo Touching input file names for the record
+    touch $FILES_TO_REMOVE
+fi
+
+echo exiting
+date
+
+'''
         self.PROJECT_INIT_CMD='''#!/bin/bash
 
 echo "Starting a job"
@@ -81,13 +98,29 @@ export PATH=$HOME/.local/bin:$PATH
 
         return cfg
 
+    def create_input_flist(self):
+        if not self.INPUT_FILES and not self.INPUT_PARSER_CMD:
+            return
+        if self.INPUT_FILES and self.INPUT_PARSER_CMD:
+            try:
+                fname = os.path.join(self.JOB_SOURCE_DIR,'flist.txt')
+                with open(fname,'w') as f:
+                    f.write(self.INPUT_FILES)
+                    f.close()
+                fname = os.path.join(self.JOB_SOURCE_DIR,'input_files.py')
+                with open(fname,'w') as f:
+                    f.write(self.INPUT_PARSER_CMD)
+                    f.close()
+            except OSError:
+                raise OSError(f'Could not open a new file. Check if the path is valid: {self.JOB_SOURCE_DIR}')
+
 
     def parse_input_files(self, fdata):
 
         #
         # Check the format:
         #
-        lines = open(fdata,'r').read().split('\n')
+        lines = open(fdata,'r').read().splitlines()
         exist_h5=False
         exist_root=False
         flist=[]
@@ -118,16 +151,16 @@ export PATH=$HOME/.local/bin:$PATH
 
 
         # create a filelist
-        with open(os.path.join(self.JOB_SOURCE_DIR,'flist.txt'),'w') as f:
-            for fs in flist:
-                for f in fs:
-                    f.write(os.path.abspath(f)+' ')
-                    self.BIND_PATHS.append(self.get_top_dir(f))
-                f.write('\n')
-        script = '''
-import sys,subprocess
-jobid = int(sys.argv[1])-1
-line = open('flist.txt','r').read().split('\n')[jobid]
+        self.INPUT_FILES=''
+        for fs in flist:
+            for f in fs:
+                self.INPUT_FILES += os.path.abspath(f) + ' '
+                self.BIND_PATHS.append(self.get_top_dir(f))
+            self.INPUT_FILES += '\n'
+        self.INPUT_PARSER_CMD = '''
+import os,sys,subprocess
+jobid = int(sys.argv[1])
+line = open('flist.txt','r').read().splitlines()[jobid]
 message = ''
 for f in line.split():
     subprocess.run(["scp", f, "./"]) 
@@ -135,17 +168,16 @@ for f in line.split():
     message += ' '
 print(message[:-1])
 '''
-        with open(os.path.join(self.JOB_SOURCE_DIR,'input_files.py'),'w') as f:
-            f.write(script)
-
         # set the initial command
-        self.PROJECT_INIT_CMD='''
+        self.PROJECT_INIT_CMD+='''
 echo "Copying a file"
 echo python3 input_files.py $SLURM_ARRAY_TASK_ID
 INPUT_FILES=`python3 input_files.py $SLURM_ARRAY_TASK_ID`
+FILES_TO_REMOVE=$INPUT_FILES
 date
 
 '''
+        self.PROJECT_END_CMD='rm -f $FILES_TO_REMOVE\n' + self.PROJECT_END_CMD
         return len(flist)
 
 
@@ -185,10 +217,9 @@ date
             if num_jobs == -1:
                 raise KeyError('SLURM_ARRAY key is missing in the configuration file.')
             else:
-                cfg['SLURM_ARRAY']=res['SLURM_ARRAY']=num_jobs
+                cfg['SLURM_ARRAY']=res['SLURM_ARRAY']=f'0-{num_jobs-1}%10'
         elif not num_jobs == -1:
-            print(f'WARNING: changing SLURM_ARRAY value from {cfg["SLURM_ARRAY"]} to {num_jobs} (set by the {cfg["INPUT_FILES"]})')
-            cfg['SLURM_ARRAY']=res['SLURM_ARRAY']=num_jobs
+            print(f'WARNING: SLURM_ARRAY value {cfg["SLURM_ARRAY"]} for {num_jobs} max jobs (set by the {cfg["INPUT_FILES"]}.)')
 
         # add job work directory and output name
         res['JOB_OUTPUT_ID' ] = "$(printf 'output_%d_%04d' $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID)"
@@ -206,7 +237,25 @@ date
                     raise KeyError(f'TIER with the name "{t}" is not defined.')
                 self._TIERS.append(getattr(tiers,t)())
 
+        # Paths to be bound for a container
+        for p in  cfg.get('BIND_PATHS',[]):
+            if not os.path.isdir(p):
+                print(f'Invalid path within BIND_PATHS: {p}')
+                raise FileNotFoundError
+            self.BIND_PATHS.append(self.get_top_dir(p))
+
+        #for path_name in ENVPATH_TO_BIND_IF_EXISTS:
+        #    if path_name in os.environ:
+        #        self.BIND_PATHS.append(self.get_top_dir(os.environ[path_name]))
+
+        self.BIND_PATHS.append(self.get_top_dir(res['STORAGE_DIR']))
+        self.BIND_PATHS.append(self.get_top_dir(res['JOB_WORK_DIR']))
+        self.BIND_PATHS.append(self.get_top_dir(res['JOB_SOURCE_DIR']))
+
+
+        #
         # container command
+        #        
         if 'SINGULARITY_IMAGE' in cfg:
 
             if not os.path.isfile(os.path.expandvars(cfg['SINGULARITY_IMAGE'])):
@@ -221,16 +270,11 @@ date
             else:
                 res['JOB_IMAGE_NAME']=res['SINGULARITY_IMAGE']
 
-            # define paths to be bound to the singularity session
-            blist=[]
-            blist.append(self.get_top_dir(res['STORAGE_DIR']))
-            blist.append(self.get_top_dir(res['JOB_WORK_DIR']))
-            blist.append(self.get_top_dir(res['JOB_IMAGE_NAME']))
-            blist.append(self.get_top_dir(res['JOB_SOURCE_DIR']))
-
+            self.BIND_PATHS.append(self.get_top_dir(res['JOB_IMAGE_NAME']))
+                
             # singularity bind flag
             bflag = None
-            for pt in np.unique(blist):
+            for pt in np.unique(self.BIND_PATHS):
                 if bflag is None:
                     bflag=f'-B {str(pt)}'
                 else:
@@ -258,7 +302,6 @@ date
             raise KeyError('SINGULARITY_IMAGE or SHIFTER_IMAGE must be specified in the config.')
 
 
-
         return res
 
     def gen_slurm_flags(self,cfg):
@@ -266,6 +309,10 @@ date
         # Find slurm related parameters
         params = {key.lower().replace('slurm_',''):cfg[key] for key in cfg.keys() if key.lower().startswith('slurm_')}
         params.pop('config')
+
+        if 'time' in params and type(params['time']) == type(int()):
+            import time
+            params['time']=time.strftime('%H:%M:%S',time.gmtime(params['time']))
 
     # Parse params that need parsing
         # SLURM_TIME converted to seconds automatically
@@ -317,25 +364,32 @@ chmod 774 run.sh
 
 {self.CONTAINER_CMD}
 
+echo "Finished running the container"
+
 date
 echo "Copying the output"
 
 cd ..
-scp -r $LOCAL_WORK_DIR {cfg['STORAGE_DIR']}/
-    
-    '''
+scp -r $LOCAL_WORK_DIR {cfg['STORAGE_DIR']}
+date
+'''
         return script
 
 
     def generate(self,cfg):
 
-        # parse the configuration            
+        # parse the configuration
+        print('Parsing project main configuration')
         cfg = self.parse(cfg)
         cfg_data = yaml.dump(cfg,default_flow_style=False)
 
         jsdir = cfg['JOB_SOURCE_DIR']
         sdir  = cfg['STORAGE_DIR']
         ldir  = cfg['JOB_LOG_DIR']
+
+        for t in self._TIERS:
+            print('Parsing project tier',t.__class__.__name__)
+            t.parse_project_config(cfg)
 
         try:
             # Report the job top directory and clean-up method
@@ -349,6 +403,10 @@ scp -r $LOCAL_WORK_DIR {cfg['STORAGE_DIR']}/
             os.makedirs(jsdir)
             print(f'Creating a dir: {ldir}')
             os.makedirs(ldir)
+            if self.INPUT_FILES:
+                print(f'Creating an input file list and a parser script')
+                self.create_input_flist()
+                
             print(f'Using a container image: {cfg["JOB_IMAGE_NAME"]}')
             if cfg['STORE_IMAGE']:
                 print('Copying the singularity image file.')
@@ -364,15 +422,16 @@ scp -r $LOCAL_WORK_DIR {cfg['STORAGE_DIR']}/
             # Perform project-specific tasks
             #
             # Parse configuration for the project + generate script content
+            PROJECT_SCRIPT = self.PROJECT_INIT_CMD
             for t in self._TIERS:
-                t.parse_project_config(cfg)
-                self.PROJECT_SCRIPT += self.gen_project_script(cfg)
-                self.PROJECT_SCRIPT += '\n\n'
+                PROJECT_SCRIPT += t.gen_project_script(cfg)
+                PROJECT_SCRIPT += '\n\n'
                 self.COPY_FILES += t.COPY_FILES
-
+            PROJECT_SCRIPT += self.PROJECT_END_CMD
+            
             # Generate a job script
             with open(os.path.join(jsdir,'run.sh'),'w') as f:
-                f.write(self.PROJECT_SCRIPT)
+                f.write(PROJECT_SCRIPT)
                 f.close()
 
             # Copy necessary files

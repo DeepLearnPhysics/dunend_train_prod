@@ -1,4 +1,4 @@
-ARRAY: 0-99%10   # number of jobs to submit
+ARRAY: 0-1%2   # number of jobs to submit
 NODES: 1
 NTASKS: 1
 CPUS-PER-TASK: 24
