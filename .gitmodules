@@ -8,21 +8,9 @@
         branch = develop
 [submodule "modules/SuperaAtomic"]
 	path = modules/SuperaAtomic
-	url = https://github.com/drinkingkazu/SuperaAtomic
-	#url = https://github.com/DeepLearnPhysics/SuperaAtomic
-[submodule "modules/edep2supera"]
-	path = modules/edep2supera
-	url = https://github.com/DeepLearnPhysics/edep2supera
-[submodule "modules/larnd2supera"]
-	path = modules/larnd2supera
-	#url = https://github.com/DeepLearnPhysics/larnd2supera
-	url = https://github.com/YifanC/larnd2supera
-[submodule "modules/larpix_readout_parser"]
-	path = modules/larpix_readout_parser
-	url = https://github.com/YifanC/larpix_readout_parser
-	branch = main
+	url = https://github.com/DeepLearnPhysics/SuperaAtomic
+	branch = develop
 [submodule "modules/flow2supera"]
 	path = modules/flow2supera
-	url = https://github.com/drinkingkazu/flow2supera
-	#url = https://github.com/DeepLearnPhysics/flow2supera
-	branch = main
+	url = https://github.com/DeepLearnPhysics/flow2supera
+	branch = develop
