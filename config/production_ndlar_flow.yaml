@@ -1,0 +1,48 @@
+SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub20.04-cuda11.6-pytorch1.13-larndsim-2023-11-07.sif
+STORAGE_DIR: /sdf/data/neutrino/$USER/dunend_train_prod/prod2x2_mlreco_mpvmpr_v0_4
+JOB_WORK_DIR:  $LSCRATCH/$USER
+SLURM_CONFIG: slurm_s3df_flow.yaml
+
+#SHIFTER_IMAGE: deeplearnphysics/larcv2:ub20.04-cuda11.6-pytorch1.13-larndsim 
+#STORAGE_DIR: /global/cfs/cdirs/m4617/$USER/dunend_train_prod/prod2x2_mlreco_mpvmpr_v0_4
+#JOB_WORK_DIR:  $PSCRATCH/$USER
+#SLURM_CONFIG: slurm_perlmutter_flow.yaml
+
+STORE_IMAGE: False
+
+NUM_EVENTS:  10
+
+TIERS: ['edepsim','larndsim','flow','flow2supera']
+
+#
+# Below are configurations specific to running simulations up to larndsim
+#
+LARNDSIM_REPOSITORY: modules/larnd-sim
+LARNDSIM_SCRIPT: simulate_pixels.py
+
+# items project_larndsim.py search under larnd-sim repository
+SEARCH_LARNDSIM_PIXEL_LAYOUT:    multi_tile_layout-3.0.40.yaml
+SEARCH_LARNDSIM_DET_PROPERTIES:  ndlar-module.yaml
+SEARCH_LARNDSIM_SIM_PROPERTIES_EXT:  sim_ndlar.yaml
+SEARCH_LARNDSIM_SIM_PROPERTIES:  singles_sim_ndlar.yaml
+SEARCH_LARNDSIM_RESPONSE:        response_38.npy
+#SEARCH_LARNDSIM_LIGHT_LUT:       /global/cfs/cdirs/dune/www/data/2x2/simulation/larndsim_data/light_LUT/lightLUT_Mod0_06052024_time_norm.npz   #lightLUT.npz
+SEARCH_LARNDSIM_LIGHT_LUT:      /sdf/data/neutrino/2x2/light_lut/lightLUT_Mod123_06052024_time_norm.npz   #lightLUT.npz
+SEARCH_LARNDSIM_LIGHT_DET_NOISE: light_noise_2x2_4mod_July2023.npy
+SET_LARNDSIM_LIGHT_SIMULATION:   False
+SET_LARNDSIM_CONFIG:    ndlar
+SET_LARNDSIM_LIGHT_LUT_EXT:       []   #lightLUT.npz
+# The default config in larndsim points to the light LUT on NERSC
+# If running on s3df or elsewhere set the path below
+#SET_LARNDSIM_LIGHT_LUT_EXT:       ['/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod0_06052024_time_norm.npz', '/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod123_06052024_time_norm.npz']   
+
+# items project_larndsim.py search under dunend_train_prod repository
+SEARCH_GEOMETRY: nd_hall_only_lar_TRUE_1.gdml
+# FIXME update the mpvmpr config
+SEARCH_MPVMPR:   mpvmpr_2x2.yaml #single_muon_2x2.yaml
+
+FLOW_REPOSITORY: modules/ndlar_flow
+SEARCH_FLOW_YAML: yamls
+SEARCH_FLOW_DATA: data
+
+
