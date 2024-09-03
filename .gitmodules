@@ -10,6 +10,10 @@
 	path = modules/SuperaAtomic
 	url = https://github.com/DeepLearnPhysics/SuperaAtomic
 	branch = develop
+[submodule "modules/larpix_readout_parser"]
+	path = modules/larpix_readout_parser
+	url = https://github.com/YifanC/larpix_readout_parser
+	branch = main
 [submodule "modules/flow2supera"]
 	path = modules/flow2supera
 	url = https://github.com/DeepLearnPhysics/flow2supera
