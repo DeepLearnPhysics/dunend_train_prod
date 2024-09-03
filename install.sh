@@ -14,6 +14,16 @@ then
 fi
 cd -
 
+echo "installing event parser"
+cd modules/larpix_readout_parser
+pip install . --user
+if [ $? -gt 0 ]
+then
+    echo "Failed to install larpix_readout_parser"
+    exit 1
+fi
+cd -
+
 echo "installing ndlar_flow"
 cd modules/ndlar_flow
 pip install . --user
