@@ -8,8 +8,8 @@
         branch = develop
 [submodule "modules/SuperaAtomic"]
 	path = modules/SuperaAtomic
-	url = https://github.com/drinkingkazu/SuperaAtomic
-	#url = https://github.com/DeepLearnPhysics/SuperaAtomic
+	url = https://github.com/DeepLearnPhysics/SuperaAtomic
+	branch = develop
 [submodule "modules/edep2supera"]
 	path = modules/edep2supera
 	url = https://github.com/DeepLearnPhysics/edep2supera
@@ -24,5 +24,4 @@
 [submodule "modules/flow2supera"]
 	path = modules/flow2supera
 	url = https://github.com/DeepLearnPhysics/flow2supera
-	#url = https://github.com/DeepLearnPhysics/flow2supera
 	branch = develop
