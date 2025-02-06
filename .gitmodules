@@ -23,6 +23,6 @@
 	branch = main
 [submodule "modules/flow2supera"]
 	path = modules/flow2supera
-	url = https://github.com/drinkingkazu/flow2supera
+	url = https://github.com/DeepLearnPhysics/flow2supera
 	#url = https://github.com/DeepLearnPhysics/flow2supera
-	branch = main
+	branch = develop
