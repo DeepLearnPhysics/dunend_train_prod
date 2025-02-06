@@ -45,4 +45,4 @@ SET_FLOW_YAML_PATH: ndlar_flow
 
 # flow2supera config
 LARCV_DIR: /sdf/group/neutrino/kterao/sw/dunend_train_prod/modules/larcv2
-SUPERA_CONFIG: 2x2_mpvmpr
+SUPERA_CONFIG: ndlar_mpvmpr
