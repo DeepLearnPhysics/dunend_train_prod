@@ -45,25 +45,25 @@ then
 fi
 cd -
 
-echo "installing edep2supera"
-cd modules/edep2supera
-pip install . --user
-if [ $? -gt 0 ]
-then
-    echo "Failed to install edep2supera"
-    exit 1
-fi
-cd -
-
-echo "installing larnd2supera"
-cd modules/larnd2supera
-pip install . --user
-if [ $? -gt 0 ]
-then
-    echo "Failed to install larnd2supera"
-    exit 1
-fi
-cd -
+#echo "installing edep2supera"
+#cd modules/edep2supera
+#pip install . --user
+#if [ $? -gt 0 ]
+#then
+#    echo "Failed to install edep2supera"
+#    exit 1
+#fi
+#cd -
+#
+#echo "installing larnd2supera"
+#cd modules/larnd2supera
+#pip install . --user
+#if [ $? -gt 0 ]
+#then
+#    echo "Failed to install larnd2supera"
+#    exit 1
+#fi
+#cd -
 
 echo "installing flow2supera"
 cd modules/flow2supera

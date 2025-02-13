@@ -38,7 +38,7 @@ workflow8='yamls/{cfg['FLOW_YAML_PATH']}/workflows/charge/charge_light_assoc.yam
 
         '''
 
-        cmd_flow_charge = 'h5flow -c $workflow1 $workflow2 $workflow3 $workflow4 $workflow5 -i $inFile -o $outFile'
+        cmd_flow_charge = 'h5flow -c $workflow1 $workflow2 $workflow3 $workflow4 -i $inFile -o $outFile'
         cmd_flow_light = 'h5flow -c $workflow6 $workflow7 -i $inFile -o $outFile'
         cmd_flow_charge_light = 'h5flow -c $workflow8 -i $outFile -o $outFile'
 
