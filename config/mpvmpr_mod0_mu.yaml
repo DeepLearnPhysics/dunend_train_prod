@@ -1,0 +1,96 @@
+SEED: -1
+GeneratorMPV:
+  NumEvent: [2,2]
+  NumParticle: [1,1]
+  XRange: [280,300]
+  YRange: [-830,400]
+  ZRange: [-300,300]
+  TRange: [0,1]
+  AddParent: True
+  Particles:
+    -
+      PDG:      [13]
+      NumRange: [1,1]
+      KERange:  [1,1]
+      UseMom:   True
+      Weight:   1
+
+GeneratorMPV:
+  NumEvent: [2,2]
+  NumParticle: [1,1]
+  XRange: [-300,-280]
+  YRange: [-830,400]
+  ZRange: [-300,300]
+  TRange: [0,1]
+  AddParent: True
+  Particles:
+    -
+      PDG:      [13]
+      NumRange: [1,1]
+      KERange:  [1,1]
+      UseMom:   True
+      Weight:   1
+      
+GeneratorMPV:
+  NumEvent: [2,2]
+  NumParticle: [1,1]
+  XRange: [-300,300]
+  YRange: [-830,-810]
+  ZRange: [-300,300]
+  TRange: [0,1]
+  AddParent: True
+  Particles:
+    -
+      PDG:      [13]
+      NumRange: [1,1]
+      KERange:  [1,1]
+      UseMom:   True
+      Weight:   1
+
+GeneratorMPV:
+  NumEvent: [2,2]
+  NumParticle: [1,1]
+  XRange: [-300,300]
+  YRange: [380,400]
+  ZRange: [-300,300]
+  TRange: [0,1]
+  AddParent: True
+  Particles:
+    -
+      PDG:      [13]
+      NumRange: [1,1]
+      KERange:  [1,1]
+      UseMom:   True
+      Weight:   1
+
+GeneratorMPV:
+  NumEvent: [2,2]
+  NumParticle: [1,1]
+  XRange: [-300,300]
+  YRange: [-830,400]
+  ZRange: [-300,-280]
+  TRange: [0,1]
+  AddParent: True
+  Particles:
+    -
+      PDG:      [13]
+      NumRange: [1,1]
+      KERange:  [1,1]
+      UseMom:   True
+      Weight:   1
+
+GeneratorMPV:
+  NumEvent: [2,2]
+  NumParticle: [1,1]
+  XRange: [-300,300]
+  YRange: [-830,400]
+  ZRange: [280,300]
+  TRange: [0,1]
+  AddParent: True
+  Particles:
+    -
+      PDG:      [13]
+      NumRange: [1,1]
+      KERange:  [1,1]
+      UseMom:   True
+      Weight:   1
