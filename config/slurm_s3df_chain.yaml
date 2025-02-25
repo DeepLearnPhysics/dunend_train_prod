@@ -4,8 +4,8 @@ NTASKS: 1
 CPUS-PER-TASK: 24
 MEM-PER-CPU: 6G
 PARTITION: ampere   # partition
-ACCOUNT:   mli:cider-ml # account
+ACCOUNT:   neutrino:dune-ml # account
 GPUS:      a100     # GPU type
-TIME:      5:00:00  # max time HH:MM:SS
+TIME:      3:00:00  # max time HH:MM:SS
 NODELIST: ''
 EXCLUDE:  ''

@@ -1,4 +1,4 @@
-SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub20.04-cuda11.6-pytorch1.13-larndsim-2023-11-07.sif
+SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub2204-cuda121-torch251-larndsim.sif
 STORAGE_DIR: /sdf/data/neutrino/$USER/dunend_train_prod/prod_nd_mpvmpr_v0_1
 JOB_WORK_DIR:  $LSCRATCH/$USER
 SLURM_CONFIG: slurm_s3df_chain.yaml
@@ -10,7 +10,7 @@ SLURM_CONFIG: slurm_s3df_chain.yaml
 
 STORE_IMAGE: False
 
-NUM_EVENTS:  10
+NUM_EVENTS:  50
 
 TIERS: ['edepsim','larndsim','flow','flow2supera']
 
@@ -21,11 +21,11 @@ LARNDSIM_REPOSITORY: modules/larnd-sim
 LARNDSIM_SCRIPT: simulate_pixels.py
 
 # items project_larndsim.py search under larnd-sim repository
-SEARCH_LARNDSIM_PIXEL_LAYOUT:    multi_tile_layout-3.0.40.yaml
+SEARCH_LARNDSIM_PIXEL_LAYOUT:    multi_tile_layout-3.0.40_NDLArModule_v3.yaml
 SEARCH_LARNDSIM_DET_PROPERTIES:  ndlar-module.yaml
 SEARCH_LARNDSIM_SIM_PROPERTIES_EXT:  sim_prop_mpvmpr.yaml
 SEARCH_LARNDSIM_SIM_PROPERTIES:  singles_sim_ndlar.yaml
-SEARCH_LARNDSIM_RESPONSE:        response_38_v2b_50ns_ndlar.npy
+SEARCH_LARNDSIM_RESPONSE:        response_37_v2d_50ns_fsd.npy
 #SEARCH_LARNDSIM_LIGHT_LUT:       /global/cfs/cdirs/m4617/2x2/light_lut/lightLUT_Mod123.npz   #lightLUT.npz
 SEARCH_LARNDSIM_LIGHT_LUT:      /sdf/data/neutrino/2x2/light_lut/lightLUT_FSD_250123_time_norm.npz   #lightLUT.npz
 SEARCH_LARNDSIM_LIGHT_DET_NOISE: 4Mod_LNoise_Mod1_2fftx192_MR5-ish.npy
@@ -44,5 +44,5 @@ SEARCH_FLOW_DATA: data
 SET_FLOW_YAML_PATH: ndlar_flow
 
 # flow2supera config
-LARCV_DIR: /sdf/group/neutrino/cyifan/dunend_train_prod_nd_bomb/modules/larcv2
+#LARCV_DIR: /sdf/group/neutrino/cyifan/dunend_train_prod_nd_bomb/modules/larcv2
 SUPERA_CONFIG: ndlar_mpvmpr
