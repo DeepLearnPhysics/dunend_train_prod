@@ -29,8 +29,13 @@ class flow2supera(project_base):
 
     def gen_project_script(self,cfg):
 
+# if rename the output file according to the job id
+#        cmd_supera = f'''run_flow2supera.py \
+#-o {cfg['JOB_OUTPUT_ID']}-larcv.root \
+#-c {cfg['SUPERA_CONFIG']}'''
+
         cmd_supera = f'''run_flow2supera.py \
--o {cfg['JOB_OUTPUT_ID']}-larcv.root \
+-o $FNAME_LARCV.root \
 -c {cfg['SUPERA_CONFIG']}'''
 
         PROJECT_SCRIPT = f'''
@@ -47,6 +52,7 @@ source {cfg['LARCV_DIR']}/configure.sh
 date
 echo "Running Supera"
 export PATH=$HOME/.local/bin:$PATH
+FNAME=${{INPUT_FILES/flow.h5/}}
 echo {cmd_supera} $INPUT_FILES
 {cmd_supera} $INPUT_FILES &> log_supera.txt
 date
