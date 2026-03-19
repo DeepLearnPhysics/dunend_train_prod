@@ -2,9 +2,9 @@ SEED: -1
 GeneratorMPV:
   NumEvent: [1,1]
   NumParticle: [1,1]
-  XRange: [300,310]
-  YRange: [-830,400]
-  ZRange: [-300,300]
+  XRange: [-280,280]
+  YRange: [-810,380]
+  ZRange: [-280,280]
   TRange: [0,1]
   AddParent: True
   Particles:
@@ -12,85 +12,5 @@ GeneratorMPV:
       PDG:      [13]
       NumRange: [1,1]
       KERange:  [1,4]
-      UseMom:   False
-      Weight:   1
-
-GeneratorMPV:
-  NumEvent: [1,1]
-  NumParticle: [1,1]
-  XRange: [-310,-300]
-  YRange: [-830,400]
-  ZRange: [-300,300]
-  TRange: [0,1]
-  AddParent: True
-  Particles:
-    -
-      PDG:      [13]
-      NumRange: [1,1]
-      KERange:  [1,4]
-      UseMom:   False
-      Weight:   1
-      
-GeneratorMPV:
-  NumEvent: [1,1]
-  NumParticle: [1,1]
-  XRange: [-300,300]
-  YRange: [-840,-830]
-  ZRange: [-300,300]
-  TRange: [0,1]
-  AddParent: True
-  Particles:
-    -
-      PDG:      [13]
-      NumRange: [1,1]
-      KERange:  [1,4]
-      UseMom:   False
-      Weight:   1
-
-GeneratorMPV:
-  NumEvent: [1,1]
-  NumParticle: [1,1]
-  XRange: [-300,300]
-  YRange: [400,410]
-  ZRange: [-300,300]
-  TRange: [0,1]
-  AddParent: True
-  Particles:
-    -
-      PDG:      [13]
-      NumRange: [1,1]
-      KERange:  [1,4]
-      UseMom:   False
-      Weight:   1
-
-GeneratorMPV:
-  NumEvent: [1,1]
-  NumParticle: [1,1]
-  XRange: [-300,300]
-  YRange: [-830,400]
-  ZRange: [-310,-300]
-  TRange: [0,1]
-  AddParent: True
-  Particles:
-    -
-      PDG:      [13]
-      NumRange: [1,1]
-      KERange:  [1,4]
-      UseMom:   False
-      Weight:   1
-
-GeneratorMPV:
-  NumEvent: [1,1]
-  NumParticle: [1,1]
-  XRange: [-300,300]
-  YRange: [-830,400]
-  ZRange: [300,310]
-  TRange: [0,1]
-  AddParent: True
-  Particles:
-    -
-      PDG:      [13]
-      NumRange: [1,1]
-      KERange:  [1,4]
-      UseMom:   False
+      UseMom:   True
       Weight:   1

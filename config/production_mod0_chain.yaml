@@ -1,4 +1,5 @@
-SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub20.04-cuda11.6-pytorch1.13-larndsim-2023-11-07.sif
+SINGULARITY_IMAGE: /sdf/group/neutrino/images/develop.sif
+  #SINGULARITY_IMAGE: /sdf/group/neutrino/images/larcv2_ub20.04-cuda11.6-pytorch1.13-larndsim-2023-11-07.sif
 STORAGE_DIR: /sdf/data/neutrino/cyifan/dunend_train_prod/prod_mod0_mpvmpr
 JOB_WORK_DIR:  $LSCRATCH/$USER
 SLURM_CONFIG: slurm_s3df_august2024_stage1.yaml
@@ -10,14 +11,18 @@ SLURM_CONFIG: slurm_s3df_august2024_stage1.yaml
 
 STORE_IMAGE: False
 
-NUM_EVENTS:  100000
+NUM_EVENTS:  10000 #1000000
 
 TIERS: ['edepsim']
+  #TIERS: ['edepsim_kazu']
 #TIERS: ['edepsim','larndsim','flow','flow2supera']
 
 #
 # Below are configurations specific to running simulations up to larndsim
 #
+
+EDEPSIM_DIR: /sdf/group/neutrino/cyifan/edep-sim_bugfix
+
 LARNDSIM_REPOSITORY: modules/larnd-sim
 LARNDSIM_SCRIPT: simulate_pixels.py
 
@@ -36,8 +41,8 @@ SET_LARNDSIM_LIGHT_LUT_EXT:       []   #lightLUT.npz
 #SET_LARNDSIM_LIGHT_LUT_EXT:       ['/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod0.npz', '/sdf/data/neutrino/2x2/light_lut/lightLUT_Mod123.npz']   #lightLUT.npz
 
 # items project_larndsim.py search under dunend_train_prod repository
-SEARCH_GEOMETRY: module0.gdml
-SEARCH_MPVMPR:   mpvmpr_mod0_p.yaml #single_muon_2x2.yaml
+SEARCH_GEOMETRY: BigLArCube.gdml #BigLArCube_noStep.gdml #BigLArCube.gdml #module0_LAr_density.gdml
+SEARCH_MPVMPR:   mpvmpr_mod0_p.yaml #mpvmpr_mod0_mu.yaml #mpvmpr_mod0_stopping_mu.yaml #mpvmpr_mod0_p.yaml #single_muon_2x2.yaml
 
 FLOW_REPOSITORY: modules/ndlar_flow
 SEARCH_FLOW_YAML: yamls

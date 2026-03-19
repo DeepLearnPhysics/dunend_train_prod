@@ -1,6 +1,6 @@
 SEED: -1
 GeneratorMPV:
-  NumEvent: [10,10]
+  NumEvent: [1,1]
   NumParticle: [1,1]
   XRange: [-280,280]
   YRange: [-810,380]
